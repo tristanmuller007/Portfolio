@@ -15,6 +15,7 @@
             color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Évite le scroll horizontal sur mobile */
         }
 
         .hero-glow {
@@ -36,7 +37,7 @@
 
         .glass-card:hover {
             border-color: #2563eb;
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
@@ -50,7 +51,6 @@
                         linear-gradient(90deg, #2563eb, #7c3aed) border-box;
         }
 
-        /* Style spécifique pour la barre de codage */
         .coding-bar {
             background: rgba(255, 255, 255, 0.02);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -63,87 +63,83 @@
 
     <div class="hero-glow"></div>
 
-    <nav class="fixed w-full z-50 px-6 py-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-8 py-4 rounded-2xl">
-            <span class="text-2xl font-bold tracking-tighter uppercase italic">Tristan Muller<span class="text-blue-500">.dev</span></span>
+    <nav class="fixed w-full z-50 px-4 md:px-6 py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-6 md:px-8 py-4 rounded-2xl">
+            <span class="text-xl md:text-2xl font-bold tracking-tighter uppercase italic">Tristan Muller<span class="text-blue-500">.dev</span></span>
             <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium">
                 <a href="#projets" class="hover:text-blue-400 transition">Projets</a>
                 <a href="#palmares" class="hover:text-blue-400 transition">Palmarès Sportifs</a>
                 <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
                 <a href="#cv" class="hover:text-blue-400 transition text-blue-500">Mon CV</a>
             </div>
+            <a href="#cv" class="md:hidden text-xs font-bold text-blue-500 uppercase tracking-widest">CV</a>
         </div>
     </nav>
 
-    <section class="pt-48 pb-20 px-6 text-center md:text-left">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section class="pt-40 md:pt-48 pb-20 px-6 text-center md:text-left">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div data-aos="fade-right">
-                <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase mb-6 tracking-widest">
+                <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-[10px] md:text-xs font-bold uppercase mb-6 tracking-widest">
                     Bilingue Anglais · C2 Cambridge
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 uppercase italic tracking-tighter">
+                <h1 class="text-4xl md:text-7xl font-bold leading-tight mb-8 uppercase italic tracking-tighter">
                     BÂTI <br> <span class="text-blue-600 neon-text">POUR LE DÉFI</span>
                 </h1>
-                <p class="text-gray-400 text-lg max-w-md mb-10 leading-relaxed mx-auto md:mx-0">
+                <p class="text-gray-400 text-base md:text-lg max-w-md mb-10 leading-relaxed mx-auto md:mx-0">
                     Aujourd'hui en BUT Informatique en tant qu'ancien athlète de haut niveau, je traite chaque bug comme un adversaire et chaque projet comme une finale de championnat.
                 </p>
-                <div class="flex justify-center md:justify-start gap-6">
-                    <a href="#projets" class="gradient-border px-8 py-4 rounded-xl font-bold hover:scale-105 transition">Mes Créations</a>
-                    <a href="https://github.com/TristanMuller" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 md:gap-6">
+                    <a href="#projets" class="gradient-border px-8 py-4 rounded-xl font-bold hover:scale-105 transition text-center">Mes Créations</a>
+                    <a href="https://github.com/TristanMuller" target="_blank" class="flex items-center justify-center gap-2 text-gray-400 hover:text-white transition">
                         <i class="fab fa-github text-2xl"></i> GitHub
                     </a>
                 </div>
             </div>
 
             <div class="relative flex justify-center" data-aos="zoom-in">
-                <div class="w-80 h-80 md:w-[450px] md:h-[450px] relative">
-                    <div class="absolute inset-0 opacity-20 animate-pulse"></div>
-                    <img src="Tristan.jpeg" alt="Tristan Muller" class="w-full h-full object-cover rounded-3xl border border-white/10 hover:scale-105 transition duration-700 shadow-2xl">
+                <div class="w-64 h-64 md:w-[450px] md:h-[450px] relative">
+                    <img src="Tristan.jpeg" alt="Tristan Muller" class="w-full h-full object-cover rounded-3xl border border-white/10 shadow-2xl">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="coding-bar w-full py-10 mt-10">
+    <div class="coding-bar w-full py-10">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div data-aos="fade-up" data-aos-delay="100">
                     <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">HTML / CSS</h4>
-
+                    <h4 class="text-sm md:text-xl font-bold italic tracking-tighter uppercase">HTML / CSS</h4>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200">
                     <i class="fab fa-js text-3xl text-yellow-400 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">JavaScript</h4>
-
+                    <h4 class="text-sm md:text-xl font-bold italic tracking-tighter uppercase">JavaScript</h4>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="300">
                     <i class="fab fa-java text-3xl text-blue-400 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">Java</h4>
+                    <h4 class="text-sm md:text-xl font-bold italic tracking-tighter uppercase">Java</h4>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-database text-3xl text-purple-500 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">Bases de donnée</h4>
+                    <h4 class="text-sm md:text-xl font-bold italic tracking-tighter uppercase">Bases de données</h4>
                 </div>
+            </div>
         </div>
     </div>
 
-    <section id="projets" class="py-32 px-6">
+    <section id="projets" class="py-24 md:py-32 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-down">
+            <div class="text-center mb-16 md:20" data-aos="fade-down">
                 <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">
                     Mes <span class="text-blue-500 underline decoration-8">Projets</span>
                 </h2>
                 <div class="h-1 w-20 bg-blue-600 mx-auto"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                 <div class="glass-card rounded-[2.5rem] p-6 group" data-aos="fade-up">
-                    <div class="h-64 rounded-3xl bg-gray-900 mb-6 overflow-hidden relative">
+                    <div class="h-48 md:h-64 rounded-3xl bg-gray-900 mb-6 overflow-hidden relative">
                         <img src="Memorizz.png" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700" alt="Memory">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-code text-5xl text-blue-500 opacity-0 group-hover:opacity-100 transition transform scale-75 group-hover:scale-100"></i>
-                        </div>
                     </div>
                     <div>
                         <h3 class="text-2xl font-black mb-2 uppercase italic tracking-tight">Memory</h3>
@@ -153,11 +149,8 @@
                 </div>
 
                 <div class="glass-card rounded-[2.5rem] p-6 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-64 rounded-3xl bg-gray-900 mb-6 overflow-hidden relative">
-                        <img src="LOGO.png" class="w-full h-full object-contain group-hover:scale-110 transition duration-700" alt="HQ Website">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-terminal text-5xl text-purple-500 opacity-0 group-hover:opacity-100 transition transform scale-75 group-hover:scale-100"></i>
-                        </div>
+                    <div class="h-48 md:h-64 rounded-3xl bg-gray-900 mb-6 overflow-hidden relative">
+                        <img src="LOGO.png" class="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-700" alt="HQ Website">
                     </div>
                     <div>
                         <h3 class="text-2xl font-black mb-2 uppercase italic tracking-tight">Site Internet pour HQ</h3>
@@ -169,9 +162,9 @@
         </div>
     </section>
 
-    <section id="palmares" class="py-32 px-6 bg-[#080808]">
+    <section id="palmares" class="py-24 md:py-32 px-6 bg-[#080808]">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-down">
+            <div class="text-center mb-16 md:20" data-aos="fade-down">
                 <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">
                     Accomplissements <span class="text-blue-500 underline decoration-8">Sportifs</span>
                 </h2>
@@ -179,63 +172,51 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-blue-600 relative overflow-hidden group" data-aos="fade-up">
+                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-blue-600" data-aos="fade-up">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                             <i class="fas fa-hand-rock text-xl text-white"></i>
                         </div>
                         <h3 class="text-2xl font-black uppercase italic tracking-tight">Karaté</h3>
                     </div>
-                    <div class="space-y-3 relative z-10">
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase">Champion d'Afrique</span>
-                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black text-[10px]">2019</span>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5 text-[10px] md:text-xs">
+                            <span class="font-bold text-gray-300 uppercase">Champion d'Afrique</span>
+                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black">2019</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Champ. Afrique du Sud</span>
-                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black text-[10px]">2015-2020</span>
-                        </div>
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Mondiaux (Suède)</span>
-                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black text-[10px]">2018</span>
+                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5 text-[10px] md:text-xs">
+                            <span class="font-bold text-gray-300 uppercase">Champ. Afrique du Sud</span>
+                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black">2015-2020</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-blue-400 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-blue-400" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-12 h-12 bg-blue-400 rounded-xl flex items-center justify-center shadow-lg">
                             <i class="fas fa-baseball-ball text-xl text-white"></i>
                         </div>
                         <h3 class="text-2xl font-black uppercase italic tracking-tight">Tennis</h3>
                     </div>
-                    <div class="space-y-3 relative z-10">
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Champ. Afrique du Sud</span>
-                            <span class="bg-blue-400 px-2 py-0.5 rounded-md font-black text-[10px]">2016-2019</span>
-                        </div>
-                        <div class="p-3 border border-white/5 bg-white/5 rounded-xl text-center">
-                            <div class="flex justify-center gap-1 text-blue-400 text-[10px]">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5 text-[10px] md:text-xs">
+                            <span class="font-bold text-gray-300 uppercase">Champ. Afrique du Sud</span>
+                            <span class="bg-blue-400 px-2 py-0.5 rounded-md font-black">2016-2019</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-emerald-500 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-emerald-500" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
                             <i class="fas fa-volleyball-ball text-xl text-white"></i>
                         </div>
                         <h3 class="text-2xl font-black uppercase italic tracking-tight">Handball</h3>
                     </div>
-                    <div class="space-y-3 relative z-10">
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Niveau Régional</span>
-                            <span class="bg-green-600 px-2 py-0.5 rounded-md font-black text-[10px]">ACTUEL</span>
-                        </div>
-                        <div class="p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-center">
-                            <p class="text-[10px] text-emerald-400 font-black uppercase">Ambérieu-en-Bugey</p>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5 text-[10px] md:text-xs">
+                            <span class="font-bold text-gray-300 uppercase">Niveau Régional</span>
+                            <span class="bg-green-600 px-2 py-0.5 rounded-md font-black">ACTUEL</span>
                         </div>
                     </div>
                 </div>
@@ -243,70 +224,60 @@
         </div>
     </section>
 
-    <section id="contact" class="py-32 px-6">
+    <section id="contact" class="py-24 md:py-32 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-down">
                 <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">
                     Me <span class="text-blue-500 underline decoration-8">Contacter</span>
                 </h2>
-                <p class="text-gray-400 uppercase tracking-widest text-xs font-bold">Disponible pour de nouveaux défis</p>
+                <p class="text-gray-400 uppercase tracking-widest text-[10px] font-bold">Disponible pour de nouveaux défis</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6" data-aos="zoom-in">
-                <a href="mailto:tristan@familymuller.me" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-blue-600/20 rounded-2xl flex items-center justify-center border border-blue-500/30 group-hover:bg-blue-600 transition duration-500">
-                        <i class="fas fa-envelope text-2xl text-blue-400 group-hover:text-white"></i>
+            <div class="grid sm:grid-cols-2 gap-4 md:gap-6" data-aos="zoom-in">
+                <a href="mailto:tristan@familymuller.me" class="glass-card p-6 md:p-8 rounded-3xl flex items-center gap-6 group">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-600/20 rounded-2xl flex items-center justify-center border border-blue-500/30 group-hover:bg-blue-600 transition duration-500">
+                        <i class="fas fa-envelope text-xl md:text-2xl text-blue-400 group-hover:text-white"></i>
                     </div>
                     <div>
                         <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">Email</p>
-                        <p class="font-bold">tristan@familymuller.me</p>
+                        <p class="font-bold text-sm md:text-base">tristan@familymuller.me</p>
                     </div>
                 </a>
 
-                <a href="tel:+33749498137" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center border border-emerald-500/30 group-hover:bg-emerald-500 transition duration-500">
-                        <i class="fas fa-phone text-2xl text-emerald-400 group-hover:text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">Téléphone</p>
-                        <p class="font-bold">+33 7 49 49 81 37</p>
-                    </div>
-                </a>
-
-                <a href="https://github.com/TristanMuller" target="_blank" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:border-white transition duration-500">
-                        <i class="fab fa-github text-2xl text-white group-hover:text-black"></i>
+                <a href="https://github.com/TristanMuller" target="_blank" class="glass-card p-6 md:p-8 rounded-3xl flex items-center gap-6 group">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-white transition duration-500">
+                        <i class="fab fa-github text-xl md:text-2xl text-white group-hover:text-black"></i>
                     </div>
                     <div>
                         <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">GitHub</p>
-                        <p class="font-bold">Mon Code</p>
-                    </div>
-                </a>
-
-                <a href="https://www.instagram.com/tristan_muller.5/" target="_blank" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-pink-600/20 rounded-2xl flex items-center justify-center border border-pink-500/30 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:to-purple-600 transition duration-500">
-                        <i class="fab fa-instagram text-2xl text-pink-400 group-hover:text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">Instagram</p>
-                        <p class="font-bold">Suivre mon parcours</p>
+                        <p class="font-bold text-sm md:text-base">Mon Code</p>
                     </div>
                 </a>
             </div>
         </div>
     </section>
-    <footer id="cv" class="py-32 text-center bg-[#080808]">
-        <h2 class="text-4xl font-bold mb-12 uppercase italic tracking-tighter">On passe à <span class="text-blue-500">l'étape suivante ?</span></h2>
-        <a href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" class="bg-blue-600 ...">
-            MON CV
-        </a>
+
+    <footer id="cv" class="py-32 text-center bg-[#080808] px-6">
+        <h2 class="text-3xl md:text-5xl font-bold mb-12 uppercase italic tracking-tighter" data-aos="fade-up">
+            On passe à <span class="text-blue-500">l'étape suivante ?</span>
+        </h2>
         
-        <p class="mt-20 text-gray-700 text-[10px] tracking-[0.5em] uppercase font-bold">Tristan Muller · Bâti pour le défi · 2026</p>
+        <div class="flex justify-center" data-aos="zoom-in">
+            <a href="https://tristanmuller007.github.io/CV-Tristan-Muller/" 
+               target="_blank" 
+               class="gradient-border inline-block px-10 md:px-12 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl tracking-widest uppercase hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                <i class="fas fa-file-pdf mr-3"></i> Voir mon CV
+            </a>
+        </div>
+        
+        <p class="mt-24 text-gray-700 text-[10px] tracking-[0.5em] uppercase font-bold">
+            Tristan Muller · Bâti pour le défi · 2026
+        </p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init({ duration: 1000, once: true, disable: 'mobile' }); // Désactivé sur mobile pour plus de fluidité si besoin
     </script>
 </body>
 </html>
