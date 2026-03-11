@@ -1,310 +1,1536 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tristan Muller | Bâti pour le défi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
-        
-        body {
-            background-color: #050505;
-            color: #ffffff;
-            font-family: 'Space Grotesk', sans-serif;
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tristan Muller — Bâti pour le Défi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,700;0,900;1,700;1,900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<style>
+/* ═══════════════════════════════════
+   VARIABLES  —  Bleu électrique + blanc
+═══════════════════════════════════ */
+:root {
+  --bg:    #04050f;
+  --bg2:   #07081a;
+  --bg3:   #0a0b1e;
+  --white: #edf0ff;
+  --dim:   #464870;
+  --blue:  #4477ff;   /* accent principal */
+  --blue2: #6c9bff;   /* accent secondaire doux */
+  --glow:  rgba(68,119,255,.22);
+  --fd: 'Barlow Condensed', sans-serif;
+  --fb: 'Barlow', sans-serif;
+}
 
-        .hero-glow {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 600px;
-            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.15) 0%, transparent 100%);
-            z-index: -1;
-        }
+/* ═══════════════════════════════════
+   BASE
+═══════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--fb);
+  overflow-x: hidden;
+  cursor: none;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+/* ═══════════════════════════════════
+   CURSOR
+═══════════════════════════════════ */
+#cdot {
+  position: fixed; width: 9px; height: 9px;
+  background: var(--blue); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 8px var(--blue);
+}
+#cring {
+  position: fixed; width: 40px; height: 40px;
+  border: 1px solid rgba(68,119,255,.35);
+  border-radius: 50%; pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: width .25s, height .25s, border-color .25s;
+}
+#clab {
+  position: fixed; pointer-events: none; z-index: 9997;
+  transform: translate(-50%,-50%);
+  font-family: var(--fd);
+  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+  font-weight: 700; color: var(--blue); opacity: 0;
+  white-space: nowrap; transition: opacity .2s;
+}
+body.hov #cdot  { opacity: 0; }
+body.hov #cring { width: 70px; height: 70px; border-color: var(--blue); }
+body.hov #clab  { opacity: 1; }
 
-        .glass-card:hover {
-            border-color: #2563eb;
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+/* ═══════════════════════════════════
+   PROGRESS BAR
+═══════════════════════════════════ */
+#pgbar {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--blue2));
+  z-index: 700; width: 0%;
+  box-shadow: 0 0 10px var(--blue);
+}
 
-        .neon-text {
-            text-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
-        }
+/* ═══════════════════════════════════
+   LOADER
+═══════════════════════════════════ */
+#loader {
+  position: fixed; inset: 0; background: var(--bg);
+  z-index: 8000; display: flex; align-items: center;
+  justify-content: center; flex-direction: column;
+}
+.ldw {
+  font-family: var(--fd);
+  font-size: clamp(64px, 13vw, 168px);
+  font-weight: 900; font-style: italic;
+  line-height: .88; overflow: hidden;
+  letter-spacing: -.01em;
+}
+.ldw span { display: block; transform: translateY(110%); }
+.ldw.blue { color: var(--blue); }
+.ld-track {
+  width: min(360px, 78vw); height: 1px;
+  background: rgba(255,255,255,.07);
+  margin-top: 44px; overflow: hidden;
+}
+.ld-fill { width: 0%; height: 100%; background: var(--blue); }
+.ld-num {
+  margin-top: 14px;
+  font-family: var(--fd); font-size: 11px;
+  letter-spacing: .38em; color: var(--dim); font-weight: 300;
+}
 
-        .gradient-border {
-            border: 2px solid transparent;
-            background: linear-gradient(#050505, #050505) padding-box,
-                        linear-gradient(90deg, #2563eb, #7c3aed) border-box;
-        }
+/* ═══════════════════════════════════
+   NAV
+═══════════════════════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  padding: 26px 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+#nav.scrolled {
+  background: rgba(4,5,15,.92);
+  backdrop-filter: blur(22px);
+  border-color: rgba(255,255,255,.05);
+}
+.nlogo {
+  font-family: var(--fd);
+  font-size: 19px; font-weight: 900; font-style: italic;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.nlogo em { color: var(--blue); font-style: normal; }
+.nlinks { display: flex; gap: 36px; list-style: none; }
+.nlinks a {
+  font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+  font-weight: 500; color: var(--dim); transition: color .3s;
+  position: relative;
+}
+.nlinks a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1px; background: var(--blue);
+  transition: width .4s cubic-bezier(.23,1,.32,1);
+}
+.nlinks a:hover { color: var(--white); }
+.nlinks a:hover::after { width: 100%; }
+.ncv {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  font-weight: 700; color: var(--blue);
+  border: 1px solid rgba(68,119,255,.4);
+  padding: 10px 24px; border-radius: 2px;
+  transition: background .3s, color .3s;
+}
+.ncv:hover { background: var(--blue); color: #fff; }
 
-        /* Style spécifique pour la barre de codage */
-        .coding-bar {
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-        }
-    </style>
+/* ═══════════════════════════════════
+   HERO
+═══════════════════════════════════ */
+#hero {
+  min-height: 100svh; position: relative;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 60px;
+  padding: 120px 52px 80px;
+  overflow: hidden;
+}
+.hleft { position: relative; z-index: 2; }
+
+.h-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: .32em; text-transform: uppercase;
+  font-weight: 700; color: var(--blue); margin-bottom: 24px;
+}
+.h-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
+
+.htitle {
+  font-family: var(--fd);
+  font-size: clamp(72px, 10vw, 148px);
+  font-weight: 900; font-style: italic;
+  line-height: .86; text-transform: uppercase; letter-spacing: -.01em;
+}
+.hline { overflow: hidden; display: block; }
+.hline span { display: block; }
+.hline.blue span { color: var(--blue); }
+
+.hsub {
+  font-size: clamp(14px, 1.3vw, 17px); font-weight: 300;
+  color: rgba(237,240,255,.48); max-width: 440px;
+  line-height: 1.75; margin-top: 28px;
+}
+.hsub strong { color: var(--white); font-weight: 500; }
+
+.hacts { display: flex; align-items: center; gap: 24px; margin-top: 36px; }
+.btnm {
+  display: inline-block; padding: 14px 32px;
+  background: var(--blue); color: #fff;
+  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+  font-weight: 700; border-radius: 2px;
+  transition: transform .3s, box-shadow .3s, background .3s;
+}
+.btnm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--glow);
+  background: var(--blue2);
+}
+.btng {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+  font-weight: 700; color: var(--dim); transition: color .3s;
+}
+.btng:hover { color: var(--white); }
+
+/* photo */
+.hright {
+  position: relative; z-index: 2;
+  display: flex; justify-content: center; align-items: center;
+}
+.pframe {
+  position: relative;
+  width: min(380px, 42vw); aspect-ratio: 3/4;
+  border-radius: 4px; overflow: hidden;
+}
+.pframe img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  filter: contrast(1.05) saturate(.9);
+  transition: transform .8s cubic-bezier(.23,1,.32,1);
+}
+.pframe:hover img { transform: scale(1.04); }
+.pframe::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(4,5,15,.85) 100%);
+}
+.pacc {
+  position: absolute; bottom: -12px; right: -12px;
+  width: calc(100% - 40px); height: calc(100% - 40px);
+  border: 1px solid rgba(68,119,255,.3); border-radius: 4px; z-index: -1;
+}
+
+/* stat pills */
+.scard {
+  position: absolute;
+  background: rgba(7,8,26,.9);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(16px);
+  border-radius: 10px; padding: 16px 22px;
+}
+.scard .sv {
+  font-family: var(--fd);
+  font-size: 36px; font-weight: 900; font-style: italic;
+  color: var(--blue); line-height: 1;
+}
+.scard .sl {
+  font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--dim); font-weight: 700; margin-top: 3px;
+}
+.sc1 { bottom: -20px; left: -30px; }
+.sc2 {
+  top: 28px; right: -36px;
+  display: flex; align-items: center; gap: 10px; padding: 14px 18px;
+}
+.gdot {
+  width: 8px; height: 8px; background: #22c55e;
+  border-radius: 50%; flex-shrink: 0;
+  animation: blink 1.8s infinite;
+  box-shadow: 0 0 8px #22c55e;
+}
+.sc2 .sl { color: var(--white); font-size: 10px; }
+@keyframes blink { 0%,100% { opacity: 1 } 50% { opacity: .2 } }
+
+/* BG word — always in DOM, visible as CSS */
+.h-bgword {
+  position: absolute; right: -30px; bottom: -40px; z-index: 0;
+  font-family: var(--fd);
+  font-size: clamp(140px, 22vw, 340px);
+  font-weight: 900; font-style: italic;
+  color: rgba(68,119,255,.06);   /* blue tint, always visible */
+  line-height: 1; pointer-events: none; user-select: none;
+  letter-spacing: -.03em;
+  /* NOT animated by GSAP so it never disappears */
+}
+
+/* ═══════════════════════════════════
+   MARQUEE
+═══════════════════════════════════ */
+.mband {
+  overflow: hidden; padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: rgba(68,119,255,.03);
+}
+.mtrack { display: flex; white-space: nowrap; }
+.mitem {
+  display: inline-flex; align-items: center; gap: 18px;
+  padding: 0 20px;
+  font-family: var(--fd);
+  font-size: 16px; font-weight: 700; font-style: italic;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.14); flex-shrink: 0;
+}
+.mdot { width: 4px; height: 4px; background: var(--blue); border-radius: 50%; opacity: .6; flex-shrink: 0; }
+
+/* ═══════════════════════════════════
+   SECTIONS SHARED
+═══════════════════════════════════ */
+.sec { padding: 120px 52px; }
+.sin { max-width: 1240px; margin: 0 auto; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 10px; letter-spacing: .38em; text-transform: uppercase;
+  font-weight: 700; color: var(--blue); margin-bottom: 18px;
+}
+.eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--blue); }
+.stitle {
+  font-family: var(--fd);
+  font-size: clamp(52px, 7.5vw, 108px);
+  font-weight: 900; font-style: italic;
+  line-height: .9; text-transform: uppercase; letter-spacing: -.01em;
+}
+
+/* ═══════════════════════════════════
+   ABOUT + SKILLS
+═══════════════════════════════════ */
+#about { background: var(--bg2); }
+.agrid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
+.adesc {
+  font-size: clamp(15px, 1.4vw, 17px); font-weight: 300;
+  color: rgba(237,240,255,.48); line-height: 1.8;
+  margin-top: 28px; max-width: 480px;
+}
+.adesc strong { color: var(--white); font-weight: 500; }
+.atags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.atag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  font-weight: 700; color: var(--white);
+  border: 1px solid rgba(68,119,255,.3);
+  background: rgba(68,119,255,.08);
+  padding: 9px 18px; border-radius: 2px;
+}
+.atag i { color: var(--blue); font-size: 12px; }
+
+/* skill rows */
+.skrow {
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  padding: 22px 0; position: relative;
+  display: grid; grid-template-columns: 52px 1fr 48px;
+  align-items: center; gap: 16px;
+}
+.skrow:first-child { border-top: 1px solid rgba(255,255,255,.05); }
+.skic {
+  width: 44px; height: 44px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.sknm {
+  font-family: var(--fd);
+  font-size: 21px; font-weight: 700; font-style: italic;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.sksb {
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--dim); font-weight: 500; margin-top: 2px;
+}
+.skpc {
+  font-family: var(--fd);
+  font-size: 28px; font-weight: 900; font-style: italic;
+  color: rgba(255,255,255,.08); text-align: right;
+}
+.skbar { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,.05); }
+.skfill { height: 100%; background: var(--blue); width: 0%; box-shadow: 0 0 8px var(--blue); }
+
+/* ═══════════════════════════════════
+   PROJECTS
+═══════════════════════════════════ */
+#projets { background: var(--bg); }
+.phdr { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; }
+.phdrn {
+  font-family: var(--fd);
+  font-size: clamp(70px,11vw,140px);
+  font-weight: 900; font-style: italic;
+  color: rgba(255,255,255,.04); line-height: 1;
+}
+.pcards { display: flex; flex-direction: column; gap: 16px; }
+.pcard {
+  display: grid; grid-template-columns: 1fr 340px;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 4px; overflow: hidden;
+  background: var(--bg2);
+  transition: border-color .4s, background .4s;
+  color: inherit; position: relative;
+}
+.pcard::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--blue); transform: scaleY(0); transform-origin: bottom;
+  transition: transform .4s cubic-bezier(.23,1,.32,1);
+}
+.pcard:hover { border-color: rgba(68,119,255,.35); background: rgba(68,119,255,.04); }
+.pcard:hover::before { transform: scaleY(1); }
+.pcard:hover .pcimg img { transform: scale(1.06); }
+.pcard:hover .pcarrow { background: var(--blue); border-color: var(--blue); color: #fff; transform: rotate(45deg); }
+
+.pcbody { padding: 44px 48px; display: flex; flex-direction: column; justify-content: space-between; }
+.pcnum { font-family: var(--fd); font-size: 11px; letter-spacing: .2em; font-weight: 700; color: var(--dim); margin-bottom: 20px; }
+.pcname {
+  font-family: var(--fd);
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 900; font-style: italic;
+  text-transform: uppercase; letter-spacing: .02em; line-height: 1;
+}
+.pctech {
+  display: inline-block; margin-top: 12px;
+  font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
+  font-weight: 700; color: var(--blue);
+  border: 1px solid rgba(68,119,255,.3);
+  background: rgba(68,119,255,.08);
+  padding: 5px 14px; border-radius: 100px; width: fit-content;
+}
+.pcdesc {
+  font-size: 14px; font-weight: 300;
+  color: rgba(237,240,255,.4); line-height: 1.65;
+  margin-top: 18px; max-width: 420px;
+}
+.pcfoot { display: flex; align-items: center; justify-content: space-between; margin-top: 36px; }
+.pclnk {
+  font-size: 10px; letter-spacing: .25em; text-transform: uppercase;
+  font-weight: 700; color: var(--blue);
+  display: flex; align-items: center; gap: 10px;
+}
+.pcarrow {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(68,119,255,.35);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue); font-size: 14px;
+  transition: background .3s, border-color .3s, color .3s, transform .4s;
+}
+.pcimg { height: 100%; min-height: 260px; overflow: hidden; position: relative; background: var(--bg3); }
+.pcimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.23,1,.32,1); }
+.pcimg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(4,5,15,.5), transparent);
+}
+
+/* ═══════════════════════════════════
+   PALMARES
+═══════════════════════════════════ */
+#palmares { background: var(--bg2); overflow: hidden; position: relative; }
+
+.pintro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 72px; }
+.pintr { font-size: 15px; font-weight: 300; color: rgba(237,240,255,.44); line-height: 1.8; max-width: 440px; }
+.pintr strong { color: var(--white); font-weight: 500; }
+
+.sgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; position: relative; z-index: 2; }
+
+.stile {
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 4px; padding: 40px 32px;
+  background: rgba(255,255,255,.025);
+  position: relative; overflow: hidden;
+  transition: border-color .4s, background .4s, transform .35s;
+}
+.stile:hover { border-color: rgba(68,119,255,.3); background: rgba(68,119,255,.05); transform: translateY(-4px); }
+.stbg {
+  position: absolute; right: -12px; top: -12px;
+  font-family: var(--fd); font-size: 110px; font-weight: 900; font-style: italic;
+  color: rgba(68,119,255,.07);   /* blue tinted, visible */
+  line-height: 1; pointer-events: none; user-select: none;
+}
+.stic {
+  width: 52px; height: 52px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 24px; position: relative; z-index: 1;
+}
+.stnm {
+  font-family: var(--fd);
+  font-size: 36px; font-weight: 900; font-style: italic;
+  text-transform: uppercase; line-height: 1; margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.stlist { list-style: none; display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+.stlist li {
+  font-size: 13px; font-weight: 300;
+  color: rgba(237,240,255,.48); line-height: 1.45;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.stlist li::before { content: '—'; color: var(--blue); font-weight: 700; font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+.stlist li strong { color: var(--white); font-weight: 500; }
+.styr {
+  margin-top: 24px;
+  font-family: var(--fd); font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase; font-weight: 700; color: var(--dim);
+  position: relative; z-index: 1;
+}
+.styr.live { color: #4ade80; }
+.styr.live::before { content: '● '; animation: blink 1.8s infinite; }
+
+/* BIG watermark — CSS only, no GSAP opacity, always visible */
+.palwm {
+  font-family: var(--fd);
+  font-size: clamp(80px, 15vw, 210px);
+  font-weight: 900; font-style: italic;
+  text-transform: uppercase; letter-spacing: -.02em;
+  color: rgba(68,119,255,.07);   /* visible blue tint */
+  text-align: center;
+  margin-top: 24px;
+  pointer-events: none; user-select: none;
+  position: relative; z-index: 1;
+  /* Horizontal scrub done via GSAP transform only, not opacity */
+}
+
+/* ═══════════════════════════════════
+   CONTACT
+═══════════════════════════════════ */
+#contact { background: var(--bg); }
+.clayout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 88px; align-items: start; }
+.cbig {
+  font-family: var(--fd);
+  font-size: clamp(64px, 9.5vw, 130px);
+  font-weight: 900; font-style: italic;
+  line-height: .88; text-transform: uppercase; letter-spacing: -.01em;
+}
+.cbig em { color: var(--blue); font-style: normal; }
+.cp { font-size: 15px; font-weight: 300; color: rgba(237,240,255,.44); line-height: 1.75; margin-top: 24px; max-width: 360px; }
+.cavail {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 28px; font-size: 10px; letter-spacing: .26em;
+  text-transform: uppercase; font-weight: 700; color: #4ade80;
+}
+.cavail::before {
+  content: ''; width: 8px; height: 8px; background: #4ade80;
+  border-radius: 50%; animation: blink 1.8s infinite; box-shadow: 0 0 8px #4ade80;
+}
+
+.clinks { display: flex; flex-direction: column; gap: 6px; }
+.clink {
+  display: flex; align-items: center; gap: 18px;
+  padding: 20px 22px; border: 1px solid rgba(255,255,255,.06);
+  border-radius: 3px; background: rgba(255,255,255,.02);
+  transition: border-color .35s, background .35s, transform .35s;
+}
+.clink:hover { border-color: rgba(68,119,255,.3); background: rgba(68,119,255,.05); transform: translateX(8px); }
+.clic { width: 42px; height: 42px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.cll { font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--dim); font-weight: 700; }
+.clv { font-size: 14px; color: var(--white); font-weight: 400; margin-top: 3px; }
+.cla { margin-left: auto; color: rgba(255,255,255,.15); font-size: 12px; transition: color .3s, transform .3s; }
+.clink:hover .cla { color: var(--blue); transform: translateX(4px); }
+
+/* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+footer { background: var(--bg3); border-top: 1px solid rgba(255,255,255,.04); padding: 44px 52px; }
+.fin { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.flogo { font-family: var(--fd); font-size: 28px; font-weight: 900; font-style: italic; text-transform: uppercase; }
+.flogo em { color: var(--blue); font-style: normal; }
+.fcopy { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: rgba(255,255,255,.12); }
+.fcv a {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  font-weight: 700; color: var(--blue);
+  border: 1px solid rgba(68,119,255,.35);
+  padding: 11px 26px; border-radius: 2px;
+  transition: background .3s, color .3s;
+}
+.fcv a:hover { background: var(--blue); color: #fff; }
+
+/* ═══════════════════════════════════
+   NOISE
+═══════════════════════════════════ */
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: .025; pointer-events: none; z-index: 9000;
+}
+
+/* ═══════════════════════════════════
+   FLOATING PARTICLES (hero bg)
+═══════════════════════════════════ */
+#particles {
+  position: absolute; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.pt {
+  position: absolute; border-radius: 50%;
+  background: var(--blue); opacity: 0;
+  animation: floatPt linear infinite;
+}
+@keyframes floatPt {
+  0%   { transform: translateY(0) scale(1);   opacity: 0; }
+  10%  { opacity: .35; }
+  90%  { opacity: .15; }
+  100% { transform: translateY(-120vh) scale(.4); opacity: 0; }
+}
+
+/* ═══════════════════════════════════
+   GALLERY — fan of cards
+═══════════════════════════════════ */
+#galerie {
+  background: var(--bg2);
+  padding: 120px 52px 140px;
+  overflow: hidden; position: relative;
+}
+#galerie .sin { max-width: 1240px; margin: 0 auto; }
+
+.gal-hdr { text-align: center; margin-bottom: 80px; }
+.gal-hdr .eyebrow { justify-content: center; }
+.gal-hdr .eyebrow::before { display: none; }
+.gal-hdr .stitle { font-size: clamp(56px,9vw,120px); }
+
+/* Fan stage */
+.fan-stage {
+  position: relative;
+  height: 560px;
+  display: flex; align-items: center; justify-content: center;
+  perspective: 1200px;
+}
+
+.fan-card {
+  position: absolute;
+  width: 220px; height: 300px;
+  border-radius: 16px; overflow: hidden;
+  cursor: pointer;
+  transform-origin: center bottom;
+  will-change: transform;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: box-shadow .4s;
+}
+.fan-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform .5s cubic-bezier(.23,1,.32,1);
+}
+.fan-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 70%, rgba(4,5,15,.45) 100%);
+}
+.fan-card .fc-label {
+  position: absolute; bottom: 16px; left: 16px; right: 16px;
+  z-index: 2;
+  font-family: var(--fd);
+  font-size: 14px; font-weight: 700; font-style: italic;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(237,240,255,.7);
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .35s, transform .35s;
+}
+.fan-card:hover .fc-label { opacity: 1; transform: translateY(0); }
+.fan-card:hover { box-shadow: 0 32px 80px rgba(68,119,255,.35); }
+.fan-card:hover img { transform: scale(1.08); }
+
+/* hover handled purely in JS */
+.fan-stage:hover .fan-card:hover {
+  z-index: 20 !important;
+}
+
+/* Socials strip below fan */
+.gal-socials {
+  display: flex; align-items: center; justify-content: center;
+  gap: 28px; margin-top: 56px;
+}
+.gal-socials a {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+  font-weight: 700; color: var(--dim);
+  border: 1px solid rgba(255,255,255,.07);
+  padding: 12px 24px; border-radius: 100px;
+  transition: color .3s, border-color .3s, background .3s;
+}
+.gal-socials a:hover {
+  color: var(--white); border-color: rgba(68,119,255,.4);
+  background: rgba(68,119,255,.08);
+}
+.gal-socials a i { font-size: 15px; }
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+@media (max-width: 960px) {
+  #nav { padding: 18px 24px; }
+  .nlinks { display: none; }
+  #hero { grid-template-columns: 1fr; padding: 110px 24px 64px; gap: 48px; }
+  .hright { order: -1; }
+  .pframe { width: min(280px, 70vw); }
+  .sc1 { left: 0; bottom: -10px; }
+  .sc2 { right: 0; top: 16px; }
+  .agrid { grid-template-columns: 1fr; gap: 48px; }
+  .pintro { grid-template-columns: 1fr; gap: 32px; }
+  .sgrid { grid-template-columns: 1fr; gap: 12px; }
+  .clayout { grid-template-columns: 1fr; gap: 52px; }
+  .pcard { grid-template-columns: 1fr; }
+  .pcimg { min-height: 220px; height: 220px; }
+  .sec { padding: 80px 24px; }
+  .fin { flex-direction: column; gap: 20px; text-align: center; }
+  .phdr { flex-direction: column; align-items: flex-start; gap: 0; }
+  #galerie { padding: 80px 24px 100px; }
+  .fan-stage { height: 420px; }
+  .fan-card { width: 150px; height: 210px; }
+  .gal-socials { flex-wrap: wrap; gap: 12px; }
+}
+</style>
 </head>
 <body>
 
-    <div class="hero-glow"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+<div id="clab">Voir</div>
+<div id="pgbar"></div>
 
-    <nav class="fixed w-full z-50 px-6 py-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-8 py-4 rounded-2xl">
-            <span class="text-2xl font-bold tracking-tighter uppercase italic">Tristan Muller<span class="text-blue-500">.dev</span></span>
-            <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium">
-                <a href="#projets" class="hover:text-blue-400 transition">Projets</a>
-                <a href="#palmares" class="hover:text-blue-400 transition">Palmarès Sportifs</a>
-                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-                <a href="#cv" class="hover:text-blue-400 transition text-blue-500">Mon CV</a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="pt-48 pb-20 px-6 text-center md:text-left">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase mb-6 tracking-widest">
-                    Bilingue Anglais · C2 Cambridge
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 uppercase italic tracking-tighter">
-                    BÂTI <br> <span class="text-blue-600 neon-text">POUR LE DÉFI</span>
-                </h1>
-                <p class="text-gray-400 text-lg max-w-md mb-10 leading-relaxed mx-auto md:mx-0">
-                    Aujourd'hui en BUT Informatique en tant qu'ancien athlète de haut niveau, je traite chaque bug comme un adversaire et chaque projet comme une finale de championnat.
-                </p>
-                <div class="flex justify-center md:justify-start gap-6">
-                    <a href="#projets" class="gradient-border px-8 py-4 rounded-xl font-bold hover:scale-105 transition">Mes Créations</a>
-                    <a href="https://github.com/tristanmuller007?tab=repositories" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
-                        <i class="fab fa-github text-2xl"></i> GitHub
-                    </a>
-                </div>
-            </div>
-
-            <div class="relative flex justify-center" data-aos="zoom-in">
-                <div class="w-80 h-80 md:w-[450px] md:h-[450px] relative">
-                    <div class="absolute inset-0 opacity-20 animate-pulse"></div>
-                    <img src="Tristan.jpeg" alt="Tristan Muller" class="w-full h-full object-cover rounded-3xl border border-white/10 hover:scale-105 transition duration-700 shadow-2xl">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="coding-bar w-full py-10 mt-10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">HTML / CSS</h4>
-
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <i class="fab fa-js text-3xl text-yellow-400 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">JavaScript</h4>
-
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <i class="fab fa-java text-3xl text-blue-400 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">Java</h4>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400">
-                    <i class="fas fa-database text-3xl text-purple-500 mb-2"></i>
-                    <h4 class="text-xl font-bold italic tracking-tighter uppercase">Bases de donnée</h4>
-                </div>
-        </div>
-    </div>
-
-    <section id="projets" class="py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-down">
-                <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">
-                    Mes <span class="text-blue-500 underline decoration-8">Projets</span>
-                </h2>
-                <div class="h-1 w-20 bg-blue-600 mx-auto"></div>
-            </div>
-            
-<div class="grid md:grid-cols-2 gap-12">
-    <div class="glass-card rounded-[2.5rem] p-6 group" data-aos="fade-up">
-        <a href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank" class="block h-64 rounded-3xl bg-gray-900 mb-6 overflow-hidden relative cursor-pointer">   
-        <img src="Memorizz.png" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700" alt="Memory">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <i class="fas fa-code text-5xl text-blue-500 opacity-0 group-hover:opacity-100 transition transform scale-75 group-hover:scale-100"></i>
-            </div>
-        </a> <div>
-            <h3 class="text-2xl font-black mb-2 uppercase italic tracking-tight">Memory</h3>
-            <p class="text-gray-400 text-sm mb-6 leading-relaxed italic">Un jeu de memory amélioré développé sur Processing.</p>
-            <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-4 py-1 rounded-full font-black text-[10px] tracking-widest uppercase">Processing</span>
-        </div>
-    </div>
-
-    <div class="glass-card rounded-[2.5rem] p-6 group" data-aos="fade-up" data-aos-delay="200">
-        <a href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank" class="block h-64 rounded-3xl bg-gray-900 mb-6 overflow-hidden relative cursor-pointer">
-            <img src="LOGO.png" class="w-full h-full object-contain group-hover:scale-110 transition duration-700" alt="HQ-WEBSITE">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <i class="fas fa-terminal text-5xl text-purple-500 opacity-0 group-hover:opacity-100 transition transform scale-75 group-hover:scale-100"></i>
-            </div>
-        </a>
-        <div>
-            <h3 class="text-2xl font-black mb-2 uppercase italic tracking-tight">Site Internet pour HQ</h3>
-            <p class="text-gray-400 text-sm mb-6 leading-relaxed italic">Un site internet fonctionnel pour le restaurant de mon père.</p>
-            <span class="bg-purple-600/20 text-purple-400 border border-purple-500/30 px-4 py-1 rounded-full font-black text-[10px] tracking-widest uppercase">HTML / CSS </span>
-        </div>
-    </div>
+<!-- ════ LOADER ════ -->
+<div id="loader">
+  <div class="ldw"><span id="ld1">TRISTAN</span></div>
+  <div class="ldw blue"><span id="ld2">MULLER</span></div>
+  <div class="ld-track"><div class="ld-fill" id="ldfill"></div></div>
+  <div class="ld-num" id="ldnum">000</div>
 </div>
-    </section>
 
-    <section id="palmares" class="py-32 px-6 bg-[#080808]">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-20" data-aos="fade-down">
-                <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">
-                    Accomplissements <span class="text-blue-500 underline decoration-8">Sportifs</span>
-                </h2>
-                <div class="h-1 w-20 bg-blue-600 mx-auto"></div>
-            </div>
+<!-- ════ NAV ════ -->
+<nav id="nav" style="opacity:0; transform:translateY(-20px)">
+  <div class="nlogo">Tristan Muller<em>.dev</em></div>
+  <ul class="nlinks">
+    <li><a href="#about">Stack</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#palmares">Palmarès</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" class="ncv">Mon CV</a>
+</nav>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-blue-600 relative overflow-hidden group" data-aos="fade-up">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                            <i class="fas fa-hand-rock text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-black uppercase italic tracking-tight">Karaté</h3>
-                    </div>
-                    <div class="space-y-3 relative z-10">
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase">Champion d'Afrique</span>
-                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black text-[10px]">2019</span>
-                        </div>
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Champ. Afrique du Sud</span>
-                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black text-[10px]">2015-2020</span>
-                        </div>
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Mondiaux (Suède)</span>
-                            <span class="bg-blue-600 px-2 py-0.5 rounded-md font-black text-[10px]">2018</span>
-                        </div>
-                    </div>
-                </div>
+<!-- ════ HERO ════ -->
+<section id="hero">
+  <div id="particles"></div>
+  <div class="hleft">
+    <div class="h-eyebrow" id="eyb">BUT Informatique · Haut Niveau</div>
 
-                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-blue-400 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-blue-400 rounded-xl flex items-center justify-center shadow-lg">
-                            <i class="fas fa-baseball-ball text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-black uppercase italic tracking-tight">Tennis</h3>
-                    </div>
-                    <div class="space-y-3 relative z-10">
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Champ. Afrique du Sud</span>
-                            <span class="bg-blue-400 px-2 py-0.5 rounded-md font-black text-[10px]">2016-2019</span>
-                        </div>
-                        <div class="p-3 border border-white/5 bg-white/5 rounded-xl text-center">
-                            <div class="flex justify-center gap-1 text-blue-400 text-[10px]">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <h1 class="htitle">
+      <span class="hline"><span id="hl1">BÂTI</span></span>
+      <span class="hline"><span id="hl2">POUR</span></span>
+      <span class="hline blue"><span id="hl3">LE DÉFI</span></span>
+    </h1>
 
-                <div class="glass-card rounded-[2.5rem] p-8 border-l-4 border-emerald-500 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-                            <i class="fas fa-volleyball-ball text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-black uppercase italic tracking-tight">Handball</h3>
-                    </div>
-                    <div class="space-y-3 relative z-10">
-                        <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/5">
-                            <span class="font-bold text-gray-300 text-xs uppercase text-left">Niveau Régional</span>
-                            <span class="bg-green-600 px-2 py-0.5 rounded-md font-black text-[10px]">ACTUEL</span>
-                        </div>
-                        <div class="p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-center">
-                            <p class="text-[10px] text-emerald-400 font-black uppercase">Ambérieu-en-Bugey</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <p class="hsub" id="hsub">
+      Ancien athlète de <strong>haut niveau</strong>, aujourd'hui en <strong>BUT Informatique</strong> — je traite chaque bug comme un adversaire et chaque projet comme une finale de championnat.
+      <br><br>Bilingue Anglais · <strong>C2 Cambridge</strong>
+    </p>
+
+    <div class="hacts" id="hact">
+      <a href="#projets" class="btnm">Mes Projets</a>
+      <a href="https://github.com/tristanmuller007?tab=repositories" target="_blank" class="btng">
+        <i class="fab fa-github" style="font-size:18px"></i> GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="hright">
+    <div class="pframe" id="pframe">
+      <img src="Tristan.jpeg" alt="Tristan Muller"
+           onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80'">
+    </div>
+    <div class="pacc" id="pacc"></div>
+
+    <div class="scard sc1" id="sc1"><div class="sv">5×</div><div class="sl">Champion</div></div>
+    <div class="scard sc2" id="sc2"><div class="gdot"></div><div class="sl">Disponible</div></div>
+  </div>
+
+  <!-- BG word — pure CSS, no GSAP opacity touch -->
+  <div class="h-bgword">DÉFI</div>
+</section>
+
+<!-- ════ MARQUEE ════ -->
+<div class="mband">
+  <div class="mtrack" id="mt">
+    <span class="mitem">HTML / CSS <span class="mdot"></span></span>
+    <span class="mitem">JavaScript <span class="mdot"></span></span>
+    <span class="mitem">Java <span class="mdot"></span></span>
+    <span class="mitem">C++ <span class="mdot"></span></span>
+    <span class="mitem">SQL / NoSQL <span class="mdot"></span></span>
+    <span class="mitem">Champion d'Afrique 2019 <span class="mdot"></span></span>
+    <span class="mitem">C2 Cambridge <span class="mdot"></span></span>
+    <span class="mitem">BUT Informatique <span class="mdot"></span></span>
+    <span class="mitem">Bilingue Anglais <span class="mdot"></span></span>
+    <span class="mitem">Processing <span class="mdot"></span></span>
+    <span class="mitem">HTML / CSS <span class="mdot"></span></span>
+    <span class="mitem">JavaScript <span class="mdot"></span></span>
+    <span class="mitem">Java <span class="mdot"></span></span>
+    <span class="mitem">C++ <span class="mdot"></span></span>
+    <span class="mitem">SQL / NoSQL <span class="mdot"></span></span>
+    <span class="mitem">Champion d'Afrique 2019 <span class="mdot"></span></span>
+    <span class="mitem">C2 Cambridge <span class="mdot"></span></span>
+    <span class="mitem">BUT Informatique <span class="mdot"></span></span>
+    <span class="mitem">Bilingue Anglais <span class="mdot"></span></span>
+    <span class="mitem">Processing <span class="mdot"></span></span>
+  </div>
+</div>
+
+<!-- ════ ABOUT + SKILLS ════ -->
+<section id="about" class="sec">
+  <div class="sin">
+    <div class="agrid">
+      <div>
+        <p class="eyebrow">— Qui je suis</p>
+        <h2 class="stitle">MA<br>STACK</h2>
+        <p class="adesc">
+          Formé à la <strong>rigueur du sport de haut niveau</strong>, j'applique la même discipline à l'informatique. Chaque projet est une compétition : je prépare, j'exécute, je perfectionne.
+          <br><br>
+          Actuellement en <strong>BUT Informatique</strong>, je maîtrise les fondamentaux du développement web et logiciel, avec une forte appétence pour les interfaces qui <strong>marquent les esprits</strong>.
+        </p>
+        <div class="atags">
+          <span class="atag"><i class="fas fa-certificate"></i> C2 Cambridge</span>
+          <span class="atag"><i class="fas fa-globe"></i> Bilingue Anglais</span>
+          <span class="atag"><i class="fas fa-medal"></i> Haut Niveau</span>
+          <span class="atag"><i class="fas fa-laptop-code"></i> BUT Info</span>
         </div>
-    </section>
-
-    <section id="contact" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-down">
-                <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">
-                    Me <span class="text-blue-500 underline decoration-8">Contacter</span>
-                </h2>
-                <p class="text-gray-400 uppercase tracking-widest text-xs font-bold">Disponible pour de nouveaux défis</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6" data-aos="zoom-in">
-                <a href="mailto:tristan@familymuller.me" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-blue-600/20 rounded-2xl flex items-center justify-center border border-blue-500/30 group-hover:bg-blue-600 transition duration-500">
-                        <i class="fas fa-envelope text-2xl text-blue-400 group-hover:text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">Email</p>
-                        <p class="font-bold">tristan@familymuller.me</p>
-                    </div>
-                </a>
-
-                <a href="tel:+33749498137" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center border border-emerald-500/30 group-hover:bg-emerald-500 transition duration-500">
-                        <i class="fas fa-phone text-2xl text-emerald-400 group-hover:text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">Téléphone</p>
-                        <p class="font-bold">+33 7 49 49 81 37</p>
-                    </div>
-                </a>
-
-                <a href="https://github.com/tristanmuller007" target="_blank" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:border-white transition duration-500">
-                        <i class="fab fa-github text-2xl text-white group-hover:text-black"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">GitHub</p>
-                        <p class="font-bold">Mon Code</p>
-                    </div>
-                </a>
-
-                <a href="https://www.instagram.com/tristan_muller.5/" target="_blank" class="glass-card p-8 rounded-3xl flex items-center gap-6 group">
-                    <div class="w-14 h-14 bg-pink-600/20 rounded-2xl flex items-center justify-center border border-pink-500/30 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:to-purple-600 transition duration-500">
-                        <i class="fab fa-instagram text-2xl text-pink-400 group-hover:text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest">Instagram</p>
-                        <p class="font-bold">Suivre mon parcours</p>
-                    </div>
-                </a>
-            </div>
+      </div>
+      <div>
+        <div class="skrow" data-pct="85">
+          <div class="skic" style="background:rgba(249,115,22,.12);color:#fb923c;"><i class="fab fa-html5"></i></div>
+          <div><div class="sknm">HTML / CSS</div><div class="sksb">Frontend · Interfaces</div></div>
+          <div class="skpc">85</div>
+          <div class="skbar"><div class="skfill"></div></div>
         </div>
-    </section>
+        <div class="skrow" data-pct="78">
+          <div class="skic" style="background:rgba(250,204,21,.1);color:#fbbf24;"><i class="fab fa-js"></i></div>
+          <div><div class="sknm">JavaScript</div><div class="sksb">Scripting · DOM</div></div>
+          <div class="skpc">78</div>
+          <div class="skbar"><div class="skfill"></div></div>
+        </div>
+        <div class="skrow" data-pct="72">
+          <div class="skic" style="background:rgba(96,165,250,.1);color:#60a5fa;"><i class="fab fa-java"></i></div>
+          <div><div class="sknm">Java</div><div class="sksb">Backend · POO</div></div>
+          <div class="skpc">72</div>
+          <div class="skbar"><div class="skfill"></div></div>
+        </div>
+        <div class="skrow" data-pct="65">
+          <div class="skic" style="background:rgba(167,139,250,.1);color:#a78bfa;"><i class="fas fa-code"></i></div>
+          <div><div class="sknm">C++</div><div class="sksb">Algorithmes · Systèmes</div></div>
+          <div class="skpc">65</div>
+          <div class="skbar"><div class="skfill"></div></div>
+        </div>
+        <div class="skrow" data-pct="70">
+          <div class="skic" style="background:rgba(34,197,94,.1);color:#4ade80;"><i class="fas fa-database"></i></div>
+          <div><div class="sknm">Bases de données</div><div class="sksb">SQL · Modélisation</div></div>
+          <div class="skpc">70</div>
+          <div class="skbar"><div class="skfill"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer id="cv" class="py-32 text-center bg-[#080808]">
-        <h2 class="text-4xl font-bold mb-12 uppercase italic tracking-tighter">On passe à <span class="text-blue-500">l'étape suivante ?</span></h2>
-        <a href="https://tristanmuller007.github.io/CV-Tristan-Muller/"class="bg-blue-600 text-white px-12 py-5 rounded-2xl font-black hover:bg-white hover:text-blue-600 transition duration-500 inline-block shadow-2xl tracking-widest uppercase italic">
-             MON CV 
+<!-- ════ PROJECTS ════ -->
+<section id="projets" class="sec">
+  <div class="sin">
+    <div class="phdr">
+      <div>
+        <p class="eyebrow">— Réalisations</p>
+        <h2 class="stitle">MES<br>PROJETS</h2>
+      </div>
+      <div class="phdrn">02</div>
+    </div>
+    <div class="pcards">
+
+      <a href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank"
+         class="pcard" data-hover="Ouvrir">
+        <div class="pcbody">
+          <div>
+            <div class="pcnum">01 / 02</div>
+            <div class="pcname">Memory</div>
+            <span class="pctech">Processing</span>
+            <p class="pcdesc">Jeu de memory amélioré développé sur Processing — animations fluides, logique de score avancée et niveaux de difficulté progressifs.</p>
+          </div>
+          <div class="pcfoot">
+            <span class="pclnk">Voir le projet</span>
+            <div class="pcarrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="pcimg">
+          <img src="Memorizz.png" alt="Memory"
+               onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&q=80'">
+        </div>
+      </a>
+
+      <a href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank"
+         class="pcard" data-hover="Ouvrir">
+        <div class="pcbody">
+          <div>
+            <div class="pcnum">02 / 02</div>
+            <div class="pcname">Site HQ Restaurant</div>
+            <span class="pctech">HTML / CSS</span>
+            <p class="pcdesc">Site internet complet créé pour le restaurant de mon père — interface responsive, menu dynamique, design moderne et soigné.</p>
+          </div>
+          <div class="pcfoot">
+            <span class="pclnk">Voir le projet</span>
+            <div class="pcarrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="pcimg">
+          <img src="LOGO.png" alt="HQ Restaurant"
+               style="object-fit:contain; padding:24px; background:#0a0b1e;"
+               onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80'">
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ PALMARES ════ -->
+<section id="palmares" class="sec" style="padding-bottom: 60px;">
+  <div class="sin">
+    <div class="pintro">
+      <div>
+        <p class="eyebrow">— Palmarès Sportif</p>
+        <h2 class="stitle">ACCOM-<br>PLISSE-<br>MENTS</h2>
+      </div>
+      <p class="pintr">
+        La discipline du <strong>sport de haut niveau</strong> forge le même caractère que le développement logiciel. Représenter l'Afrique du Sud et le continent africain sur la scène internationale m'a appris que l'excellence se construit dans les détails — une leçon que j'applique à chaque ligne de code.
+      </p>
+    </div>
+
+    <div class="sgrid">
+      <div class="stile">
+        <div class="stbg">01</div>
+        <div class="stic" style="background:rgba(68,119,255,.15);color:#6c9bff;"><i class="fas fa-hand-rock"></i></div>
+        <div class="stnm">Karaté</div>
+        <ul class="stlist">
+          <li><strong>Champion d'Afrique</strong> 2019</li>
+          <li><strong>Champion d'Afrique du Sud</strong> 2015–2020</li>
+          <li>Championnats du Monde — <strong>Suède</strong> 2018</li>
+          <li>Représentant continental</li>
+        </ul>
+        <div class="styr">2015 — 2020</div>
+      </div>
+
+      <div class="stile">
+        <div class="stbg">02</div>
+        <div class="stic" style="background:rgba(251,191,36,.1);color:#fbbf24;"><i class="fas fa-baseball"></i></div>
+        <div class="stnm">Tennis</div>
+        <ul class="stlist">
+          <li><strong>Champion d'Afrique du Sud</strong> 2016–2019</li>
+          <li>Niveau <strong>National</strong></li>
+          <li>Compétiteur en tournois homologués</li>
+        </ul>
+        <div class="styr">2016 — 2019</div>
+      </div>
+
+      <div class="stile">
+        <div class="stbg">03</div>
+        <div class="stic" style="background:rgba(74,222,128,.1);color:#4ade80;"><i class="fas fa-volleyball"></i></div>
+        <div class="stnm">Handball</div>
+        <ul class="stlist">
+          <li>Niveau <strong>Régional</strong></li>
+          <li>Club d'<strong>Ambérieu-en-Bugey</strong></li>
+          <li>Pratique active et compétitive</li>
+        </ul>
+        <div class="styr live">Actuel</div>
+      </div>
+    </div>
+
+    <!-- Watermark: pure CSS color, GSAP only moves it horizontally -->
+    <div class="palwm" id="palwm">CHAMPION</div>
+  </div>
+</section>
+
+<!-- ════ GALERIE ════ -->
+<!--
+  ╔══════════════════════════════════════════╗
+  ║  GALERIE — REMPLACE LES IMAGES ICI      ║
+  ║  Chaque fan-card a un src à modifier    ║
+  ║  Nomme tes fichiers et mets-les         ║
+  ║  dans le même dossier que index.html    ║
+  ╚══════════════════════════════════════════╝
+-->
+<section id="galerie">
+  <div class="sin">
+    <div class="gal-hdr">
+      <p class="eyebrow">— Ma Vie</p>
+      <h2 class="stitle">MA<br>GALERIE</h2>
+    </div>
+
+    <div class="fan-stage" id="fanStage">
+      <!-- 👉 PHOTO 1 — ex: "karate_champion.jpg" -->
+      <div class="fan-card" data-label="Karaté · Champion d'Afrique">
+        <img src="photo1.png" alt="Photo 1"
+             onerror="this.src='https://images.unsplash.com/photo-1555597673-b21d5c935865?w=500&q=80'">
+        <div class="fc-label">Karaté · Champion d'Afrique</div>
+      </div>
+
+      <!-- 👉 PHOTO 2 — ex: "tennis_sa.jpg" -->
+      <div class="fan-card" data-label="Tennis · Champion SA">
+        <img src="photo2.png" alt="Photo 2"
+             onerror="this.src='https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?w=500&q=80'">
+        <div class="fc-label">Tennis · Champion SA</div>
+      </div>
+
+      <!-- 👉 PHOTO 3 — ex: "handball.jpg" -->
+      <div class="fan-card" data-label="Handball · Ambérieu">
+        <img src="photo3.png" alt="Photo 3"
+             onerror="this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?w=500&q=80'">
+        <div class="fc-label">Handball · Ambérieu</div>
+      </div>
+
+      <!-- 👉 PHOTO 4 — ex: "portrait.jpg" -->
+      <div class="fan-card" data-label="Portrait">
+        <img src="photo4.png" alt="Photo 4"
+             onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80'">
+        <div class="fc-label">Portrait</div>
+      </div>
+
+      <!-- 👉 PHOTO 5 — ex: "code_session.jpg" -->
+      <div class="fan-card" data-label="Dev · BUT Info">
+        <img src="photo5.png" alt="Photo 5"
+             onerror="this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80'">
+        <div class="fc-label">Dev · BUT Info</div>
+      </div>
+
+      <!-- 👉 PHOTO 6 — ex: "afrique_du_sud.jpg" -->
+      <div class="fan-card" data-label="Afrique du Sud">
+        <img src="photo6.png" alt="Photo 6"
+             onerror="this.src='https://images.unsplash.com/photo-1531219432768-9f540ce91ef3?w=500&q=80'">
+        <div class="fc-label">Afrique du Sud</div>
+      </div>
+
+      <!-- 👉 PHOTO 7 — ex: "competition.jpg" -->
+      <div class="fan-card" data-label="Compétition">
+        <img src="photo7.jpg" alt="Photo 7"
+             onerror="this.src='https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&q=80'">
+        <div class="fc-label">Compétition</div>
+      </div>
+    </div>
+
+    <div class="gal-socials">
+      <a href="https://www.instagram.com/tristan_muller.5/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://github.com/tristanmuller007" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact" class="sec">
+  <div class="sin">
+    <div class="clayout">
+      <div>
+        <p class="eyebrow">— Me Contacter</p>
+        <h2 class="cbig">PAR-<br>LONS<em>.</em></h2>
+        <p class="cp">Disponible pour stages, alternances et nouveaux défis. Je réponds rapidement.</p>
+        <div class="cavail">Disponible dès maintenant</div>
+      </div>
+      <div class="clinks">
+        <a href="mailto:tristan@familymuller.me" class="clink">
+          <div class="clic" style="background:rgba(68,119,255,.14);color:#6c9bff;"><i class="fas fa-envelope"></i></div>
+          <div><div class="cll">Email</div><div class="clv">tristan@familymuller.me</div></div>
+          <i class="fas fa-arrow-right cla"></i>
         </a>
-        <p class="mt-20 text-gray-700 text-[10px] tracking-[0.5em] uppercase font-bold">Tristan Muller · Bâti pour le défi · 2026</p>
-    </footer>
+        <a href="tel:+33749498137" class="clink">
+          <div class="clic" style="background:rgba(74,222,128,.1);color:#4ade80;"><i class="fas fa-phone"></i></div>
+          <div><div class="cll">Téléphone</div><div class="clv">+33 7 49 49 81 37</div></div>
+          <i class="fas fa-arrow-right cla"></i>
+        </a>
+        <a href="https://github.com/tristanmuller007" target="_blank" class="clink">
+          <div class="clic" style="background:rgba(255,255,255,.06);color:#e5e7eb;"><i class="fab fa-github"></i></div>
+          <div><div class="cll">GitHub</div><div class="clv">tristanmuller007</div></div>
+          <i class="fas fa-arrow-right cla"></i>
+        </a>
+        <a href="https://www.instagram.com/tristan_muller.5/" target="_blank" class="clink">
+          <div class="clic" style="background:rgba(236,72,153,.1);color:#f472b6;"><i class="fab fa-instagram"></i></div>
+          <div><div class="cll">Instagram</div><div class="clv">tristan_muller.5</div></div>
+          <i class="fas fa-arrow-right cla"></i>
+        </a>
+        <a href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" class="clink">
+          <div class="clic" style="background:rgba(68,119,255,.12);color:var(--blue);"><i class="fas fa-file-pdf"></i></div>
+          <div><div class="cll">CV en ligne</div><div class="clv">Voir / Télécharger</div></div>
+          <i class="fas fa-arrow-right cla"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="fin">
+    <div class="flogo">Tristan Muller<em>.dev</em></div>
+    <div class="fcopy">Bâti pour le défi &nbsp;·&nbsp; 2026</div>
+    <div class="fcv"><a href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank">Télécharger CV</a></div>
+  </div>
+</footer>
+
+<!-- ════════════ SCRIPTS ════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+/* ──────────────────────────────────
+   CURSOR
+────────────────────────────────── */
+const cdot  = document.getElementById('cdot');
+const cring = document.getElementById('cring');
+const clab  = document.getElementById('clab');
+let mx=0, my=0, rx=0, ry=0;
+window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+gsap.ticker.add(() => {
+  rx += (mx - rx) * .1; ry += (my - ry) * .1;
+  gsap.set(cdot,  { x: mx, y: my });
+  gsap.set(cring, { x: rx, y: ry });
+  gsap.set(clab,  { x: mx + 32, y: my - 8 });
+});
+document.querySelectorAll('[data-hover]').forEach(el => {
+  el.addEventListener('mouseenter', () => { document.body.classList.add('hov'); clab.textContent = el.dataset.hover; });
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+});
+document.querySelectorAll('a:not([data-hover]), button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+});
+
+/* ──────────────────────────────────
+   PROGRESS BAR
+────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('pgbar').style.width = pct + '%';
+});
+
+/* ──────────────────────────────────
+   NAV SCROLL
+────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ──────────────────────────────────
+   LOADER + HERO ENTRANCE
+   KEY FIX: use gsap.set() BEFORE any paint so elements never flash
+────────────────────────────────── */
+// Hide hero elements immediately — before browser renders
+gsap.set('#hl1, #hl2, #hl3', { y: '110%' });
+gsap.set('#eyb, #hsub, #hact', { autoAlpha: 0, y: 24 });
+gsap.set('#pframe, #pacc',     { autoAlpha: 0, x: 40 });
+gsap.set('#sc1, #sc2',         { autoAlpha: 0, y: 16 });
+
+const prog = { v: 0 };
+const ldfill = document.getElementById('ldfill');
+const ldnum  = document.getElementById('ldnum');
+const loader = document.getElementById('loader');
+
+gsap.timeline()
+  .to('#ld1', { y: '0%', duration: .85, ease: 'expo.out' })
+  .to('#ld2', { y: '0%', duration: .85, ease: 'expo.out' }, '-=.55')
+  .to(prog, {
+    v: 100, duration: 1.6, ease: 'power2.inOut',
+    onUpdate() {
+      ldfill.style.width = prog.v + '%';
+      ldnum.textContent  = String(Math.floor(prog.v)).padStart(3, '0');
+    },
+    onComplete: doReveal
+  }, '-=.3');
+
+function doReveal() {
+  gsap.timeline()
+    .to('#ld1', { y: '-110%', duration: .5, ease: 'power3.in' })
+    .to('#ld2', { y: '-110%', duration: .5, ease: 'power3.in' }, '-=.35')
+    .to(loader, { yPercent: -100, duration: .95, ease: 'expo.inOut' }, '-=.1')
+    .set(loader, { display: 'none' })
+    // Hero entrance — clean sequential
+    .to('#nav',        { autoAlpha: 1, y: 0, duration: .8,  ease: 'expo.out' })
+    .to('#eyb',        { autoAlpha: 1, y: 0, duration: .7,  ease: 'expo.out' }, '-=.5')
+    .to('#hl1',        { y: '0%',  duration: .95, ease: 'expo.out', skewY: 3 }, '-=.45')
+    .to('#hl2',        { y: '0%',  duration: .95, ease: 'expo.out', skewY: 2 }, '-=.75')
+    .to('#hl3',        { y: '0%',  duration: .95, ease: 'expo.out', skewY: 1 }, '-=.75')
+    .to('#hsub',       { autoAlpha: 1, y: 0, duration: .7, ease: 'expo.out' }, '-=.4')
+    .to('#hact',       { autoAlpha: 1, y: 0, duration: .6, ease: 'expo.out' }, '-=.5')
+    .to('#pframe',     { autoAlpha: 1, x: 0, duration: 1,  ease: 'expo.out' }, '-=1.1')
+    .to('#pacc',       { autoAlpha: 1, x: 0, duration: .7, ease: 'expo.out' }, '-=.5')
+    .to(['#sc1','#sc2'],{ autoAlpha: 1, y: 0, stagger: .15, duration: .6, ease: 'expo.out' }, '-=.4')
+    // Once hero is done, setup all scroll animations
+    .call(setupScrollAnimations);
+}
+
+/* ──────────────────────────────────
+   MARQUEE
+────────────────────────────────── */
+const mt = document.getElementById('mt');
+let mX = 0;
+gsap.ticker.add(() => {
+  mX -= .65;
+  if (Math.abs(mX) >= mt.scrollWidth / 2) mX = 0;
+  mt.style.transform = `translateX(${mX}px)`;
+});
+
+/* ──────────────────────────────────
+   HERO PARALLAX (pure transform, never touches opacity)
+────────────────────────────────── */
+gsap.to('.pframe img', {
+  yPercent: 12, ease: 'none',
+  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1.5 }
+});
+gsap.to('.h-bgword', {
+  x: -70, ease: 'none',
+  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 2 }
+});
+
+/* ──────────────────────────────────
+   SCROLL ANIMATIONS
+   KEY FIX: use gsap.to() with fromVars set in CSS/inline,
+   NOT gsap.from() — this way scrolling back up doesn't reset the state.
+   We use toggleActions: "play none none reverse" for true bi-directional.
+   For one-shots we keep once:true but use .to() approach.
+────────────────────────────────── */
+function setupScrollAnimations() {
+
+  // Helper: animates an element from hidden → visible.
+  // toggleActions:"play none none reverse" = plays forward on enter, reverses on scroll-back-up
+  function reveal(el, fromVars, duration, delay) {
+    // Set the starting state first
+    gsap.set(el, { ...fromVars, ...{ autoAlpha: 0 } });
+    gsap.to(el, {
+      ...Object.fromEntries(Object.keys(fromVars).map(k => [k, k === 'x' || k === 'y' ? 0 : k])),
+      autoAlpha: 1,
+      duration: duration || 1,
+      delay: delay || 0,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        end: 'top 40%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  }
+
+  // About section
+  revealGroup([
+    { el: '#about .eyebrow',  from: { y: 30 } },
+    { el: '#about .stitle',   from: { y: 50 }, delay: .08 },
+    { el: '.adesc',           from: { y: 40 }, delay: .14 },
+    { el: '.atags',           from: { y: 30 }, delay: .2  },
+  ]);
+  // Skill rows — staggered
+  document.querySelectorAll('.skrow').forEach((row, i) => {
+    gsap.set(row, { autoAlpha: 0, x: -40 });
+    gsap.to(row, {
+      autoAlpha: 1, x: 0, duration: .8, delay: i * .08, ease: 'expo.out',
+      scrollTrigger: { trigger: row, start: 'top 87%', toggleActions: 'play none none reverse' }
+    });
+    // Skill bar
+    const fill = row.querySelector('.skfill');
+    const pct  = row.dataset.pct + '%';
+    gsap.set(fill, { width: 0 });
+    ScrollTrigger.create({
+      trigger: row, start: 'top 87%',
+      toggleActions: 'play none none reverse',
+      onEnter()  { gsap.to(fill, { width: pct, duration: 1.4, ease: 'expo.out' }); },
+      onLeaveBack() { gsap.to(fill, { width: 0, duration: .6, ease: 'power2.in' }); }
+    });
+  });
+
+  // Projects heading
+  revealGroup([
+    { el: '#projets .eyebrow', from: { y: 30 } },
+    { el: '#projets .stitle',  from: { y: 50 }, delay: .08 },
+    { el: '.phdrn',            from: { y: 30 }, delay: .05 },
+  ]);
+  // Project cards
+  document.querySelectorAll('.pcard').forEach((card, i) => {
+    gsap.set(card, { autoAlpha: 0, y: 60 });
+    gsap.to(card, {
+      autoAlpha: 1, y: 0, duration: 1, delay: i * .14, ease: 'expo.out',
+      scrollTrigger: { trigger: card, start: 'top 86%', toggleActions: 'play none none reverse' }
+    });
+  });
+
+  // Palmares heading
+  revealGroup([
+    { el: '#palmares .eyebrow', from: { y: 30 } },
+    { el: '#palmares .stitle',  from: { y: 50 }, delay: .08 },
+    { el: '.pintr',             from: { y: 40 }, delay: .1 },
+  ]);
+  // Sport tiles
+  document.querySelectorAll('.stile').forEach((tile, i) => {
+    gsap.set(tile, { autoAlpha: 0, y: 50 });
+    gsap.to(tile, {
+      autoAlpha: 1, y: 0, duration: .9, delay: i * .12, ease: 'expo.out',
+      scrollTrigger: { trigger: '.sgrid', start: 'top 84%', toggleActions: 'play none none reverse' }
+    });
+  });
+
+  // Watermark — pure horizontal scrub, opacity never touched
+  gsap.to('#palwm', {
+    x: -80, ease: 'none',
+    scrollTrigger: { trigger: '#palwm', start: 'top bottom', end: 'bottom top', scrub: 2 }
+  });
+
+  // Contact
+  revealGroup([
+    { el: '#contact .eyebrow', from: { y: 30 } },
+    { el: '.cbig',             from: { y: 50 }, delay: .08 },
+    { el: '.cp',               from: { y: 30 }, delay: .14 },
+    { el: '.cavail',           from: { y: 20 }, delay: .18 },
+  ]);
+  document.querySelectorAll('.clink').forEach((lnk, i) => {
+    gsap.set(lnk, { autoAlpha: 0, x: 30 });
+    gsap.to(lnk, {
+      autoAlpha: 1, x: 0, duration: .8, delay: i * .07, ease: 'expo.out',
+      scrollTrigger: { trigger: '.clinks', start: 'top 86%', toggleActions: 'play none none reverse' }
+    });
+  });
+
+  // Sport tile 3D tilt
+  document.querySelectorAll('.stile').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) / r.width  * 7;
+      const y = (e.clientY - r.top  - r.height / 2) / r.height * 7;
+      gsap.to(card, { rotateY: x, rotateX: -y, duration: .35, ease: 'power2.out', transformPerspective: 700 });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { rotateY: 0, rotateX: 0, duration: .6, ease: 'elastic.out(1,.5)' });
+    });
+  });
+}
+
+// Helper: batch reveal group
+function revealGroup(items) {
+  items.forEach(({ el, from, delay }) => {
+    const target = document.querySelector(el);
+    if (!target) return;
+    gsap.set(target, { ...from, autoAlpha: 0 });
+    const toVars = { autoAlpha: 1, duration: 1, delay: delay || 0, ease: 'expo.out' };
+    Object.keys(from).forEach(k => toVars[k] = 0);
+    gsap.to(target, {
+      ...toVars,
+      scrollTrigger: { trigger: target, start: 'top 88%', toggleActions: 'play none none reverse' }
+    });
+  });
+}
+
+/* ──────────────────────────────────
+   STAT CARDS FLOAT
+────────────────────────────────── */
+gsap.to('#sc1', { y: -8, repeat: -1, yoyo: true, duration: 2.4, ease: 'sine.inOut' });
+gsap.to('#sc2', { y:  6, repeat: -1, yoyo: true, duration: 2.0, ease: 'sine.inOut' });
+
+/* ──────────────────────────────────
+   FLOATING PARTICLES (hero)
+────────────────────────────────── */
+(function spawnParticles() {
+  const container = document.getElementById('particles');
+  const count = 28;
+  for (let i = 0; i < count; i++) {
+    const pt = document.createElement('div');
+    pt.className = 'pt';
+    const size = Math.random() * 3 + 1;
+    const left = Math.random() * 100;
+    const dur  = Math.random() * 18 + 10;
+    const del  = Math.random() * -20;
+    pt.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${left}%; bottom:-10px;
+      animation-duration:${dur}s;
+      animation-delay:${del}s;
+      opacity:0;
+    `;
+    container.appendChild(pt);
+  }
+})();
+
+/* ──────────────────────────────────
+   3D TILT — project cards
+────────────────────────────────── */
+document.querySelectorAll('.pcard').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width  / 2) / r.width  * 6;
+    const y = (e.clientY - r.top  - r.height / 2) / r.height * 6;
+    gsap.to(card, { rotateY: x, rotateX: -y, duration: .4, ease: 'power2.out', transformPerspective: 900 });
+  });
+  card.addEventListener('mouseleave', () => {
+    gsap.to(card, { rotateY: 0, rotateX: 0, duration: .8, ease: 'elastic.out(1,.4)' });
+  });
+});
+
+/* ──────────────────────────────────
+   FAN OF CARDS — GALLERY
+   Single handler per event, no elastic bounce
+────────────────────────────────── */
+(function initFan() {
+  const stage = document.getElementById('fanStage');
+  if (!stage) return;
+  const cards = Array.from(stage.querySelectorAll('.fan-card'));
+  const n = cards.length;
+
+  const spreadAngle = 100;
+  const baseRadius  = 360;
+
+  // Compute each card's final fan position
+  const fanPos = cards.map((card, i) => {
+    const t     = n === 1 ? 0 : (i / (n - 1)) - .5;
+    const angle = t * spreadAngle;
+    const rad   = angle * Math.PI / 180;
+    const x     = Math.sin(rad) * baseRadius;
+    const y     = (1 - Math.cos(rad)) * baseRadius * .4;
+    const baseZ = Math.round(10 - Math.abs(t) * 10);
+    return { t, angle, x, y, baseZ };
+  });
+
+  // Start all cards stacked at center (position of middle card), visible
+  cards.forEach((card, i) => {
+    const { angle, x, y, baseZ } = fanPos[i];
+    card.style.zIndex = baseZ;
+    gsap.set(card, {
+      x: 0, y: 0,           // stacked at center
+      rotation: 0,
+      autoAlpha: 1,
+      scale: 1,
+      rotateX: 0, rotateY: 0,
+      transformOrigin: 'center bottom'
+    });
+  });
+
+  // SCRUB animation: as user scrolls into section, cards spread into fan
+  // proxy object drives all cards simultaneously
+  const proxy = { progress: 0 };
+
+  ScrollTrigger.create({
+    trigger: '#galerie',
+    start: 'top 75%',
+    end: 'top 20%',
+    scrub: 1.2,
+    onUpdate(self) {
+      const p = self.progress; // 0 = stacked, 1 = full fan
+      cards.forEach((card, i) => {
+        const { angle, x, y } = fanPos[i];
+        gsap.set(card, {
+          x:        x * p,
+          y:        y * p,
+          rotation: angle * p,
+        });
+      });
+    }
+  });
+
+  // After spread, enable hover interactions
+  let hoverEnabled = false;
+  ScrollTrigger.create({
+    trigger: '#galerie',
+    start: 'top 20%',
+    onEnter()     { hoverEnabled = true;  },
+    onLeaveBack() { hoverEnabled = false; }
+  });
+
+  // ── HOVER INTERACTIONS (only active after fan is open) ──
+  cards.forEach((card, i) => {
+    const { angle, x, y, baseZ } = fanPos[i];
+
+    card.addEventListener('mouseenter', () => {
+      if (!hoverEnabled) return;
+      card.style.zIndex = 30;
+      gsap.killTweensOf(card);
+      gsap.to(card, {
+        y: y - 50, scale: 1.07,
+        rotation: angle * .4,
+        rotateX: 0, rotateY: 0,
+        duration: .4, ease: 'power3.out',
+        transformPerspective: 900
+      });
+    });
+
+    card.addEventListener('mousemove', e => {
+      if (!hoverEnabled) return;
+      const r  = card.getBoundingClientRect();
+      const tx = (e.clientX - r.left - r.width  / 2) / r.width  * 12;
+      const ty = (e.clientY - r.top  - r.height / 2) / r.height * 12;
+      gsap.to(card, {
+        rotateX: -ty, rotateY: tx,
+        duration: .2, ease: 'power2.out',
+        transformPerspective: 900, overwrite: 'auto'
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (!hoverEnabled) return;
+      card.style.zIndex = baseZ;
+      gsap.killTweensOf(card);
+      gsap.to(card, {
+        x, y, scale: 1,
+        rotation: angle,
+        rotateX: 0, rotateY: 0,
+        duration: .5, ease: 'power3.out',
+        transformPerspective: 900
+      });
+    });
+  });
+
+  // Galerie heading reveal
+  gsap.set('#galerie .gal-hdr', { autoAlpha: 0, y: 40 });
+  gsap.to('#galerie .gal-hdr', {
+    autoAlpha: 1, y: 0, duration: 1, ease: 'expo.out',
+    scrollTrigger: { trigger: '#galerie', start: 'top 80%', toggleActions: 'play none none reverse' }
+  });
+  gsap.set('.gal-socials', { autoAlpha: 0, y: 24 });
+  gsap.to('.gal-socials', {
+    autoAlpha: 1, y: 0, duration: .8, delay: .3, ease: 'expo.out',
+    scrollTrigger: { trigger: '.gal-socials', start: 'top 90%', toggleActions: 'play none none reverse' }
+  });
+})();
+
+/* ──────────────────────────────────
+   PARALLAX DEPTH LAYERS on scroll
+   Each section bg shifts at different speeds
+────────────────────────────────── */
+[
+  { el: '#about',    speed: .12 },
+  { el: '#palmares', speed: .12 },
+  { el: '#galerie',  speed: .12 },
+].forEach(({ el, speed }) => {
+  const sec = document.querySelector(el);
+  if (!sec) return;
+  gsap.to(sec, {
+    backgroundPositionY: `${speed * 100}%`,
+    ease: 'none',
+    scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+  });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); gsap.to(window, { scrollTo: { y: t, offsetY: 0 }, duration: 1.2, ease: 'expo.inOut' }); }
+  });
+});
+</script>
 </body>
 </html>
