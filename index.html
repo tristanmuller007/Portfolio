@@ -1,461 +1,39 @@
 <!DOCTYPE html>
-<html lang="fr" style="color-scheme:dark">
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tristan Muller - Étudiant en BUT Informatique</title>
-<meta name="description" content="Tristan Muller, étudiant en BUT Informatique, spécialisé en développement web, à l'IUT Lyon 1 (Bourg-en-Bresse). Recherche un stage du 12 avril au 18 juin 2027.">
-<meta property="og:title" content="Tristan Muller - Étudiant en BUT Informatique">
-<meta property="og:description" content="Étudiant en BUT Informatique, bilingue anglais-français. Recherche un stage d'avril à juin 2027.">
-<meta property="og:image" content="avatar.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2303313A'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%238FFFE0'%3ETM%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#03313A;
-  --bg-2:#022830;
-  --surface:rgba(143,255,224,.05);
-  --text:#EAFBF6;
-  --muted:rgba(234,251,246,.68);
-  --mint:#8FFFE0;
-  --on-mint:#03313A;
-  --line:rgba(143,255,224,.16);
-  --fd:'Space Grotesk',system-ui,sans-serif;
-  --fb:'Manrope',system-ui,sans-serif;
-  --fm:'JetBrains Mono',ui-monospace,monospace;
-  --wrap:1180px;
-  --r:22px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{color:inherit}
-::selection{background:var(--mint);color:var(--on-mint)}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
-.label{font-family:var(--fm);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint)}
-h1,h2,h3{font-family:var(--fd);font-weight:700;line-height:1.05;letter-spacing:-.03em}
-h2{font-size:clamp(38px,5.4vw,64px)}
-h2 em,h1 em{font-style:normal;color:var(--mint)}
-section{padding:120px 0}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:56px;flex-wrap:wrap}
-.sec-head .label{margin-bottom:14px;display:block}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tristan Muller - Étudiant en BUT Informatique</title>
+  <meta name="description" content="Portfolio de Tristan Muller, étudiant en BUT Informatique à l'IUT Lyon 1. Projets, expériences et contact. Disponible pour un stage du 12 avril au 18 juin 2027.">
+  <meta name="color-scheme" content="dark">
 
-/* ---------- Nav ---------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(3,49,58,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
-.nav.scrolled{border-color:var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{font-family:var(--fd);font-size:21px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-.02em}
-.logo span{width:38px;height:38px;border-radius:11px;background:var(--mint);color:var(--on-mint);display:grid;place-items:center;font-size:16px}
-.nav ul{display:flex;gap:34px;list-style:none}
-.nav ul a{text-decoration:none;font-weight:500;font-size:15px;position:relative;color:var(--muted);transition:color .2s}
-.nav ul a:hover{color:var(--text)}
-.nav ul a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--mint);transition:width .25s}
-.nav ul a:hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--mint);transition:transform .2s,background .2s,color .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-dark{background:var(--mint);color:var(--on-mint)}
-.btn-dark:hover{box-shadow:0 8px 28px rgba(143,255,224,.28)}
-.btn-ghost{background:transparent;color:var(--mint)}
-.btn-ghost:hover{background:rgba(143,255,224,.1)}
-.btn-sm{padding:10px 18px;font-size:14px}
-.btn svg{width:17px;height:17px}
-.burger{display:none;background:none;border:0;width:42px;height:42px;cursor:pointer;color:var(--text)}
+  <!-- Aperçu lors d'un partage de lien -->
+  <meta property="og:title" content="Tristan Muller - Étudiant en BUT Informatique">
+  <meta property="og:description" content="Étudiant en BUT Informatique, bilingue anglais-français. Disponible pour un stage d'avril à juin 2027.">
+  <meta property="og:image" content="https://tristanmuller007.github.io/Portfolio/assets/img/avatar.jpg">
 
-/* ---------- Hero ---------- */
-.hero{padding:50px 0 60px;position:relative;overflow:hidden;min-height:calc(100svh - 82px);display:flex;align-items:center}
-.hero > .wrap{width:100%}
-.hero::before{content:"";position:absolute;right:-10%;top:-20%;width:700px;height:700px;background:radial-gradient(circle,rgba(143,255,224,.13),transparent 65%);pointer-events:none}
-.hero .wrap{display:grid;grid-template-columns:1.2fr .9fr;gap:60px;align-items:center;position:relative}
-.status{display:inline-flex;align-items:center;gap:10px;background:rgba(143,255,224,.08);border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600;margin-bottom:30px;color:var(--text)}
-.status i{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(143,255,224,.5);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(143,255,224,0)}100%{box-shadow:0 0 0 0 rgba(143,255,224,0)}}
-.hero h1{font-size:clamp(56px,8vw,112px);margin-bottom:26px;line-height:.95}
-.hero h1 .hl{color:var(--mint)}
-.hero p.lead{font-size:clamp(18px,1.8vw,21px);max-width:560px;color:var(--muted);margin-bottom:36px}
-.hero p.lead strong{color:var(--text);font-weight:600}
-.cta{display:flex;gap:14px;flex-wrap:wrap}
-.portrait{position:relative;justify-self:center;width:min(360px,100%)}
-.portrait .blob{position:absolute;inset:8% -8% -8% 8%;border-radius:200px 200px 26px 26px;border:1.5px solid var(--mint);opacity:.6}
-.portrait .frame{position:relative;border-radius:200px 200px 26px 26px;overflow:hidden;border:1.5px solid var(--line);background:var(--bg-2);aspect-ratio:3/4}
-.portrait img{width:100%;height:100%;object-fit:cover}
-.portrait .tag{position:absolute;left:-26px;bottom:34px;background:var(--mint);color:var(--on-mint);padding:12px 16px;border-radius:14px;font-size:13.5px;font-weight:600;line-height:1.35;box-shadow:0 12px 30px rgba(0,0,0,.3)}
-.portrait .tag b{font-family:var(--fd);font-size:22px;display:block;font-weight:700}
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 
-.id{display:flex;align-items:center;gap:16px;margin-bottom:34px}
-.avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--mint)}
-.id b{display:block;font-family:var(--fd);font-size:20px;font-weight:700;letter-spacing:-.01em}
-.id span{font-size:14.5px;color:var(--muted)}
-.hero .status{margin:0 0 30px}
-.code{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.25)}
-.code-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line)}
-.code-bar i{width:11px;height:11px;border-radius:50%;background:rgba(234,251,246,.18)}
-.code-bar span{margin-left:10px;font-family:var(--fm);font-size:12.5px;color:var(--muted)}
-.code pre{margin:0;padding:22px 22px 26px;font-family:var(--fm);font-size:14px;line-height:1.75;color:var(--text);overflow-x:auto}
-.code .k{color:#7fb6ff}.code .v{color:var(--mint)}.code .p{color:#c9d6d3}.code .s{color:#ffd48a}
-/* ---------- Facts ---------- */
-.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
-.fact{padding:30px 26px;border-left:1px solid var(--line)}
-.fact:first-child{border-left:0;padding-left:0}
-.fact b{display:block;font-family:var(--fd);font-size:25px;font-weight:700;line-height:1.15;margin-bottom:4px;letter-spacing:-.02em}
-.fact span{font-size:14.5px;color:var(--muted)}
+  <!-- Typographies : Space Grotesk (titres), Manrope (texte), JetBrains Mono (étiquettes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 
-/* ---------- About ---------- */
-.about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px}
-.about .txt p{font-size:19px;margin-bottom:20px;color:var(--muted)}
-.about .txt p strong{color:var(--text);font-weight:600}
-.skills{margin-top:10px;display:grid;gap:26px}
-.skill-group h3{font-family:var(--fm);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--mint);margin-bottom:12px}
-.chips{display:flex;flex-wrap:wrap;gap:9px}
-.chip{padding:8px 15px;border:1px solid var(--line);border-radius:999px;font-size:14.5px;font-weight:600;background:var(--surface);transition:border-color .2s}
-.chip:hover{border-color:var(--mint)}
-.chip.solid{background:var(--mint);color:var(--on-mint);border-color:var(--mint)}
-
-/* ---------- Projects ---------- */
-.projects{background:var(--bg-2);border-radius:40px 40px 0 0}
-.projects .sec-head p{max-width:380px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
-.card{grid-column:span 3;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
-.card:hover{transform:translateY(-5px);border-color:rgba(143,255,224,.5)}
-.card.sm{grid-column:span 2}
-.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--bg);border-bottom:1px solid var(--line)}
-.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.card:hover .thumb img{transform:scale(1.04)}
-.card.wide{grid-column:span 6;flex-direction:row}
-.card.wide .thumb.type{height:auto;width:36%;flex-shrink:0;border-bottom:0;border-right:1px solid var(--line);font-size:64px}
-.card.wide .body{padding:32px 34px}
-.card.wide .thumb{width:36%;flex-shrink:0;aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line)}
-.card .thumb.type{display:grid;place-items:center;background:var(--mint);color:var(--on-mint);font-family:var(--fd);font-weight:700;font-size:72px;aspect-ratio:16/10}
-.card .body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
-.card .meta{display:flex;justify-content:space-between;gap:10px;margin-bottom:12px}
-.card h3{font-size:28px;margin-bottom:10px}
-.card.sm h3{font-size:24px}
-.card p{color:var(--muted);font-size:15.5px;margin-bottom:20px}
-.tags{display:flex;flex-wrap:wrap;gap:7px}
-.tags span{font-family:var(--fm);font-size:12px;padding:5px 10px;border-radius:7px;background:rgba(143,255,224,.08);color:var(--mint)}
-.card .link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:600;font-size:15px;text-decoration:none;color:var(--mint);align-self:flex-start;border-bottom:1.5px solid var(--mint);padding-bottom:2px;transition:gap .2s}
-.card .link:hover{gap:12px}
-.links-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:auto;padding-top:20px}
-.links-row .link{margin-top:0}
-.also{margin-top:44px;border-top:1px solid var(--line);padding-top:30px}
-.also ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:16px}
-.also li b{display:block;font-family:var(--fd);font-size:20px;font-weight:700;margin-bottom:4px}
-.also li span{font-size:14.5px;color:var(--muted)}
-@media (max-width:980px){.also ul{grid-template-columns:1fr}}
-.more{margin-top:44px;text-align:center}
-.more .btn{color:var(--mint)}
-.more .btn:hover{background:var(--mint);color:var(--on-mint)}
-
-/* ---------- Parcours ---------- */
-.path{background:var(--bg-2);padding:0 0 120px}
-.path-inner{padding:0}
-.timeline{display:grid;gap:0;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:200px 1fr auto;gap:30px;padding:30px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.row .when{font-family:var(--fm);font-size:14px;color:var(--mint)}
-.row h3{font-size:25px;margin-bottom:4px}
-.row p{color:var(--muted);font-size:15.5px}
-.row .badge{font-size:13px;font-weight:600;padding:6px 13px;border-radius:999px;background:rgba(143,255,224,.08);color:var(--mint);border:1px solid var(--line);white-space:nowrap}
-
-/* ---------- Sport ---------- */
-.sport .box{background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:56px;display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}
-.sport .box h2{font-size:clamp(34px,4.4vw,52px);margin:12px 0 18px}
-.sport .box > div > p{color:var(--muted)}
-.medals{display:grid;gap:14px}
-.medal{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:18px 22px}
-.medal .ico{width:48px;height:48px;border-radius:14px;background:var(--mint);color:var(--on-mint);display:grid;place-items:center;font-family:var(--fd);font-size:20px;font-weight:700}
-.medal b{display:block;font-size:17px}
-.medal span{font-size:14.5px;color:var(--muted)}
-
-/* ---------- Contact ---------- */
-.contact{padding:0;min-height:calc(100svh - 82px);display:flex;flex-direction:column}
-.contact > .wrap{flex:1;width:100%;display:flex;flex-direction:column;justify-content:center;padding-top:60px;padding-bottom:60px}
-.contact h2{font-size:clamp(46px,8vw,104px);max-width:900px;margin:14px 0 30px}
-.contact .lead{font-size:20px;color:var(--muted);max-width:560px;margin-bottom:44px}
-.links{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.clink{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:22px 24px;text-decoration:none;display:flex;flex-direction:column;gap:6px;transition:border-color .2s,transform .2s}
-.clink:hover{border-color:var(--mint);transform:translateY(-3px)}
-.clink .label{font-size:11.5px}
-.clink b{font-size:16.5px;font-weight:600;word-break:break-word}
-footer{border-top:1px solid var(--line);margin-top:0;padding:28px 0;font-size:14px;color:var(--muted)}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-
-/* ---------- Reveal ---------- */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-.js .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.status i{animation:none}}
-
-/* ---------- Responsive ---------- */
-@media (max-width:980px){
-  .hero .wrap,.about .wrap,.sport .box{grid-template-columns:1fr;gap:50px}
-  .portrait{width:min(300px,80%)}
-  .card,.card.sm,.card.wide{grid-column:span 6}
-  .card.wide{flex-direction:column}
-  .card.wide .thumb{width:auto;aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--line)}
-  .links{grid-template-columns:1fr 1fr}
-  .row{grid-template-columns:1fr;gap:8px}
-  .row .badge{justify-self:start}
-}
-@media (max-width:760px){
-  body{font-size:16px}
-  section{padding:84px 0}
-  .wrap{padding:0 18px}
-  .nav ul{position:fixed;top:72px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px 18px 18px;border-bottom:1px solid var(--line);display:none}
-  .nav ul.open{display:flex}
-  .nav ul li a{display:block;padding:14px 0;font-size:18px;border-bottom:1px solid var(--line)}
-  .nav ul a::after{display:none}
-  .burger{display:grid;place-items:center}
-  .nav .btn-sm{display:none}
-  .hero{padding:40px 0 70px}
-  .portrait .tag{left:-10px}
-  .projects{border-radius:28px 28px 0 0}
-  .path{padding-bottom:84px}
-  .sport .box{padding:32px 22px;border-radius:24px}
-  .links{grid-template-columns:1fr}
-  .facts .wrap{grid-template-columns:1fr}
-  .fact{padding:18px 0;border-left:0;border-top:1px solid var(--line)}
-  .fact:first-child{border-top:0}
-  .fact b{font-size:20px}
-}
-
-/* ---- carrousel projets (squeeze) ---- */
-.sq{--sq-gap:16px;--sq-slat:8px;--sq-sgap:8px;--sq-ms:1000ms;--sq-ease:cubic-bezier(.16,1,.3,1);--sq-h:360px;--sq-hero:640px}
-.sq-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.sq-count{font-family:var(--fm);font-size:14px;color:var(--muted);letter-spacing:.06em}
-.sq-count b{color:var(--mint);font-weight:500}
-.sq-arrows{display:flex;gap:10px}
-.sq-arrow{width:46px;height:46px;border-radius:12px;border:0;background:var(--mint);color:var(--on-mint);display:grid;place-items:center;cursor:pointer;transition:opacity .2s,transform .2s}
-.sq-arrow:hover{opacity:.85;transform:translateY(-2px)}
-.sq-arrow:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
-.sq-arrow svg{width:17px;height:17px}
-.sq-view{width:100%;height:var(--sq-h);overflow:hidden}
-.sq-strip{display:flex;height:100%;width:max-content;transition:transform var(--sq-ms) var(--sq-ease)}
-.sq-card{position:relative;isolation:isolate;flex-shrink:0;height:100%;padding:0;border:0;overflow:hidden;cursor:pointer;background:var(--bg-2);border-radius:14px;transition:width var(--sq-ms) var(--sq-ease),margin-left var(--sq-ms) var(--sq-ease),border-radius var(--sq-ms) var(--sq-ease)}
-.sq-card img{position:absolute;top:0;left:50%;height:100%;width:var(--sq-hero);min-width:100%;max-width:none;transform:translateX(-50%);object-fit:cover;pointer-events:none;user-select:none}
-.sq-card::after{content:"";position:absolute;inset:0;border:1px solid var(--line);border-radius:inherit;pointer-events:none}
-.sq-card:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
-.sq-name{position:absolute;inset:auto 0 0 0;padding:70px 24px 20px;text-align:left;font-family:var(--fd);font-weight:700;font-size:20px;letter-spacing:-.02em;color:#fff;background:linear-gradient(to top,rgba(2,30,36,.8),transparent);opacity:0;transition:opacity var(--sq-ms) var(--sq-ease);pointer-events:none;white-space:nowrap}
-.sq-card.front .sq-name{opacity:1}
-.sq.still .sq-strip,.sq.still .sq-card,.sq.still .sq-name{transition:none!important}
-.sq-panels{display:grid;margin-top:30px}
-.sq-panel{grid-area:1/1;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;opacity:0;visibility:hidden;transition:opacity .6s var(--sq-ease),visibility .6s}
-.sq-panel.on{opacity:1;visibility:visible}
-.sq-text{max-width:760px}
-.sq-text .label{display:block;margin-bottom:12px}
-.sq-text h3{font-size:clamp(26px,3vw,34px);margin-bottom:12px}
-.sq-text p{color:var(--muted);margin-bottom:18px}
-.sq-actions{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
-.sq-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:12px;background:var(--mint);color:var(--on-mint);font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--mint);transition:opacity .2s,transform .2s,background .2s}
-.sq-btn:hover{transform:translateX(3px)}
-.sq-btn.ghost{background:transparent;color:var(--mint)}
-.sq-btn.ghost:hover{background:rgba(143,255,224,.1)}
-@media (max-width:760px){
-  .sq-panel{flex-direction:column;justify-content:flex-start;gap:20px}
-  .sq-actions{flex-direction:row;flex-wrap:wrap}
-  .sq-name{font-size:16px;padding:50px 16px 14px}
-  .sq-card{border-radius:10px}
-}
-@media (prefers-reduced-motion:reduce){.sq{--sq-ms:0ms}}
-
-/* ---- expériences (pellicule) ---- */
-.exp{background:var(--bg)}
-.fs-strip{position:relative;background:#021a20;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-.fs-perf{height:18px;margin:6px 0;background-image:radial-gradient(circle at center,transparent 0,transparent 0),linear-gradient(var(--bg),var(--bg));background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='18'%3E%3Crect x='6' y='4' width='12' height='9' rx='2.2' fill='%2303313A' stroke='%238FFFE0' stroke-opacity='.3'/%3E%3C/svg%3E") repeat-x left center}
-.fs-track{list-style:none;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding:2px calc(50% - var(--fs-w)/2);scrollbar-width:none;--fs-w:clamp(240px,36vw,440px)}
-.fs-track::-webkit-scrollbar{display:none}
-.fs-frame{flex-shrink:0;width:var(--fs-w);scroll-snap-align:center}
-.fs-edge{height:16px;display:flex;justify-content:space-between;align-items:center;padding:0 3px;font-family:var(--fm);font-size:9px;letter-spacing:.18em;color:var(--mint);opacity:.7}
-.fs-btn{display:block;width:100%;aspect-ratio:3/2;padding:0;border:0;border-radius:5px;overflow:hidden;cursor:pointer;position:relative;background:#000}
-.fs-btn img{display:block;width:100%;height:100%;object-fit:cover;filter:invert(1) sepia(.57) saturate(1.2) hue-rotate(-8deg) contrast(.9) brightness(.94);transform:scale(.96);transition:filter .35s ease,transform .35s ease;opacity:.88}
-.fs-frame.on .fs-btn img{filter:invert(0) sepia(0) saturate(1) hue-rotate(0deg) contrast(1) brightness(1);transform:scale(1);opacity:1}
-.fs-frame.on .fs-btn{cursor:default}
-.fs-frame.on .fs-btn::after{content:"";position:absolute;inset:0;border-radius:5px;box-shadow:inset 0 0 0 2px var(--mint);opacity:.8}
-.fs-btn:hover img{opacity:1}
-.fs-btn:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
-.fs-gate{position:absolute;left:50%;width:1px;height:8px;background:var(--mint);transform:translateX(-50%)}
-.fs-gate.top{top:0}.fs-gate.bot{bottom:0}
-.fs-bar{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
-.fs-count{font-family:var(--fm);font-size:14px;color:var(--muted);letter-spacing:.06em}
-.fs-count b{color:var(--mint);font-weight:500}
-.sq-arrow:disabled{opacity:.35;cursor:default;transform:none}
-.fs-panels{display:grid;margin-top:26px}
-.fs-panel{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s}
-.fs-panel.on{opacity:1;visibility:visible}
-.fs-head .label{display:block;margin-bottom:10px}
-.fs-head h3{font-size:clamp(24px,2.8vw,32px);margin-bottom:16px}
-.fs-head h3 em{font-style:normal;color:var(--mint)}
-.fs-list{list-style:none;display:grid;gap:8px;margin-bottom:18px;color:var(--muted)}
-.fs-list li{padding-left:22px;position:relative}
-.fs-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:600;font-size:15px;text-decoration:none;color:var(--mint);border-bottom:1.5px solid var(--mint);padding-bottom:2px;transition:gap .2s}
-.fs-link:hover{gap:12px}
-.fs-list li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;height:8px;border-radius:2px;background:var(--mint);opacity:.8}
-@media (prefers-reduced-motion:reduce){.fs-btn img{transition:none}.fs-track{scroll-behavior:auto}}
-
-/* ---- sport : frise horizontale ---- */
-.st{position:relative;background:var(--bg);padding:0}
-.st-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
-.st-track{display:flex;align-items:center;gap:5vw;height:min(64vh,640px);padding:70px 6vw 0;will-change:transform}
-.st-img{flex-shrink:0;height:100%;aspect-ratio:1;border-radius:22px;overflow:hidden;border:1px solid var(--line)}
-.st-img img{width:100%;height:100%;object-fit:cover}
-.st-rail{position:relative;flex-shrink:0;height:100%;width:calc(22vw + 7 * 15vw + 24vw)}
-.st-head{position:absolute;top:0;left:0;width:19vw}
-.st-head h2{font-size:clamp(34px,3.6vw,58px);margin-top:12px}
-.st-period{position:absolute;bottom:0;left:0;width:18vw;font-size:15px;color:var(--muted)}
-.st-axis{position:absolute;left:0;right:0;top:50%;height:10px;transform:translateY(-50%);display:flex;align-items:center}
-.st-cap{width:10px;height:10px;border-radius:50%;background:var(--mint);flex-shrink:0}
-.st-line{height:2px;width:0;background:linear-gradient(90deg,var(--mint),rgba(143,255,224,.5));border-radius:2px}
-.st-list{list-style:none;margin:0;padding:0}
-.st-item{position:absolute;left:calc(22vw + var(--i) * 15vw);width:22vw;height:50%}
-.st-item.up{top:0}.st-item.down{top:50%}
-.st-dot{position:absolute;left:0;width:14px;height:14px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 6px rgba(143,255,224,.15);transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
-.st-item.up .st-dot{top:100%}.st-item.down .st-dot{top:0}
-.st-stem{position:absolute;left:0;width:1.5px;background:var(--mint);opacity:.7;transform:scaleY(0);transition:transform .6s cubic-bezier(.22,1,.36,1)}
-.st-item.up .st-stem{top:14px;bottom:0;transform-origin:bottom}
-.st-item.down .st-stem{top:0;bottom:14px;transform-origin:top}
-.st-txt{position:absolute;left:0;padding-left:1.6vw;opacity:0;transform:translateY(24px);transition:opacity .6s ease .15s,transform .7s cubic-bezier(.22,1,.36,1) .15s}
-.st-item.up .st-txt{top:0}.st-item.down .st-txt{bottom:0}
-.st-item.in .st-dot{transform:translate(-50%,-50%) scale(1)}
-.st-item.in .st-stem{transform:scaleY(1)}
-.st-item.in .st-txt{opacity:1;transform:none}
-.st-year{display:block;font-family:var(--fd);font-weight:700;font-size:clamp(28px,2.6vw,44px);line-height:1;letter-spacing:-.03em;color:var(--mint)}
-.st-tag{display:inline-block;margin:10px 0 8px;font-family:var(--fm);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:6px;background:rgba(143,255,224,.08);color:var(--mint)}
-.st-txt h3{font-size:clamp(18px,1.45vw,24px);margin-bottom:6px}
-.st-txt p{font-size:15px;color:var(--muted);line-height:1.5;max-width:19vw}
-@media (max-width:860px),(prefers-reduced-motion:reduce){
-  .st{padding:84px 0}
-  .st-pin{position:static;height:auto;overflow:visible;display:block}
-  .st-track{flex-direction:column;align-items:stretch;height:auto;padding:0 20px;gap:34px;transform:none!important}
-  .st-img{height:auto;width:100%;max-width:420px;aspect-ratio:16/10}
-  .st-rail{width:auto;height:auto;display:flex;flex-direction:column;gap:14px}
-  .st-head,.st-period{position:static;width:auto}
-  .st-axis{display:none}
-  .st-list{position:relative;margin-top:18px;padding-left:26px;display:grid;gap:30px}
-  .st-list::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(143,255,224,.15)}
-  .st-list::after{content:"";position:absolute;left:0;top:0;width:2px;height:calc(var(--p,0) * 100%);background:linear-gradient(var(--mint),rgba(143,255,224,.6));box-shadow:0 0 12px rgba(143,255,224,.5)}
-  .st-item{position:relative;left:auto;top:auto!important;width:auto;height:auto}
-  .st-stem{display:none}
-  .st-dot{top:14px!important;left:-25px}
-  .st-txt{position:static;padding:0}
-  .st-txt p{max-width:none}
-}
-
-/* ---- stats + stack ---- */
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
-.stat b{display:block;font-family:var(--fd);font-size:clamp(30px,3vw,42px);line-height:1;color:var(--mint);letter-spacing:-.03em;margin-bottom:8px}
-.stat span{font-size:14.5px;color:var(--muted);line-height:1.4;display:block}
-.stack{grid-column:1/-1;margin-top:-30px;padding-top:40px;border-top:1px solid var(--line)}
-.stack-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:30px;flex-wrap:wrap}
-.stack-head p{color:var(--muted);font-size:15.5px}
-.stk-groups{display:grid;grid-template-columns:1fr;gap:26px}
-.stk-group h3{font-family:var(--fm);font-size:12.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.stk-group h3 span{color:var(--mint);opacity:.7}
-.stk-group h3::after{content:"";flex:1;height:1px;background:var(--line)}
-.stk-grid{list-style:none;display:grid;grid-template-columns:repeat(9,1fr);gap:10px}
-.stk{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px 8px 14px;background:var(--surface);border:1px solid var(--line);border-radius:16px;text-align:center;transition:transform .25s,border-color .25s,background .25s}
-.stk svg{width:30px;height:30px;fill:var(--mint);transition:fill .25s,transform .25s}
-.stk span{font-size:13.5px;font-weight:600;line-height:1.2}
-.stk:hover{transform:translateY(-3px);border-color:rgba(143,255,224,.45);background:rgba(143,255,224,.08)}
-.stk:hover svg{fill:var(--c);transform:scale(1.08)}
-@media (max-width:980px){.stk-grid{grid-template-columns:repeat(6,1fr)}}
-@media (max-width:520px){.stk-grid{grid-template-columns:repeat(4,1fr);gap:8px}.stats{margin-top:28px}.stk{padding:14px 6px 12px}.stk svg{width:26px;height:26px}.stk span{font-size:11px}}
-
-/* ---- contact : macbook ---- */
-.contact-grid{display:grid;grid-template-columns:.62fr 1.38fr;gap:40px;align-items:center}
-.contact-grid .lead{margin-bottom:0}
-.mac{position:relative;container-type:inline-size}
-
-.mac-svg{display:block;width:100%;height:auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.45))}
-.mac-screen{position:absolute;left:11.465%;top:5.33%;width:77.11%;height:80.96%;border-radius:.8cqw;overflow:hidden;background:radial-gradient(ellipse at 80% 0%,rgba(143,255,224,.12),transparent 60%),#022830;display:flex;flex-direction:column}
-.cur{display:inline-block;width:.6em;height:1.1em;vertical-align:-.2em;background:var(--mint);animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.js .mac .ln{opacity:0;transform:translateX(-6px)}
-.js .mac.in .ln{opacity:1;transform:none;transition:opacity .4s ease calc(.5s + var(--d)*.28s),transform .4s ease calc(.5s + var(--d)*.28s)}
-.contact .links{display:none}
-@media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:30px}.contact .links{margin-top:34px}}
-
-@media (prefers-reduced-motion:reduce){.js .mac .ln{opacity:1;transform:none}.cur{animation:none}}
-
-/* écran contact v2 */
-.mac-screen{background:radial-gradient(60% 70% at 0% 0%,rgba(143,255,224,.22),transparent 60%),radial-gradient(55% 60% at 100% 100%,rgba(63,169,245,.22),transparent 60%),linear-gradient(160deg,#04404a,#02222a)!important}
-.mac-screen::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(143,255,224,.12) 1px,transparent 1px);background-size:2.4cqw 2.4cqw;mask-image:linear-gradient(to bottom,#000,transparent 85%);pointer-events:none}
-.scr-bar{position:relative;display:flex;align-items:center;gap:.9cqw;padding:1.5cqw 2cqw;background:rgba(1,22,27,.45);border-bottom:1px solid rgba(143,255,224,.12)}
-.scr-bar i{width:1.2cqw;height:1.2cqw;border-radius:50%}
-.scr-bar i:nth-child(1){background:#ff6b6b}.scr-bar i:nth-child(2){background:#ffcf5c}.scr-bar i:nth-child(3){background:#8FFFE0}
-.scr-bar span{margin:0 auto;padding:.4cqw 3cqw;border-radius:99px;background:rgba(143,255,224,.08);font-family:var(--fm);font-size:1.5cqw;color:var(--muted);transform:translateX(-2.5cqw)}
-.scr{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;gap:3.2cqw;padding:3cqw 4cqw}
-.scr-id{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:2cqw;row-gap:1.6cqw;align-items:center}
-.scr-av{width:7.5cqw;height:7.5cqw;border-radius:2cqw;display:grid;place-items:center;font-family:var(--fd);font-weight:700;font-size:3cqw;color:var(--on-mint);background:linear-gradient(135deg,#8FFFE0,#3fd4c0);box-shadow:0 1cqw 3cqw rgba(143,255,224,.3)}
-.scr-id b{display:block;font-family:var(--fd);font-size:4.2cqw;line-height:1;letter-spacing:-.03em;color:#fff}
-.scr-id div span{display:block;margin-top:.7cqw;font-size:1.75cqw;color:var(--muted)}
-.scr-status{grid-column:1/-1;justify-self:start;font-style:normal;display:inline-flex;align-items:center;gap:1cqw;padding:.7cqw 1.8cqw;border-radius:99px;font-size:1.6cqw;font-weight:600;color:var(--mint);background:rgba(143,255,224,.1);border:1px solid rgba(143,255,224,.25)}
-.scr-status i{width:1cqw;height:1cqw;border-radius:50%;background:var(--mint);box-shadow:0 0 0 .5cqw rgba(143,255,224,.2)}
-.scr-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw}
-.scr-tile{display:flex;align-items:center;gap:1.6cqw;padding:1.7cqw;border-radius:1.8cqw;text-decoration:none;color:#fff;background:rgba(2,24,30,.55);border:1px solid rgba(143,255,224,.14);backdrop-filter:blur(6px);transition:transform .25s,border-color .25s,background .25s}
-.scr-tile:hover{transform:translateY(-.5cqw);border-color:rgba(143,255,224,.55);background:rgba(143,255,224,.1)}
-.scr-tile .ico{flex-shrink:0;width:5cqw;height:5cqw;border-radius:1.4cqw;display:grid;place-items:center;background:linear-gradient(135deg,#8FFFE0,#3fd4c0);color:var(--on-mint)}
-.scr-tile .ico svg{width:2.6cqw;height:2.6cqw}
-.scr-tile .t{display:flex;flex-direction:column;min-width:0;font-family:var(--fd);font-weight:600;font-size:1.95cqw;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.scr-tile small{font-family:var(--fm);font-weight:500;font-size:1.3cqw;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:.4cqw}
-
-/* contact centré */
-.contact-grid{grid-template-columns:1fr!important;justify-items:center}
-.contact .mac{width:min(1000px,100%,calc((100svh - 280px) * 1.625))}
-.scr{gap:2cqw!important;padding:2.2cqw 4cqw!important}
-.scr-id{gap:1.1cqw!important}
-.scr-av{width:5.6cqw!important;height:5.6cqw!important;border-radius:1.6cqw!important;font-size:2.3cqw!important}
-.scr-id b{font-size:3.7cqw!important}
-.scr-id div span{margin-top:.6cqw!important;font-size:1.6cqw!important}
-.scr-tile{padding:1.25cqw 1.5cqw!important}
-.scr-tile .t{font-size:1.8cqw!important}
-.scr-tile .ico{width:4.3cqw!important;height:4.3cqw!important}
-.scr-tile .ico svg{width:2.2cqw!important;height:2.2cqw!important}
-.scr-grid{gap:1.3cqw!important;width:94%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
-@media (min-width:521px){.contact-txt{display:none}}
-.scr{align-items:center;text-align:center}
-.scr-id{display:flex!important;flex-direction:column;align-items:center;gap:1.4cqw}
-.scr-id div span{margin-top:1cqw}
-.scr-status{align-self:center}
-.scr-grid{width:88%}
-.scr-tile{text-align:left}
-
-/* contact mobile : téléphone */
-@media (max-width:520px){
-  .contact-txt .lead{display:none}
-  .contact-grid{gap:26px!important}
-  .contact .mac{width:min(330px,88vw)!important;padding:11px;border-radius:48px;background:linear-gradient(160deg,#4f8990,#1d5a63 40%,#0b3a42);box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 0 0 1px rgba(143,255,224,.25)}
-  .mac-svg{display:none}
-  .mac-screen{position:relative!important;left:auto!important;top:auto!important;width:100%!important;height:auto!important;border-radius:38px!important;padding-bottom:6cqw}
-  .scr-bar{justify-content:center;padding:4cqw 0 2cqw!important;background:none!important;border:0!important}
-  .scr-bar i,.scr-bar span{display:none}
-  .scr-bar::after{content:"";width:28cqw;height:7.5cqw;border-radius:99px;background:#01161b}
-  .scr{gap:6cqw!important;padding:4cqw 6cqw!important}
-  .scr-id{gap:2.6cqw!important}
-  .scr-av{width:18cqw!important;height:18cqw!important;border-radius:5cqw!important;font-size:7cqw!important}
-  .scr-id b{font-size:9.5cqw!important}
-  .scr-id div span{font-size:3.9cqw!important;margin-top:1.6cqw!important}
-  .scr-status{font-size:3.6cqw!important;padding:1.8cqw 3.6cqw!important;gap:2cqw!important}
-  .scr-status i{width:2.2cqw!important;height:2.2cqw!important}
-  .scr-grid{grid-template-columns:1fr!important;width:100%!important;gap:3cqw!important}
-  .scr-tile{padding:3.4cqw 3.8cqw!important;border-radius:5cqw!important;gap:3.6cqw!important}
-  .scr-tile .ico{width:11cqw!important;height:11cqw!important;border-radius:3.4cqw!important}
-  .scr-tile .ico svg{width:5.6cqw!important;height:5.6cqw!important}
-  .scr-tile .t{font-size:4.4cqw!important}
-  .scr-tile small{font-size:2.8cqw!important;margin-bottom:1cqw!important}
-  .mac-screen::before{background-size:6cqw 6cqw}
-}
-</style>
-
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
+
 <body>
 
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
 <header class="nav" id="nav">
-  <div class="wrap">
-    <a href="#top" class="logo" aria-label="Accueil"><span>TM</span>Tristan Muller</a>
-    <nav>
-      <ul id="menu">
+  <div class="wrap nav__inner">
+    <a href="#top" class="logo" aria-label="Retour en haut de page"><span class="logo__mark">TM</span>Tristan Muller</a>
+
+    <nav aria-label="Navigation principale">
+      <ul class="nav__menu" id="menu">
         <li><a href="#about">À propos</a></li>
         <li><a href="#projets">Projets</a></li>
         <li><a href="#parcours">Parcours</a></li>
@@ -463,586 +41,588 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <a class="btn btn-dark btn-sm" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">Mon CV</a>
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+
+    <a class="btn btn--solid btn--sm nav__cv" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">Mon CV</a>
+
+    <!-- Menu burger, visible uniquement sur mobile -->
+    <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
   </div>
 </header>
 
 <main id="top">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <div class="id reveal">
-        <img class="avatar" src="avatar.jpg" alt="Photo de Tristan Muller" width="72" height="72">
-        <div><b>Étudiant en BUT Informatique</b><span>IUT Lyon 1</span></div>
-      </div>
-      <h1 class="reveal">Tristan <span class="hl">Muller.</span></h1>
-      <p class="lead reveal">Je me spécialise dans le <strong>développement web</strong> : sites et applications web, du front-end au back-end. Bilingue <strong>anglais-français</strong>.</p>
-      <div class="status reveal"><i></i>Disponible pour un stage · 12 avril - 18 juin 2027</div>
-      <div class="cta reveal">
-        <a class="btn btn-dark" href="#projets">Voir mes projets
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-        <a class="btn btn-ghost" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">Mon CV</a>
-      </div>
-    </div>
-    <div class="code reveal" aria-hidden="true">
-      <div class="code-bar"><i></i><i></i><i></i><span>profil.js</span></div>
-<pre><span class="k">const</span> <span class="v">tristan</span> = {
-  <span class="p">formation</span>: <span class="s">"BUT Informatique"</span>,
-  <span class="p">ecole</span>: <span class="s">"IUT Lyon 1"</span>,
-  <span class="p">focus</span>: [<span class="s">"sites web"</span>, <span class="s">"applications web"</span>],
-  <span class="p">stack</span>: [<span class="s">"JavaScript"</span>, <span class="s">"HTML/CSS"</span>,
-          <span class="s">"PHP"</span>, <span class="s">"Java"</span>, <span class="s">"SQL"</span>],
-  <span class="p">langues</span>: [<span class="s">"anglais"</span>, <span class="s">"français"</span>],
-  <span class="p">stage</span>: <span class="s">"avril - juin 2027"</span>,
-};</pre>
-    </div>
-  </div>
-</section>
+  <!-- ============================================================
+       ACCUEIL
+       ============================================================ -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div>
+        <div class="hero__id reveal">
+          <img class="hero__avatar" src="assets/img/avatar.jpg" alt="Photo de Tristan Muller" width="72" height="72">
+          <div>
+            <b>Étudiant en BUT Informatique</b>
+            <span>IUT Lyon 1</span>
+          </div>
+        </div>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="label">À propos</span>
-      <h2 style="margin-top:14px">Curieux, rigoureux <em>et orienté solutions.</em></h2>
+        <h1 class="hero__title reveal">Tristan <span class="accent">Muller.</span></h1>
+
+        <p class="hero__lead reveal">
+          Je me spécialise dans le <strong>développement web</strong> : sites et applications web,
+          du front-end au back-end. Bilingue <strong>anglais-français</strong>.
+        </p>
+
+        <p class="status reveal"><i></i>Disponible pour un stage · 12 avril - 18 juin 2027</p>
+
+        <div class="hero__cta reveal">
+          <a class="btn btn--solid" href="#projets">
+            Voir mes projets
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">Mon CV</a>
+        </div>
+      </div>
+
+      <!-- Carte de code décorative -->
+      <div class="code reveal" aria-hidden="true">
+        <div class="code__bar"><i></i><i></i><i></i><span>profil.js</span></div>
+<pre><span class="kw">const</span> <span class="var">tristan</span> = {
+  <span class="key">formation</span>: <span class="str">"BUT Informatique"</span>,
+  <span class="key">ecole</span>: <span class="str">"IUT Lyon 1"</span>,
+  <span class="key">focus</span>: [<span class="str">"sites web"</span>, <span class="str">"applications web"</span>],
+  <span class="key">stack</span>: [<span class="str">"JavaScript"</span>, <span class="str">"HTML/CSS"</span>,
+          <span class="str">"PHP"</span>, <span class="str">"Java"</span>, <span class="str">"SQL"</span>],
+  <span class="key">langues</span>: [<span class="str">"anglais"</span>, <span class="str">"français"</span>],
+  <span class="key">stage</span>: <span class="str">"avril - juin 2027"</span>,
+};</pre>
+      </div>
     </div>
-    <div>
-      <div class="txt reveal">
+  </section>
+
+
+  <!-- ============================================================
+       À PROPOS + BOÎTE À OUTILS
+       ============================================================ -->
+  <section class="about" id="about">
+    <div class="wrap about__inner">
+      <div class="reveal">
+        <span class="label">À propos</span>
+        <h2 class="about__title">Curieux, rigoureux <em>et orienté solutions.</em></h2>
+      </div>
+
+      <div class="about__text reveal">
         <p>J'ai grandi <strong>15 ans en Afrique du Sud</strong> avant de venir en France. Après un <strong>Bac STI2D</strong>, je suis entré en BUT Informatique, où je touche à tout : développement web, développement d'applications, programmation objet, bases de données, réseaux, systèmes embarqués.</p>
         <p>Ce qui me plaît, c'est de passer d'une idée à <strong>quelque chose qui marche vraiment</strong> : un site, une application web, un outil utile au quotidien.</p>
       </div>
-    </div>
-    <div class="stack reveal">
-      <div class="stack-head"><span class="label">Ma boîte à outils</span><p>Les langages et outils que j'utilise en cours et sur mes projets.</p></div>
-      <div class="stk-groups"><div class="stk-group"><h3>Langages <span>09</span></h3><ul class="stk-grid"><li class="stk" style="--c:#EAFBF6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.389 13.389 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704.687.314 1.15.664 1.925.664.767 0 1.395-.336 1.807-.9.412-.563.631-1.33.72-2.24.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942zM8.685 7.983a3.515 3.515 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55 1.95 0 3.55-1.598 3.55-3.55 0-.329-.046-.648-.132-.951.334.095.64.208.915.336a42.699 42.699 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43.155 43.155 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425zm-3.382 4.362a.216.216 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a33.849 33.849 0 0 0-.547 2.555 3.9 3.9 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781zm13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.08a4.428 4.428 0 0 0-.163.309 32.354 32.354 0 0 0-.562-2.49 40.579 40.579 0 0 0-.482-1.652.216.216 0 0 1 .127-.03z"/></svg><span>Java</span></li><li class="stk" style="--c:#00599C"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.11-7.11a7.133 7.133 0 016.156 3.553l-3.076 1.78a3.567 3.567 0 00-3.08-1.78A3.56 3.56 0 008.444 12 3.56 3.56 0 0012 15.555a3.57 3.57 0 003.08-1.778l3.078 1.78A7.135 7.135 0 0112 19.11zm7.11-6.715h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79zm2.962 0h-.79v.79h-.79v-.79h-.79v-.79h.79v-.79h.79v.79h.79z"/></svg><span>C++</span></li><li class="stk" style="--c:#F7DF1E"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg><span>JavaScript</span></li><li class="stk" style="--c:#777BB4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg><span>PHP</span></li><li class="stk" style="--c:#E34F26"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg><span>HTML</span></li><li class="stk" style="--c:#663399"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"/></svg><span>CSS</span></li><li class="stk" style="--c:#4479A1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53zm4.017-4.08c-.378 2.045-.876 3.533-1.492 4.46-.482.716-1.01 1.073-1.583 1.073-.153 0-.34-.046-.566-.138v-.494c.11.017.24.026.386.026.268 0 .483-.075.647-.222.197-.18.295-.382.295-.605 0-.155-.077-.47-.23-.944L6.23 14.615h.91l.727 2.36c.164.536.233.91.205 1.123.4-1.064.678-2.227.835-3.483zm12.325 4.08h-2.63v-5.53h.885v4.85h1.745zm-3.32.135l-1.016-.5c.09-.076.177-.158.255-.25.433-.506.648-1.258.648-2.253 0-1.83-.718-2.746-2.155-2.746-.704 0-1.254.232-1.65.697-.43.508-.646 1.256-.646 2.245 0 .972.19 1.686.574 2.14.35.41.877.615 1.583.615.264 0 .506-.033.725-.098l1.325.772.36-.622zM15.5 17.588c-.225-.36-.337-.94-.337-1.736 0-1.393.424-2.09 1.27-2.09.443 0 .77.167.977.5.224.362.336.936.336 1.723 0 1.404-.424 2.108-1.27 2.108-.445 0-.77-.167-.978-.5zm-1.658-.425c0 .47-.172.856-.516 1.156-.344.3-.803.45-1.384.45-.543 0-1.064-.172-1.573-.515l.237-.476c.438.22.833.328 1.19.328.332 0 .593-.073.783-.22a.754.754 0 00.3-.615c0-.33-.23-.61-.648-.845-.388-.213-1.163-.657-1.163-.657-.422-.307-.632-.636-.632-1.177 0-.45.157-.81.47-1.085.315-.278.72-.415 1.22-.415.512 0 .98.136 1.4.41l-.213.476a2.726 2.726 0 00-1.064-.23c-.283 0-.502.068-.654.206a.685.685 0 00-.248.524c0 .328.234.61.666.85.393.215 1.187.67 1.187.67.433.305.648.63.648 1.168zm9.382-5.852c-.535-.014-.95.04-1.297.188-.1.04-.26.04-.274.167.055.053.063.14.11.214.08.134.218.313.346.407.14.11.28.216.427.31.26.16.555.255.81.416.145.094.293.213.44.313.073.05.12.14.214.172v-.02c-.046-.06-.06-.147-.105-.214-.067-.067-.134-.127-.2-.193a3.223 3.223 0 00-.695-.675c-.214-.146-.682-.35-.77-.595l-.013-.014c.146-.013.32-.066.46-.106.227-.06.435-.047.67-.106.106-.027.213-.06.32-.094v-.06c-.12-.12-.21-.283-.334-.395a8.867 8.867 0 00-1.104-.823c-.21-.134-.476-.22-.697-.334-.08-.04-.214-.06-.26-.127-.12-.146-.19-.34-.275-.514a17.69 17.69 0 01-.547-1.163c-.12-.262-.193-.523-.34-.763-.69-1.137-1.437-1.826-2.586-2.5-.247-.14-.543-.2-.856-.274-.167-.008-.334-.02-.5-.027-.11-.047-.216-.174-.31-.235-.38-.24-1.364-.76-1.644-.072-.18.434.267.862.422 1.082.115.153.26.328.34.5.047.116.06.235.107.356.106.294.207.622.347.897.073.14.153.287.247.413.054.073.146.107.167.227-.094.136-.1.334-.154.5-.24.757-.146 1.693.194 2.25.107.166.362.534.703.393.3-.12.234-.5.32-.835.02-.08.007-.133.048-.187v.015c.094.188.188.367.274.555.206.328.566.668.867.895.16.12.287.328.487.402v-.02h-.015c-.043-.058-.1-.086-.154-.133a3.445 3.445 0 01-.35-.4 8.76 8.76 0 01-.747-1.218c-.11-.21-.202-.436-.29-.643-.04-.08-.04-.2-.107-.24-.1.146-.247.273-.32.453-.127.288-.14.642-.188 1.01-.027.007-.014 0-.027.014-.214-.052-.287-.274-.367-.46-.2-.475-.233-1.238-.06-1.785.047-.14.247-.582.167-.716-.042-.127-.174-.2-.247-.303a2.478 2.478 0 01-.24-.427c-.16-.374-.24-.788-.414-1.162-.08-.173-.22-.354-.334-.513-.127-.18-.267-.307-.368-.52-.033-.073-.08-.194-.027-.274.014-.054.042-.075.094-.09.088-.072.335.022.422.062.247.1.455.194.662.334.094.066.195.193.315.226h.14c.214.047.455.014.655.073.355.114.675.28.962.46a5.953 5.953 0 012.085 2.286c.08.154.115.295.188.455.14.33.313.663.455.982.14.315.275.636.476.897.1.14.502.213.682.286.133.06.34.115.46.188.23.14.454.3.67.454.11.076.443.243.463.378z"/></svg><span>SQL</span></li><li class="stk" style="--c:#4EAA25"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.038,4.9l-7.577-4.498C13.009,0.134,12.505,0,12,0c-0.505,0-1.009,0.134-1.462,0.403L2.961,4.9 C2.057,5.437,1.5,6.429,1.5,7.503v8.995c0,1.073,0.557,2.066,1.462,2.603l7.577,4.497C10.991,23.866,11.495,24,12,24 c0.505,0,1.009-0.134,1.461-0.402l7.577-4.497c0.904-0.537,1.462-1.529,1.462-2.603V7.503C22.5,6.429,21.943,5.437,21.038,4.9z M15.17,18.946l0.013,0.646c0.001,0.078-0.05,0.167-0.111,0.198l-0.383,0.22c-0.061,0.031-0.111-0.007-0.112-0.085L14.57,19.29 c-0.328,0.136-0.66,0.169-0.872,0.084c-0.04-0.016-0.057-0.075-0.041-0.142l0.139-0.584c0.011-0.046,0.036-0.092,0.069-0.121 c0.012-0.011,0.024-0.02,0.036-0.026c0.022-0.011,0.043-0.014,0.062-0.006c0.229,0.077,0.521,0.041,0.802-0.101 c0.357-0.181,0.596-0.545,0.592-0.907c-0.003-0.328-0.181-0.465-0.613-0.468c-0.55,0.001-1.064-0.107-1.072-0.917 c-0.007-0.667,0.34-1.361,0.889-1.8l-0.007-0.652c-0.001-0.08,0.048-0.168,0.111-0.2l0.37-0.236 c0.061-0.031,0.111,0.007,0.112,0.087l0.006,0.653c0.273-0.109,0.511-0.138,0.726-0.088c0.047,0.012,0.067,0.076,0.048,0.151 l-0.144,0.578c-0.011,0.044-0.036,0.088-0.065,0.116c-0.012,0.012-0.025,0.021-0.038,0.028c-0.019,0.01-0.038,0.013-0.057,0.009 c-0.098-0.022-0.332-0.073-0.699,0.113c-0.385,0.195-0.52,0.53-0.517,0.778c0.003,0.297,0.155,0.387,0.681,0.396 c0.7,0.012,1.003,0.318,1.01,1.023C16.105,17.747,15.736,18.491,15.17,18.946z M19.143,17.859c0,0.06-0.008,0.116-0.058,0.145 l-1.916,1.164c-0.05,0.029-0.09,0.004-0.09-0.056v-0.494c0-0.06,0.037-0.093,0.087-0.122l1.887-1.129 c0.05-0.029,0.09-0.004,0.09,0.056V17.859z M20.459,6.797l-7.168,4.427c-0.894,0.523-1.553,1.109-1.553,2.187v8.833 c0,0.645,0.26,1.063,0.66,1.184c-0.131,0.023-0.264,0.039-0.398,0.039c-0.42,0-0.833-0.114-1.197-0.33L3.226,18.64 c-0.741-0.44-1.201-1.261-1.201-2.142V7.503c0-0.881,0.46-1.702,1.201-2.142l7.577-4.498c0.363-0.216,0.777-0.33,1.197-0.33 c0.419,0,0.833,0.114,1.197,0.33l7.577,4.498c0.624,0.371,1.046,1.013,1.164,1.732C21.686,6.557,21.12,6.411,20.459,6.797z"/></svg><span>Bash / Shell</span></li><li class="stk" style="--c:#D22128"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.805 2.197v.066h.156v.44h.072v-.44h.156v-.066zm.9 0l-.175.353-.172-.353h-.087v.506h.067V2.3l.172.35h.045l.172-.35v.404h.066v-.506zm-4.257 1c-.204.31-.424.66-.66 1.06l-.04.062a44.457 44.457 0 00-1.265 2.29c-.187.36-.38.742-.577 1.146l2.267-.25c.66-.302.955-.578 1.242-.976a15.5 15.5 0 00.23-.342c.23-.363.46-.763.663-1.16.197-.386.37-.767.505-1.11.083-.22.15-.422.198-.6.042-.158.074-.307.1-.45-.884.15-1.965.295-2.668.33zM11.894 7.78l-.077.16c-.078.16-.157.32-.236.488-.086.18-.172.364-.26.552l-.132.287a75.265 75.265 0 00-1.427 3.3c-.163.397-.327.807-.493 1.23-.15.38-.297.765-.45 1.164l-.02.06c-.15.396-.3.802-.453 1.22l-.01.027.72-.08a.213.213 0 01-.042-.006c.863-.106 2.01-.75 2.75-1.547.342-.367.652-.8.94-1.306.213-.377.413-.795.604-1.258.168-.405.328-.843.48-1.318-.196.105-.423.18-.673.235a2.184 2.184 0 01-.273.046c.806-.31 1.314-.905 1.683-1.64a2.816 2.816 0 01-.968.428c-.06.012-.116.022-.174.03l-.043.006h.002c.278-.118.514-.248.718-.403a2.571 2.571 0 00.637-.698l.063-.104.077-.154a8.107 8.107 0 00.367-.85l.03-.088a3.04 3.04 0 00.123-.463.733.733 0 01-.094.065c-.243.145-.66.277-.996.34l.663-.074-.664.073h-.017l-.1.017c.006-.003.01-.006.017-.008l-2.265.25-.013.022zM8.27 16.45c-.117.323-.236.654-.355.992l-.005.015c-.016.046-.032.094-.05.142-.08.227-.15.432-.31.9.264.12.475.435.675.793a1.44 1.44 0 00-.466-.99c1.293.06 2.41-.27 2.99-1.217.05-.084.096-.173.14-.268-.26.333-.59.474-1.2.44 0 0-.004 0-.005.002l.004-.002c.9-.404 1.354-.79 1.754-1.433.094-.153.186-.32.28-.503-.788.81-1.702 1.04-2.664.865l-.72.078a6.43 6.43 0 00-.067.183zM15.42.112c-.376.222-1 .85-1.748 1.763l.686 1.294c.48-.687.97-1.307 1.462-1.836l.058-.062c-.02.02-.04.04-.057.062-.16.176-.644.74-1.375 1.863.703-.035 1.784-.18 2.666-.33.262-1.47-.258-2.142-.258-2.142s-.66-1.07-1.436-.61zm-3.084 6.402a40.253 40.253 0 011.306-2.26l.04-.064c.224-.352.45-.693.677-1.02l-.685-1.293-.157.192c-.197.245-.403.51-.613.79a39.853 39.853 0 00-2.016 2.97l-.022.038.893 1.763c.19-.378.38-.752.575-1.118zm-3.73 8.32c.158-.406.319-.81.483-1.225.156-.394.32-.79.484-1.19a91.133 91.133 0 011.6-3.604l.205-.424c.12-.243.237-.485.36-.724a.125.125 0 01.02-.04l-.895-1.763-.044.07c-.207.34-.414.687-.617 1.042a38.056 38.056 0 00-1.092 2.04l-.094.193a24.573 24.573 0 00-1.258 3.087 18.492 18.492 0 00-.52 1.997l.896 1.77c.117-.317.24-.638.364-.963zm-1.376-.476a13.38 13.38 0 00-.234 1.692c0 .02-.004.04-.005.06-.28-.45-1.03-.888-1.026-.884.537.778.944 1.55 1.005 2.31-.29.058-.684-.027-1.14-.195.475.436.83.556.97.588-.434.03-.89.328-1.346.67.668-.27 1.21-.38 1.596-.29-.61 1.74-1.23 3.655-1.843 5.69a.538.538 0 00.364-.354c.11-.368.84-2.786 1.978-5.965l.097-.27.028-.078c.12-.332.246-.672.374-1.02l.09-.237v-.004L7.24 14.3c-.003.02-.01.04-.012.06z"/></svg><span>Apache</span></li></ul></div><div class="stk-group"><h3>Développement <span>08</span></h3><ul class="stk-grid"><li class="stk" style="--c:#F03C2E"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"/></svg><span>Git</span></li><li class="stk" style="--c:#EAFBF6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></li><li class="stk" style="--c:#3FA9F5"><svg viewBox="4 6 16 12" aria-hidden="true"><path fill-rule="evenodd" d="M8.7 16.3 4.4 12l4.3-4.3 1.4 1.4L7.2 12l2.9 2.9-1.4 1.4Zm6.6 0-1.4-1.4 2.9-2.9-2.9-2.9 1.4-1.4 4.3 4.3-4.3 4.3Z"/></svg><span>VS Code</span></li><li class="stk" style="--c:#EAFBF6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0v24h24V0zm3.723 3.111h5v1.834h-1.39v6.277h1.39v1.834h-5v-1.834h1.444V4.945H3.723zm11.055 0H17v6.5c0 .612-.055 1.111-.222 1.556-.167.444-.39.777-.723 1.11-.277.279-.666.557-1.11.668a3.933 3.933 0 0 1-1.445.278c-.778 0-1.444-.167-1.944-.445a4.81 4.81 0 0 1-1.279-1.056l1.39-1.555c.277.334.555.555.833.722.277.167.611.278.945.278.389 0 .721-.111 1-.389.221-.278.333-.667.333-1.278zM2.222 19.5h9V21h-9z"/></svg><span>IntelliJ IDEA</span></li><li class="stk" style="--c:#EAFBF6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0v24h24V0H0zm7.041 3a5.049 5.049 0 0 1 .219 0c1.86 0 3 .6 3.9 1.56L9.78 6.18C9 5.46 8.22 5.04 7.26 5.04c-1.68 0-2.88 1.38-2.88 3.12 0 1.68 1.2 3.12 2.88 3.12 1.14 0 1.86-.48 2.64-1.14l1.38 1.38c-1.02 1.08-2.16 1.8-4.08 1.8a5.1 5.1 0 0 1-5.1-5.16A5.049 5.049 0 0 1 7.04 3zm5.738.12H15v8.1h4.32v1.86h-6.54V3.12zM2.28 19.5h9V21h-9v-1.5Z"/></svg><span>CLion</span></li><li class="stk" style="--c:#41CD52"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.693 3.162H3.33L0 6.49v14.348h20.671L24 17.51V3.162zM12.785 18.4l-1.562.728-1.35-2.217c-.196.057-.499.09-.924.09-1.579 0-2.683-.425-3.305-1.276-.622-.85-.932-2.2-.932-4.033 0-1.84.319-3.206.949-4.098.63-.892 1.726-1.341 3.288-1.341 1.562 0 2.658.441 3.28 1.333.63.883.94 2.25.94 4.098 0 1.219-.13 2.2-.384 2.945-.261.752-.679 1.325-1.268 1.718zm4.736-1.587c-.858 0-1.447-.196-1.766-.59-.32-.392-.483-1.136-.483-2.232v-3.534H14.11V9.051h1.162V6.843h1.644V9.05h2.094v1.415h-2.094v3.346c0 .622.05 1.03.14 1.227.09.204.326.303.695.303l1.243-.05.073 1.326c-.67.13-1.186.196-1.546.196zm-8.58-9.08c-.95 0-1.604.311-1.963.94-.352.63-.532 1.629-.532 3.011 0 1.374.172 2.364.515 2.953.344.589 1.006.892 1.98.892.973 0 1.628-.295 1.971-.876.335-.58.507-1.57.507-2.953 0-1.39-.172-2.396-.523-3.026-.352-.63-1.006-.94-1.955-.94Z"/></svg><span>Qt Creator</span></li><li class="stk" style="--c:#EAFBF6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0v24h24V0Zm17.1797 2.9477a5.452 5.452 0 0 1 3.9047 1.364L19.7078 5.972a3.672 3.672 0 0 0-2.596-1.0086c-1.6 0-2.8555 1.408-2.8555 3.096v.0282c0 1.816 1.2517 3.1523 3.0117 3.1523a3.492 3.492 0 0 0 2.064-.5921V9.2234h-2.2V7.336h4.3157v4.3157a6.436 6.436 0 0 1-4.2438 1.5757c-3.096 0-5.2242-2.1797-5.2242-5.1117v-.0281a5.1 5.1 0 0 1 5.2-5.1398zm-14.7438.1718h3.8758c3.12 0 5.2805 2.1439 5.2805 4.9399v.028c0 2.8-2.1605 4.968-5.2805 4.968H2.436Zm4.075 1.9688a2.852 2.852 0 0 0-.1992.003H4.6203v6h1.6914A2.832 2.832 0 0 0 9.304 8.1235v-.036a2.852 2.852 0 0 0-2.793-2.9991Zm-4.303 14.407h9v1.5h-9z"/></svg><span>DataGrip</span></li><li class="stk" style="--c:#EAFBF6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg><span>Cursor</span></li></ul></div><div class="stk-group"><h3>Réseau <span>03</span></h3><ul class="stk-grid"><li class="stk" style="--c:#1BA0D7"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.331 18.171V17.06l-.022.01c-.25.121-.522.19-.801.203a1.186 1.186 0 01-.806-.237 1.038 1.038 0 01-.352-.498 1.21 1.21 0 01-.023-.667c.052-.225.178-.426.357-.569.16-.134.355-.218.562-.242a1.85 1.85 0 011.061.198l.024.013v-1.117l-.051-.014a2.862 2.862 0 00-1.011-.132 2.34 2.34 0 00-.903.206c-.287.132-.54.327-.739.571a2.221 2.221 0 00-.04 2.705c.295.378.709.645 1.175.756.491.12 1.006.102 1.487-.052l.082-.023M5.336 18.171V17.06l-.022.01c-.25.121-.522.19-.801.203a1.183 1.183 0 01-.806-.237 1.03 1.03 0 01-.351-.498 1.202 1.202 0 01-.024-.667c.052-.225.177-.426.357-.569.16-.134.355-.218.562-.242a1.85 1.85 0 011.061.198l.024.013v-1.117l-.051-.014a2.862 2.862 0 00-1.011-.132 2.344 2.344 0 00-.903.206 2.08 2.08 0 00-.74.571 2.224 2.224 0 00-.041 2.705 2.11 2.11 0 001.176.756c.491.12 1.005.102 1.487-.052l.083-.023M9.26 17.249l-.004.957.07.012c.22.041.441.069.664.085.195.019.391.022.587.012.187-.014.372-.049.551-.104.21-.06.405-.163.571-.305a1.16 1.16 0 00.333-.478 1.31 1.31 0 00-.007-.96 1.068 1.068 0 00-.298-.414 1.261 1.261 0 00-.438-.255l-.722-.268a.388.388 0 01-.197-.188.245.245 0 01.008-.219.382.382 0 01.154-.142.798.798 0 01.257-.074c.153-.022.308-.021.46.005.18.02.358.051.533.096l.038.008v-.883l-.069-.015a4.749 4.749 0 00-.543-.097 2.844 2.844 0 00-.714-.003c-.3.027-.585.143-.821.33-.16.126-.281.293-.351.484-.104.29-.105.608 0 .899.054.145.14.274.252.381.097.093.207.173.327.236.157.084.324.149.497.195.057.017.114.035.17.054l.085.031.024.01c.084.03.162.078.226.14.045.042.08.094.101.151a.325.325 0 01.001.161.339.339 0 01-.166.198.856.856 0 01-.275.086 2.032 2.032 0 01-.427.021 5.208 5.208 0 01-.557-.074 9.195 9.195 0 01-.287-.067l-.033-.006zm-2.475.995h1.05v-4.167h-1.05v4.167zm12.162-2.936a1.095 1.095 0 011.541.158 1.094 1.094 0 01-.157 1.541l-.017.014a1.096 1.096 0 01-1.367-1.713m-1.525.854a2.193 2.193 0 002.666 2.107 2.139 2.139 0 00.701-3.937 2.207 2.207 0 00-3.367 1.83M22.961 10.728a.52.52 0 001.039 0V9.573a.52.52 0 00-1.039 0v1.155M20.117 10.728a.522.522 0 001.041 0V8.139a.521.521 0 00-1.04 0v2.589M17.231 11.771a.521.521 0 001.039 0V6.17a.52.52 0 00-1.039 0v5.601M14.393 10.728a.521.521 0 001.04 0V8.139a.52.52 0 00-1.039 0v2.589M11.494 10.728a.522.522 0 001.039 0V9.573a.52.52 0 00-1.039 0v1.155M8.624 10.728a.52.52 0 001.039 0V8.139a.52.52 0 00-1.039 0v2.589M5.737 11.771a.52.52 0 001.039 0V6.17a.52.52 0 00-1.039 0v5.601M2.876 10.728a.522.522 0 001.04 0V8.139a.52.52 0 00-1.039 0v2.589M0 10.728a.521.521 0 001.039 0V9.573a.52.52 0 00-1.039 0v1.155"/></svg><span>Packet Tracer</span></li><li class="stk" style="--c:#1679A7"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2.95 0c-1.62 0-2.95 1.32-2.95 2.95v18.1c0 1.63 1.32 2.95 2.95 2.95h18.1c1.62 0 2.95-1.32 2.95-2.95v-18.1c-.00024-1.63-1.32-2.95-2.95-2.95zm0 1.09h18.1c1.04 0 1.85.818 1.85 1.86v14h-5.27c-.335-.796-2.57-6.47.283-10.9a.516.517 0 0 0-.443-.794c-5.24.0827-8.2 3.19-9.74 6.21-1.35 2.64-1.63 4.91-1.69 5.53h-4.95v-14c0-1.04.817-1.86 1.85-1.86zm13.6 5.24c-2.62 5.24.248 11.4.248 11.4a.516.517 0 0 0 .469.301h5.62v3.05c0 1.04-.817 1.86-1.85 1.86h-18.1c-1.04 0-1.85-.818-1.85-1.86v-3.05h5.39a.516.517 0 0 0 .514-.477s.226-2.8 1.66-5.62c1.34-2.62 3.67-5.17 7.91-5.57z"/></svg><span>Wireshark</span></li><li class="stk" style="--c:#8FFFE0"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 2v12h16V6H4Zm2.3 2.3 3.7 3.7-3.7 3.7-1.4-1.4 2.3-2.3-2.3-2.3 1.4-1.4ZM11 15h6v2h-6v-2Z"/></svg><span>SSH</span></li></ul></div><div class="stk-group"><h3>Systèmes embarqués <span>03</span></h3><ul class="stk-grid"><li class="stk" style="--c:#A22846"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m19.8955 10.8961-.1726-.3028c.0068-2.1746-1.0022-3.061-2.1788-3.7348.356-.0938.7237-.1711.8245-.6182.6118-.1566.7397-.4398.8011-.7398.16-.1066.6955-.4061.6394-.9211.2998-.2069.4669-.4725.3819-.8487.3222-.3515.407-.6419.2702-.9096.3868-.4805.2152-.7295.05-.9817.2897-.5254.0341-1.0887-.7758-.9944-.3221-.4733-1.0244-.3659-1.133-.3637-.1215-.1519-.2819-.2821-.7755-.219-.3197-.2851-.6771-.2364-1.0458-.0964-.4378-.3403-.7275-.0675-1.0584.0356-.53-.1706-.6513.0631-.9117.1583-.5781-.1203-.7538.1416-1.0309.4182l-.3224-.0063c-.8719.5061-1.305 1.5366-1.4585 2.0664-.1536-.5299-.5858-1.5604-1.4575-2.0664l-.3223.0063C9.942.5014 9.7663.2394 9.1883.3597 8.9279.2646 8.807.0309 8.2766.2015c-.2172-.0677-.417-.2084-.6522-.2012l.0004.0002C7.5017.0041 7.369.049 7.2185.166c-.3688-.1401-.7262-.1887-1.0459.0964-.4936-.0631-.654.0671-.7756.219C5.2887.4791 4.5862.3717 4.264.845c-.8096-.0943-1.0655.4691-.7756.9944-.1653.2521-.3366.5013.05.9819-.1367.2677-.0519.5581.2703.9096-.085.3763.0822.6418.3819.8487-.0561.515.4795.8144.6394.9211.0614.3001.1894.5832.8011.7398.1008.4472.4685.5244.8245.6183-1.1766.6737-2.1856 1.56-2.1788 3.7348l-.1724.3028c-1.3491.8082-2.5629 3.4056-.6648 5.5167.124.6609.3319 1.1355.5171 1.6609.2769 2.117 2.0841 3.1082 2.5608 3.2255.6984.524 1.4423 1.0212 2.449 1.3696.949.964 1.977 1.3314 3.0107 1.3308.0152 0 .0306.0002.0457 0 1.0337.0006 2.0618-.3668 3.0107-1.3308 1.0067-.3483 1.7506-.8456 2.4491-1.3696.4766-.1173 2.2838-1.1085 2.5607-3.2255.1851-.5253.3931-1 .517-1.6609 1.8981-2.1113.6843-4.7089-.6649-5.517zm-1.0386-.3715c-.0704.8759-4.6354-3.0504-3.8472-3.1808 2.1391-.3558 3.9191.896 3.8472 3.1808zm-2.0155 4.3649c-1.1481.7409-2.8025.2626-3.6953-1.0681-.8928-1.3306-.6858-3.0101.4623-3.7509 1.1481-.7409 2.8025-.2627 3.6953 1.068.8927 1.3307.6858 3.0101-.4623 3.751zM13.6591 1.3721c.0396.1967.0843.321.1354.3577.2537-.272.4611-.5506.7878-.8123.0011.1537-.0776.3205.1169.4425.1752-.2356.4119-.4459.7263-.6244-.1514.2611-.026.3404.0554.4486.24-.2059.4681-.4144.9109-.5759-.121.1474-.2902.2914-.1108.4607.2473-.1544.496-.3086 1.0833-.4183-.1323.1475-.4059.295-.2401.4426.3104-.1186.6539-.2047 1.034-.2546-.182.1496-.3337.2963-.1846.4122.3323-.1022.7899-.2398 1.2372-.1212l-.2832.2849c-.0314.0382.6623.0297 1.1202.0364-.167.2321-.3375.4562-.437.8548.0454.0459.2723.0204.4862 0-.2194.4618-.6004.5783-.6893.776.134.1015.32.075.5232.006-.158.3254-.4892.5484-.7509.8123.0662.047.1818.075.4555.0425-.2418.257-.5339.492-.8802.7032.0614.0708.2722.0681.4678.0727-.3136.3069-.7173.466-1.0955.6668.1885.1288.3234.0988.4678.097-.2676.2198-.7225.3342-1.1448.4668.0803.1249.1607.1589.3324.194-.447.2473-1.0873.1343-1.2679.2607.0435.1243.1665.2053.3139.2728-.7197.0418-2.6879-.0262-3.0652-1.5156.7367-.8094 2.0813-1.7593 4.394-2.934-1.7994.6022-3.4229 1.405-4.7817 2.5096-1.5978-.7436-.4965-2.6197.283-3.3645zm-1.6126 5.3718c1.1329-.0123 2.5356.8325 2.53 1.6286-.005.7027-.9851 1.2715-2.5213 1.2607-1.5043-.0177-2.5172-.7148-2.5137-1.3957.003-.5603 1.2282-1.5263 2.505-1.4936zm-5.7646-.6006c.1717-.0351.252-.0692.3323-.194-.4223-.1327-.8772-.247-1.1448-.4668.1444.0018.2792.0318.4678-.097-.3783-.2008-.782-.3599-1.0956-.6668.1955-.0048.4064-.002.4677-.0728-.3462-.2113-.6383-.4463-.8801-.7033.2738.0325.3893.0045.4555-.0425-.2617-.264-.593-.487-.7509-.8123.2032.069.3892.0954.5232-.006-.089-.1977-.47-.3142-.6894-.776.214.0204.4409.0459.4863 0-.0994-.3985-.2698-.6226-.4369-.8547.4579-.0067 1.1516.0018 1.1202-.0364l-.2831-.2849c.4472-.1186.9049.019 1.2371.1213.1492-.1159-.0026-.2626-.1847-.4123.3801.05.7236.1361 1.034.2547.1659-.1476-.1076-.2951-.24-.4426.5872.1097.8361.2639 1.0833.4183.1794-.1694.0103-.3133-.1108-.4607.4428.1615.6709.37.911.5759.0814-.1082.2068-.1875.0554-.4486.3143.1785.5511.3888.7263.6244.1945-.122.1159-.2888.1169-.4426.3267.2618.534.5404.7879.8124.0511-.0366.0959-.161.1354-.3577.7794.7448 1.8807 2.6208.2831 3.3646-1.3589-1.1039-2.9817-1.9064-4.78-2.5086 2.3115 1.174 3.6556 2.1239 4.392 2.9328-.3773 1.4895-2.3455 1.5575-3.0651 1.5157.1473-.0676.2703-.1485.3139-.2728-.1806-.1264-.8209-.0134-1.2679-.2607zm2.8175 1.1334c.7881.1304-3.7769 4.0567-3.8472 3.1809-.0719-2.2846 1.7079-3.5367 3.8472-3.1809zm-4.847 8.7567c-1.1094-.8789-1.4668-3.4529.5901-4.6097 1.2394-.3273.4184 5.051-.5901 4.6097zm4.2656 4.5989c-.6257.3719-2.1452.2187-3.2252-1.3095-.7283-1.2823-.6345-2.5872-.123-2.9705.7648-.4589 1.9464.1609 2.8559 1.2003.7923.9405 1.1536 2.5927.4923 3.0797zm-1.2415-5.6086c-1.1481-.7409-1.3551-2.4203-.4623-3.7511.8928-1.3307 2.5472-1.8089 3.6952-1.068 1.1481.7409 1.3551 2.4203.4623 3.7509-.8926 1.3308-2.5471 1.809-3.6952 1.0682zm4.7948 8.2279c-1.3763.0584-2.7258-1.1105-2.7081-1.5157-.0206-.594 1.6758-1.0578 2.782-1.0306 1.1131-.0479 2.6068.3531 2.6097.8851.0184.5166-1.3547 1.6838-2.6836 1.6612zm2.7584-5.8578c.0081 1.3899-1.226 2.5225-2.7562 2.5299-1.5302.0073-2.7773-1.1135-2.7854-2.5033v-.0265c-.008-1.3899 1.2259-2.5226 2.7562-2.5299 1.5302-.0073 2.7773 1.1134 2.7853 2.5033a.7794.7794 0 0 1 .0001.0265zm3.855 2.0029c-1.186 1.6208-2.7916 1.684-3.3896 1.2325-.6255-.5811-.148-2.3854.7094-3.3747v-.0003c.9812-1.0912 2.0302-1.8037 2.7609-1.2469.4919.4828.7805 2.3008-.0807 3.3894zm1.0724-3.4301c-1.0086.4413-1.8298-4.9372-.5901-4.61 2.0568 1.1569 1.6994 3.731.5901 4.61zm-.0256-8.3279h.2985v-.5304h.2986c.1502 0 .2053.0624.2262.2052.0152.1088.0113.2395.0477.3253h.2984c-.0533-.0763-.0515-.2358-.0571-.3213-.0097-.1373-.0513-.2796-.1977-.3176v-.0037c.1502-.061.2149-.1807.2149-.341 0-.2048-.1539-.3738-.3974-.3738h-.732v1.3573zm.2985-1.1255h.3269c.1333 0 .2054.0573.2054.188 0 .1369-.0721.1942-.2054.1942H20.03v-.3822zm-1.0337.4633c0 .7009.5682 1.2694 1.2695 1.2694s1.2695-.5684 1.2695-1.2694c0-.7013-.5683-1.2697-1.2695-1.2697-.7013 0-1.2695.5684-1.2695 1.2697zm2.3275 0c0 .5845-.4737 1.058-1.058 1.058s-1.058-.4735-1.058-1.058c0-.5849.4737-1.058 1.058-1.058s1.058.4731 1.058 1.058z"/></svg><span>Raspberry Pi</span></li><li class="stk" style="--c:#00878F"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.087 6.146c-.3 0-.607.017-.907.069-2.532.367-4.23 2.239-5.18 3.674-.95-1.435-2.648-3.307-5.18-3.674a6.49 6.49 0 0 0-.907-.069C2.648 6.146 0 8.77 0 12s2.656 5.854 5.913 5.854c.3 0 .607-.017.916-.069 2.531-.376 4.23-2.247 5.18-3.683.949 1.436 2.647 3.307 5.18 3.683.299.043.607.069.915.069C21.344 17.854 24 15.23 24 12s-2.656-5.854-5.913-5.854zM6.53 15.734a3.837 3.837 0 0 1-.625.043c-2.148 0-3.889-1.7-3.889-3.777 0-2.085 1.749-3.777 3.898-3.777.208 0 .416.017.624.043 2.39.35 3.847 2.768 4.347 3.734-.508.974-1.974 3.384-4.355 3.734zm11.558.043c-.208 0-.416-.017-.624-.043-2.39-.35-3.856-2.768-4.347-3.734.491-.966 1.957-3.384 4.347-3.734.208-.026.416-.043.624-.043 2.149 0 3.89 1.7 3.89 3.777 0 2.085-1.75 3.777-3.89 3.777zm1.65-4.404v1.134h-1.205v1.182h-1.156v-1.182H16.17v-1.134h1.206V10.19h1.156v1.183h1.206zM4.246 12.498H7.82v-1.125H4.245v1.125z"/></svg><span>Arduino</span></li><li class="stk" style="--c:#E7352C"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.926 19.324a7.6 7.6 0 00-2.983-6.754 7.44 7.44 0 00-3.828-1.554.697.697 0 01-.606-.731.674.674 0 01.743-.617 8.97 8.97 0 018 9.805 7.828 7.828 0 01-.298 1.542l1.989.56a11.039 11.039 0 001.714-.651 12.159 12.159 0 00.217-2.343A12.57 12.57 0 007.212 6.171a5.53 5.53 0 00-2 0 4.354 4.354 0 00-2.16 1.337 4.274 4.274 0 001.909 6.856 9.896 9.896 0 001.074.195 4.011 4.011 0 013.337 3.954 3.965 3.965 0 01-.64 2.16l1.371.88a10.182 10.182 0 002.057.342 7.52 7.52 0 00.754-2.628m.16 4.73A13.073 13.073 0 01.001 10.983 12.982 12.982 0 013.83 1.737l.743.697a12.067 12.067 0 000 17.141 12.067 12.067 0 0017.141 0l.697.697a12.97 12.97 0 01-9.336 3.726M24 10.993A10.993 10.993 0 0012.949 0c-.389 0-.766 0-1.143.057l-.252.732a18.912 18.912 0 0111.588 11.576l.731-.263c0-.366.069-.732.069-1.143m-1.269 5.165A17.53 17.53 0 007.818 1.27a11.119 11.119 0 00-2.457 1.77v1.635A13.919 13.919 0 0119.268 18.57h1.634a11.713 11.713 0 001.771-2.446M7.92 17.884a1.691 1.691 0 11-1.69-1.691 1.691 1.691 0 011.69 1.691"/></svg><span>ESP32</span></li></ul></div><div class="stk-group"><h3>Conception & organisation <span>03</span></h3><ul class="stk-grid"><li class="stk" style="--c:#F24E1E"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg><span>Figma</span></li><li class="stk" style="--c:#F08705"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.69 13.419h-2.527l-2.667-4.555a1.292 1.292 0 001.035-1.28V4.16c0-.725-.576-1.312-1.302-1.312H9.771c-.726 0-1.312.576-1.312 1.301v3.435c0 .619.426 1.152 1.034 1.28l-2.666 4.555H4.309c-.725 0-1.312.576-1.312 1.301v3.435c0 .725.576 1.312 1.302 1.312h4.458c.726 0 1.312-.576 1.312-1.302v-3.434c0-.726-.576-1.312-1.301-1.312h-.437l2.645-4.523h2.059l2.656 4.523h-.438c-.725 0-1.312.576-1.312 1.301v3.435c0 .725.576 1.312 1.302 1.312H19.7c.726 0 1.312-.576 1.312-1.302v-3.434c0-.726-.576-1.312-1.301-1.312zM24 22.976c0 .565-.459 1.024-1.013 1.024H1.024A1.022 1.022 0 010 22.987V1.024C0 .459.459 0 1.013 0h21.963C23.541 0 24 .459 24 1.013z"/></svg><span>draw.io</span></li><li class="stk" style="--c:#0052CC"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.147 0H2.853A2.86 2.86 0 000 2.853v18.294A2.86 2.86 0 002.853 24h18.294A2.86 2.86 0 0024 21.147V2.853A2.86 2.86 0 0021.147 0zM10.34 17.287a.953.953 0 01-.953.953h-4a.954.954 0 01-.954-.953V5.38a.953.953 0 01.954-.953h4a.954.954 0 01.953.953zm9.233-5.467a.944.944 0 01-.953.947h-4a.947.947 0 01-.953-.947V5.38a.953.953 0 01.953-.953h4a.954.954 0 01.953.953z"/></svg><span>Trello</span></li></ul></div><div class="stk-group"><h3>Systèmes <span>04</span></h3><ul class="stk-grid"><li class="stk" style="--c:#FCC624"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></svg><span>Linux</span></li><li class="stk" style="--c:#EAFBF6"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>macOS</span></li><li class="stk" style="--c:#3FA9F5"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1 5v9h16V9H4Zm1-3v1.5h1.5V6H5Zm2.5 0v1.5H9V6H7.5Z"/></svg><span>Windows</span></li><li class="stk" style="--c:#607078"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.5 10.1a.505.505 0 00-.197.048.497.497 0 00-.25.68l1.138 2.475c.179.38.38.592.721.592.342 0 .542-.22.72-.592l1.003-2.186a.144.144 0 01.144-.092.16.16 0 01.157.16v2.118a.535.535 0 101.066 0v-1.73a.531.531 0 01.566-.552.52.52 0 01.541.551v1.73a.531.531 0 00.53.593.539.539 0 00.535-.592v-1.73a.531.531 0 01.564-.552.52.52 0 01.543.551v1.73a.531.531 0 00.528.593.535.535 0 00.535-.592v-1.969a1.234 1.234 0 00-1.283-1.23 1.647 1.647 0 00-1.14.486 1.26 1.26 0 00-1.095-.483 1.807 1.807 0 00-1.074.483 1.287 1.287 0 00-.961-.483 1.177 1.177 0 00-1.158.786l-.729 1.716-.933-2.203.011-.004A.505.505 0 00.5 10.1zm18.43.06a.27.27 0 00-.266.274h.002v3.142a.27.27 0 10.535 0v-1.222c0-1.037.571-1.56 1.27-1.643a.266.266 0 00.238-.274.258.258 0 00-.266-.269 1.465 1.465 0 00-1.242.88v-.614a.266.266 0 00-.271-.274zm-6.735.008a.273.273 0 00-.25.217l-.912 2.627-.902-2.62a.28.28 0 00-.274-.22.266.266 0 00-.27.258.493.493 0 00.034.144l1.09 3.037.02-.007a.319.319 0 00.298.242.3.3 0 00.293-.242l.903-2.583.896 2.583a.3.3 0 00.293.242h.018a.319.319 0 00.293-.242l1.097-3.038a.512.512 0 00.033-.144.258.258 0 00-.265-.25.262.262 0 00-.258.209l-.918 2.63-.904-2.626a.285.285 0 00-.278-.217h-.025a.273.273 0 00-.012 0zm10.168.008a1.75 1.75 0 00-1.691 1.851 1.765 1.765 0 001.76 1.858l-.008.013a1.784 1.784 0 001.33-.539.228.228 0 00.082-.17.228.228 0 00-.379-.168 1.435 1.435 0 01-1.018.415 1.237 1.237 0 01-1.24-1.207h2.555a.247.247 0 00.246-.247c0-.945-.593-1.806-1.637-1.806zm-5.744.002a1.571 1.571 0 00-.158.006 2.384 2.384 0 00-1.078.205.22.22 0 00-.143.222.24.24 0 00.235.229.266.266 0 00.095-.024 1.822 1.822 0 01.834-.162c.691 0 1.07.334 1.07.979v.125a3.796 3.796 0 00-1.103-.15c-.892 0-1.52.4-1.52 1.16l-.003-.004c0 .736.671 1.117 1.34 1.117a1.575 1.575 0 001.298-.62v.343a.247.247 0 00.254.25.254.254 0 00.258-.262v-1.983a1.416 1.416 0 00-.379-1.046 1.571 1.571 0 00-1-.385zm5.719.43c.714 0 1.085.565 1.139 1.214h-2.278a1.222 1.222 0 011.139-1.215zm-5.885 1.382a3.75 3.75 0 011.057.153V12.49c0 .57-.539.973-1.2.973-.485 0-.904-.261-.904-.713 0-.467.375-.76 1.047-.76Z"/></svg><span>VMware</span></li></ul></div></div>
-    </div>
-  </div>
-</section>
 
-<!-- PROJECTS -->
-<section class="projects" id="projets">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <span class="label">Projets</span>
-        <h2>Ce que j'ai <em>construit.</em></h2>
-      </div>
-      <p class="reveal">Des projets réalisés pendant mon BUT Informatique. Le code est sur mon GitHub.</p>
-    </div>
+      <!-- Chaque outil : --brand = couleur officielle affichée au survol ; icon--xxx = logo (défini dans css/style.css) -->
+      <div class="toolbox reveal">
+        <div class="toolbox__head">
+          <span class="label">Ma boîte à outils</span>
+          <p>Les langages et outils que j'utilise en cours et sur mes projets.</p>
+        </div>
 
-    <div class="sq reveal" id="sq" aria-roledescription="carrousel" aria-label="Mes projets">
-      <div class="sq-top">
-        <span class="sq-count"><b id="sqNum">01</b> / 07</span>
-        <div class="sq-arrows">
-          <button class="sq-arrow" type="button" id="sqPrev" aria-label="Projet précédent"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9.6 2.6 5.1 7.1h9.1v1.8H5.1l4.5 4.5-1.2 1.2-6-6L1.8 8l.6-.6 6-6 1.2 1.2Z"/></svg></button>
-          <button class="sq-arrow" type="button" id="sqNext" aria-label="Projet suivant"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.4 2.6l4.5 4.5H1.8v1.8h9.1l-4.5 4.5 1.2 1.2 6-6 .6-.6-.6-.6-6-6-1.2 1.2Z"/></svg></button>
+        <div class="tool-group">
+          <h3>Langages <span>09</span></h3>
+          <ul class="tool-grid">
+            <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--java"></i>Java</li>
+            <li class="tool" style="--brand:#00599C"><i class="icon icon--cpp"></i>C++</li>
+            <li class="tool" style="--brand:#F7DF1E"><i class="icon icon--javascript"></i>JavaScript</li>
+            <li class="tool" style="--brand:#777BB4"><i class="icon icon--php"></i>PHP</li>
+            <li class="tool" style="--brand:#E34F26"><i class="icon icon--html"></i>HTML</li>
+            <li class="tool" style="--brand:#663399"><i class="icon icon--css"></i>CSS</li>
+            <li class="tool" style="--brand:#4479A1"><i class="icon icon--sql"></i>SQL</li>
+            <li class="tool" style="--brand:#4EAA25"><i class="icon icon--bash"></i>Bash / Shell</li>
+            <li class="tool" style="--brand:#D22128"><i class="icon icon--apache"></i>Apache</li>
+          </ul>
         </div>
-      </div>
-      <ul class="sq-data" hidden>
-        <li data-img="hq.jpg" data-alt="Page d&#x27;accueil du site HQ Steakhouse &amp; Bar" data-name="HQ Steakhouse"></li>
-        <li data-img="livre.jpg" data-alt="Livre ancien ouvert, illustration du projet de livre interactif" data-name="Livre interactif en Qt"></li>
-        <li data-img="puissance4.jpg" data-alt="Illustration d&#x27;une partie de Puissance 4" data-name="Puissance 4 sur ESP32"></li>
-        <li data-img="memorizz.jpg" data-alt="Écran de chargement du jeu Memorizz" data-name="Memorizz"></li>
-        <li data-img="vetclinic.jpg" data-alt="Maquette du tableau de bord VetClinic" data-name="VetClinic"></li>
-        <li data-img="raspberry.jpg" data-alt="Carte Raspberry Pi en gros plan" data-name="Raspberry Pi"></li>
-        <li data-img="cartes-jpo.jpg" data-alt="Illustration des cartes étudiantes avec QR code" data-name="Cartes JPO"></li>
-      </ul>
-      <div class="sq-view"><div class="sq-strip" id="sqStrip" role="tablist" aria-label="Projets"></div></div>
-      <div class="sq-panels" aria-live="polite">
-        <div class="sq-panel on" data-i="0" aria-hidden="false">
-          <div class="sq-text">
-            <span class="label">Projet BUT · 1re année · Client réel</span>
-            <h3>HQ Steakhouse &amp; Bar</h3>
-            <p>Analyse des besoins et conception du site d'un vrai restaurant du Cap : architecture, charte graphique, 11 pages HTML/CSS responsive (menu, promotions, réservation, contact).</p>
-            <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span></div>
-          </div>
-          <div class="sq-actions"><a class="sq-btn" href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank" rel="noopener">Voir le site <span aria-hidden="true">→</span></a><a class="sq-btn ghost" href="https://github.com/tristanmuller007/HQ-WEBSITE" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a></div>
+
+        <div class="tool-group">
+          <h3>Développement <span>08</span></h3>
+          <ul class="tool-grid">
+            <li class="tool" style="--brand:#F03C2E"><i class="icon icon--git"></i>Git</li>
+            <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--github"></i>GitHub</li>
+            <li class="tool" style="--brand:#3FA9F5"><i class="icon icon--vscode"></i>VS Code</li>
+            <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--intellij"></i>IntelliJ IDEA</li>
+            <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--clion"></i>CLion</li>
+            <li class="tool" style="--brand:#41CD52"><i class="icon icon--qt"></i>Qt Creator</li>
+            <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--datagrip"></i>DataGrip</li>
+            <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--cursor"></i>Cursor</li>
+          </ul>
         </div>
-        <div class="sq-panel" data-i="1" aria-hidden="true">
-          <div class="sq-text">
-            <span class="label">Projet BUT · 1re année · Groupe de 3</span>
-            <h3>Éditeur de livre dont vous êtes le héros</h3>
-            <p>Application de bureau pour écrire, jouer et exporter en site web un livre interactif : éditeur de texte riche, points de vie et inventaire, sauvegarde JSON, export HTML avec carte interactive.</p>
-            <div class="tags"><span>C++</span><span>Qt 6</span><span>JSON</span><span>HTML/JS</span></div>
-          </div>
-          <div class="sq-actions"><a class="sq-btn" href="https://github.com/tristanmuller007/Editeur-Livre-Heros-Qt" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a></div>
+
+        <div class="tool-group">
+          <h3>Réseau <span>03</span></h3>
+          <ul class="tool-grid">
+            <li class="tool" style="--brand:#1BA0D7"><i class="icon icon--cisco"></i>Packet Tracer</li>
+            <li class="tool" style="--brand:#1679A7"><i class="icon icon--wireshark"></i>Wireshark</li>
+            <li class="tool" style="--brand:#8FFFE0"><i class="icon icon--ssh"></i>SSH</li>
+          </ul>
         </div>
-        <div class="sq-panel" data-i="2" aria-hidden="true">
-          <div class="sq-text">
-            <span class="label">Projet BUT · 1re année · Binôme</span>
-            <h3>Puissance 4 sur ESP32</h3>
-            <p>Jeu embarqué sur cartes ESP32 et matrice de LED : 3 modes dont un duo en réseau sans fil entre deux cartes (ESP-NOW) et un bot. J'ai développé l'affichage et la partie réseau.</p>
-            <div class="tags"><span>C++</span><span>ESP32</span><span>ESP-NOW</span><span>NeoPixel</span></div>
-          </div>
-          <div class="sq-actions"><a class="sq-btn" href="https://github.com/tristanmuller007/Puissance4-ESP32" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a><a class="sq-btn ghost" href="https://youtu.be/QPD8s98ix84" target="_blank" rel="noopener">Vidéo <span aria-hidden="true">→</span></a></div>
+
+        <div class="tool-group">
+          <h3>Systèmes embarqués <span>03</span></h3>
+          <ul class="tool-grid">
+            <li class="tool" style="--brand:#A22846"><i class="icon icon--raspberrypi"></i>Raspberry Pi</li>
+            <li class="tool" style="--brand:#00878F"><i class="icon icon--arduino"></i>Arduino</li>
+            <li class="tool" style="--brand:#E7352C"><i class="icon icon--esp32"></i>ESP32</li>
+          </ul>
         </div>
-        <div class="sq-panel" data-i="3" aria-hidden="true">
-          <div class="sq-text">
-            <span class="label">Projet BUT · 1re année · Jeu</span>
-            <h3>Memorizz</h3>
-            <p>Jeu de memory éducatif (drapeaux, pays, hymnes...) : 3 difficultés, mode Enfer où les cartes se mélangent, classement sauvegardé, bilingue, mode sombre. Développé en programmation orientée objet.</p>
-            <div class="tags"><span>Processing</span><span>Java</span><span>POO</span></div>
-          </div>
-          <div class="sq-actions"><a class="sq-btn" href="https://github.com/tristanmuller007/Memorizz" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a></div>
+
+        <div class="tool-group">
+          <h3>Conception &amp; organisation <span>03</span></h3>
+          <ul class="tool-grid">
+            <li class="tool" style="--brand:#F24E1E"><i class="icon icon--figma"></i>Figma</li>
+            <li class="tool" style="--brand:#F08705"><i class="icon icon--drawio"></i>draw.io</li>
+            <li class="tool" style="--brand:#0052CC"><i class="icon icon--trello"></i>Trello</li>
+          </ul>
         </div>
-        <div class="sq-panel" data-i="4" aria-hidden="true">
-          <div class="sq-text">
-            <span class="label">Projet BUT · 1re année · Groupe de 4</span>
-            <h3>VetClinic</h3>
-            <p>Cahier des charges complet d'une application web de gestion de clinique vétérinaire : besoins, 8 modules, maquettes, dictionnaire de données, planning et devis. J'ai coordonné le groupe et rédigé le cahier des charges.</p>
-            <div class="tags"><span>Cahier des charges</span><span>Maquettes</span><span>Gestion de projet</span></div>
-          </div>
-          
-        </div>
-        <div class="sq-panel" data-i="5" aria-hidden="true">
-          <div class="sq-text">
-            <span class="label">Projet BUT · 1re année · Binôme</span>
-            <h3>Serveur web sur Raspberry Pi</h3>
-            <p>Mise en place d'un environnement de développement web : serveur Apache, PHP, base de données MariaDB, Git et script de sauvegarde en Bash.</p>
-            <div class="tags"><span>Linux</span><span>Apache</span><span>PHP</span><span>MariaDB</span><span>Bash</span></div>
-          </div>
-          
-        </div>
-        <div class="sq-panel" data-i="6" aria-hidden="true">
-          <div class="sq-text">
-            <span class="label">Projet BUT · 1re année · Travail en équipe</span>
-            <h3>Cartes étudiantes pour les JPO</h3>
-            <p>Pour valoriser l'IUT aux Journées Portes Ouvertes : des cartes étudiantes avec un QR code vers le site perso de chaque étudiant. Conception graphique en équipe et pipeline automatisé en Node.js (QR codes, cartes SVG).</p>
-            <div class="tags"><span>Node.js</span><span>SVG</span><span>QR codes</span></div>
-          </div>
-          <div class="sq-actions"><a class="sq-btn" href="https://github.com/tristanmuller007/Cartes-Etudiantes-JPO" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a></div>
+
+        <div class="tool-group">
+          <h3>Systèmes <span>04</span></h3>
+          <ul class="tool-grid">
+            <li class="tool" style="--brand:#FCC624"><i class="icon icon--linux"></i>Linux</li>
+            <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--macos"></i>macOS</li>
+            <li class="tool" style="--brand:#3FA9F5"><i class="icon icon--windows"></i>Windows</li>
+            <li class="tool" style="--brand:#607078"><i class="icon icon--vmware"></i>VMware</li>
+          </ul>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="more reveal">
-      <a class="btn" href="https://github.com/tristanmuller007?tab=repositories" target="_blank" rel="noopener">Tous mes dépôts GitHub →</a>
-    </div>
-  </div>
-</section>
 
-<!-- PARCOURS -->
-<section class="path" id="parcours">
-  <div class="path-inner">
+  <!-- ============================================================
+       PROJETS : carrousel "squeeze" (piloté par js/main.js)
+       Les vignettes sont générées en JS à partir de la liste .carousel__data,
+       les textes sont dans les .carousel__panel (un par projet, même ordre).
+       ============================================================ -->
+  <section class="projects" id="projets">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="section-head">
         <div class="reveal">
+          <span class="label">Projets</span>
+          <h2>Ce que j'ai <em>construit.</em></h2>
+        </div>
+        <p class="reveal">Des projets réalisés pendant mon BUT Informatique. Le code est sur mon GitHub.</p>
+      </div>
+
+      <div class="carousel reveal" id="carousel" aria-roledescription="carrousel" aria-label="Mes projets">
+        <div class="carousel__top">
+          <span class="counter"><b data-counter>01</b> / 07</span>
+          <div class="arrows">
+            <button class="arrow" type="button" data-prev aria-label="Projet précédent">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.6 2.6 5.1 7.1h9.1v1.8H5.1l4.5 4.5-1.2 1.2-6-6L1.8 8l.6-.6 6-6 1.2 1.2Z"/></svg>
+            </button>
+            <button class="arrow" type="button" data-next aria-label="Projet suivant">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.4 2.6l4.5 4.5H1.8v1.8h9.1l-4.5 4.5 1.2 1.2 6-6 .6-.6-.6-.6-6-6-1.2 1.2Z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <ul class="carousel__data" hidden>
+          <li data-img="assets/img/hq.jpg"          data-name="HQ Steakhouse"></li>
+          <li data-img="assets/img/livre.jpg"       data-name="Livre interactif en Qt"></li>
+          <li data-img="assets/img/puissance4.jpg"  data-name="Puissance 4 sur ESP32"></li>
+          <li data-img="assets/img/memorizz.jpg"    data-name="Memorizz"></li>
+          <li data-img="assets/img/vetclinic.jpg"   data-name="VetClinic"></li>
+          <li data-img="assets/img/raspberry.jpg"   data-name="Raspberry Pi"></li>
+          <li data-img="assets/img/cartes-jpo.jpg"  data-name="Cartes JPO"></li>
+        </ul>
+
+        <div class="carousel__view">
+          <div class="carousel__strip" role="tablist" aria-label="Projets"></div>
+        </div>
+
+        <div class="carousel__panels" aria-live="polite">
+
+          <article class="carousel__panel is-active">
+            <div class="carousel__text">
+              <span class="label">Projet BUT · 1re année · Client réel</span>
+              <h3>HQ Steakhouse &amp; Bar</h3>
+              <p>Analyse des besoins et conception du site d'un vrai restaurant du Cap : architecture, charte graphique, 11 pages HTML/CSS responsive (menu, promotions, réservation, contact).</p>
+              <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span></div>
+            </div>
+            <div class="carousel__actions">
+              <a class="btn btn--solid btn--square" href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank" rel="noopener">Voir le site →</a>
+              <a class="btn btn--ghost btn--square" href="https://github.com/tristanmuller007/HQ-WEBSITE" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </article>
+
+          <article class="carousel__panel">
+            <div class="carousel__text">
+              <span class="label">Projet BUT · 1re année · Groupe de 3</span>
+              <h3>Éditeur de livre dont vous êtes le héros</h3>
+              <p>Application de bureau pour écrire, jouer et exporter en site web un livre interactif : éditeur de texte riche, points de vie et inventaire, sauvegarde JSON, export HTML avec carte interactive.</p>
+              <div class="tags"><span>C++</span><span>Qt 6</span><span>JSON</span><span>HTML/JS</span></div>
+            </div>
+            <div class="carousel__actions">
+              <a class="btn btn--solid btn--square" href="https://github.com/tristanmuller007/Editeur-Livre-Heros-Qt" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </article>
+
+          <article class="carousel__panel">
+            <div class="carousel__text">
+              <span class="label">Projet BUT · 1re année · Binôme</span>
+              <h3>Puissance 4 sur ESP32</h3>
+              <p>Jeu embarqué sur cartes ESP32 et matrice de LED : 3 modes dont un duo en réseau sans fil entre deux cartes (ESP-NOW) et un bot. J'ai développé l'affichage et la partie réseau.</p>
+              <div class="tags"><span>C++</span><span>ESP32</span><span>ESP-NOW</span><span>NeoPixel</span></div>
+            </div>
+            <div class="carousel__actions">
+              <a class="btn btn--solid btn--square" href="https://github.com/tristanmuller007/Puissance4-ESP32" target="_blank" rel="noopener">Code →</a>
+              <a class="btn btn--ghost btn--square" href="https://youtu.be/QPD8s98ix84" target="_blank" rel="noopener">Vidéo →</a>
+            </div>
+          </article>
+
+          <article class="carousel__panel">
+            <div class="carousel__text">
+              <span class="label">Projet BUT · 1re année · Jeu</span>
+              <h3>Memorizz</h3>
+              <p>Jeu de memory éducatif (drapeaux, pays, hymnes...) : 3 difficultés, mode Enfer où les cartes se mélangent, classement sauvegardé, bilingue, mode sombre. Développé en programmation orientée objet.</p>
+              <div class="tags"><span>Processing</span><span>Java</span><span>POO</span></div>
+            </div>
+            <div class="carousel__actions">
+              <a class="btn btn--solid btn--square" href="https://github.com/tristanmuller007/Memorizz" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </article>
+
+          <article class="carousel__panel">
+            <div class="carousel__text">
+              <span class="label">Projet BUT · 1re année · Groupe de 4</span>
+              <h3>VetClinic</h3>
+              <p>Cahier des charges complet d'une application web de gestion de clinique vétérinaire : besoins, 8 modules, maquettes, dictionnaire de données, planning et devis. J'ai coordonné le groupe et rédigé le cahier des charges.</p>
+              <div class="tags"><span>Cahier des charges</span><span>Maquettes</span><span>Gestion de projet</span></div>
+            </div>
+          </article>
+
+          <article class="carousel__panel">
+            <div class="carousel__text">
+              <span class="label">Projet BUT · 1re année · Binôme</span>
+              <h3>Serveur web sur Raspberry Pi</h3>
+              <p>Mise en place d'un environnement de développement web : serveur Apache, PHP, base de données MariaDB, Git et script de sauvegarde en Bash.</p>
+              <div class="tags"><span>Linux</span><span>Apache</span><span>PHP</span><span>MariaDB</span><span>Bash</span></div>
+            </div>
+          </article>
+
+          <article class="carousel__panel">
+            <div class="carousel__text">
+              <span class="label">Projet BUT · 1re année · Travail en équipe</span>
+              <h3>Cartes étudiantes pour les JPO</h3>
+              <p>Pour valoriser l'IUT aux Journées Portes Ouvertes : des cartes étudiantes avec un QR code vers le site perso de chaque étudiant. Conception graphique en équipe et pipeline automatisé en Node.js (QR codes, cartes SVG).</p>
+              <div class="tags"><span>Node.js</span><span>SVG</span><span>QR codes</span></div>
+            </div>
+            <div class="carousel__actions">
+              <a class="btn btn--solid btn--square" href="https://github.com/tristanmuller007/Cartes-Etudiantes-JPO" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="projects__more reveal">
+        <a class="btn btn--ghost" href="https://github.com/tristanmuller007?tab=repositories" target="_blank" rel="noopener">Tous mes dépôts GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PARCOURS
+       ============================================================ -->
+  <section class="path" id="parcours">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
           <span class="label">Parcours</span>
           <h2>D'où je <em>viens.</em></h2>
         </div>
       </div>
-      <div class="timeline">
-        <div class="row reveal">
-          <span class="when">2025 - 2028</span>
-          <div><h3>BUT Informatique</h3><p>IUT Lyon 1, site de Bourg-en-Bresse · spécialité visée : développement web. Web, Java, C++, bases de données, POO, gestion de projet.</p></div>
+
+      <div class="path__list">
+        <div class="path__row reveal">
+          <span class="path__when">2025 - 2028</span>
+          <div>
+            <h3>BUT Informatique</h3>
+            <p>IUT Lyon 1, site de Bourg-en-Bresse · spécialité visée : développement web. Web, Java, C++, bases de données, POO, gestion de projet.</p>
+          </div>
           <span class="badge">En cours</span>
         </div>
-        <div class="row reveal">
-          <span class="when">2024 - 2025</span>
-          <div><h3>Bac STI2D</h3><p>Lycée de la Plaine de l'Ain, Ambérieu-en-Bugey</p></div>
+        <div class="path__row reveal">
+          <span class="path__when">2024 - 2025</span>
+          <div>
+            <h3>Bac STI2D</h3>
+            <p>Lycée de la Plaine de l'Ain, Ambérieu-en-Bugey</p>
+          </div>
           <span class="badge">Obtenu</span>
         </div>
-        <div class="row reveal">
-          <span class="when">Langues</span>
-          <div><h3>Anglais · Français</h3><p>Anglais langue maternelle, 15 ans vécus en Afrique du Sud.</p></div>
+        <div class="path__row reveal">
+          <span class="path__when">Langues</span>
+          <div>
+            <h3>Anglais · Français</h3>
+            <p>Anglais langue maternelle, 15 ans vécus en Afrique du Sud.</p>
+          </div>
           <span class="badge">Bilingue</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCES -->
-<section class="exp" id="experiences">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <span class="label">Expériences</span>
-        <h2>Là où j'ai <em>travaillé.</em></h2>
-      </div>
-      <p class="reveal">Des expériences en France et en Afrique du Sud, qui m'ont appris la rigueur, l'autonomie et le contact client.</p>
-    </div>
-    <div class="fs reveal" id="fs">
-      <div class="fs-strip">
-        <div class="fs-perf" aria-hidden="true"></div>
-        <ul class="fs-track" id="fsTrack" aria-label="Mes expériences">
-          <li class="fs-frame" data-i="0">
-            <div class="fs-edge" aria-hidden="true"><span>01</span><span>TM · EXP</span><span>01A</span></div>
-            <button type="button" class="fs-btn" aria-label="Voir : Caps Packaging"><img src="exp-caps.jpg" alt="Logo Caps Packaging sur fond de ligne de production" width="420" height="280" draggable="false"></button>
-            <div class="fs-edge" aria-hidden="true"></div>
-          </li>
-          <li class="fs-frame" data-i="1">
-            <div class="fs-edge" aria-hidden="true"><span>02</span><span></span><span>02A</span></div>
-            <button type="button" class="fs-btn" aria-label="Voir : D. Gutzwiller Group"><img src="exp-gutzwiller.jpg" alt="Logo Gutzwiller Group sur fond de vignoble alsacien" width="420" height="280" draggable="false"></button>
-            <div class="fs-edge" aria-hidden="true"></div>
-          </li>
-          <li class="fs-frame" data-i="2">
-            <div class="fs-edge" aria-hidden="true"><span>03</span><span>TM · EXP</span><span>03A</span></div>
-            <button type="button" class="fs-btn" aria-label="Voir : Fromagerie Antony"><img src="exp-antony.jpg" alt="Logo de la Fromagerie Antony sur fond de fromages en affinage" width="420" height="280" draggable="false"></button>
-            <div class="fs-edge" aria-hidden="true"></div>
-          </li>
-          <li class="fs-frame" data-i="3">
-            <div class="fs-edge" aria-hidden="true"><span>04</span><span></span><span>04A</span></div>
-            <button type="button" class="fs-btn" aria-label="Voir : Sótano Seafood & Sushi"><img src="exp-sotano.jpg" alt="Logo du restaurant Sótano sur fond de préparation de sushis" width="420" height="280" draggable="false"></button>
-            <div class="fs-edge" aria-hidden="true"></div>
-          </li>
-          <li class="fs-frame" data-i="4">
-            <div class="fs-edge" aria-hidden="true"><span>05</span><span>TM · EXP</span><span>05A</span></div>
-            <button type="button" class="fs-btn" aria-label="Voir : MTG Tennis"><img src="exp-mtg.jpg" alt="Logo MTG Tennis sur fond de court de tennis" width="420" height="280" draggable="false"></button>
-            <div class="fs-edge" aria-hidden="true"></div>
-          </li>
-        </ul>
-        <div class="fs-perf" aria-hidden="true"></div>
-        <span class="fs-gate top" aria-hidden="true"></span><span class="fs-gate bot" aria-hidden="true"></span>
-      </div>
-      <div class="fs-bar">
-        <span class="fs-count"><b id="fsNum">01</b> / 05</span>
-        <div class="sq-arrows">
-          <button class="sq-arrow" type="button" id="fsPrev" aria-label="Expérience précédente"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9.6 2.6 5.1 7.1h9.1v1.8H5.1l4.5 4.5-1.2 1.2-6-6L1.8 8l.6-.6 6-6 1.2 1.2Z"/></svg></button>
-          <button class="sq-arrow" type="button" id="fsNext" aria-label="Expérience suivante"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.4 2.6l4.5 4.5H1.8v1.8h9.1l-4.5 4.5 1.2 1.2 6-6 .6-.6-.6-.6-6-6-1.2 1.2Z"/></svg></button>
-        </div>
-      </div>
-      <div class="fs-panels" aria-live="polite">
-        <div class="fs-panel on" aria-hidden="false">
-          <div class="fs-head"><span class="label">Juillet 2026 · Ain</span><h3>Opérateur de production (intérim) <em>· Caps Packaging</em></h3></div>
-          <ul class="fs-list"><li>Fabrication de flacons plastique en milieu industriel</li><li>Conduite de plusieurs souffleuses en autonomie</li><li>Contrôle qualité toutes les 2 à 4 h et suivi de la production</li></ul>
-          <div class="tags"><span>Autonomie</span><span>Multitâche</span><span>Rigueur</span><span>Respect des procédures</span></div>
-          <a class="fs-link" href="https://www.caps-packaging.com/" target="_blank" rel="noopener">Voir le site de Caps Packaging <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="fs-panel" aria-hidden="true">
-          <div class="fs-head"><span class="label">Été 2025 · Domaine du Grand Kohlberg, Alsace</span><h3>Ouvrier agricole polyvalent <em>· D. Gutzwiller Group</em></h3></div>
-          <ul class="fs-list"><li>Entretien de plus de 60 hectares en autonomie</li><li>Conduite de tracteurs et maintenance préventive des machines</li></ul>
-          <div class="tags"><span>Autonomie</span><span>Organisation</span><span>Maintenance préventive</span></div>
-          <a class="fs-link" href="https://d-gutzwiller.com/" target="_blank" rel="noopener">Voir le site de D. Gutzwiller Group <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="fs-panel" aria-hidden="true">
-          <div class="fs-head"><span class="label">Été 2023 · Vieux-Ferrette, Alsace</span><h3>Opérateur en affinerie de fromages <em>· Fromagerie Antony</em></h3></div>
-          <ul class="fs-list"><li>Contrôle qualité des produits selon des normes strictes</li><li>Préparation et expédition des commandes clients</li></ul>
-          <div class="tags"><span>Contrôle qualité</span><span>Respect des normes</span><span>Logistique</span></div>
-          <a class="fs-link" href="https://www.fromagerieantony.fr/" target="_blank" rel="noopener">Voir le site de Fromagerie Antony <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="fs-panel" aria-hidden="true">
-          <div class="fs-head"><span class="label">Étés 2020 et 2021 · Le Cap, Afrique du Sud</span><h3>Serveur <em>· Sótano Seafood & Sushi</em></h3></div>
-          <ul class="fs-list"><li>Accueil et service des clients</li><li>Gestion des commandes</li><li>Nettoyage et mise en place</li></ul>
-          <div class="tags"><span>Sens du service</span><span>Gestion du stress</span><span>Anglais</span></div>
-          <a class="fs-link" href="https://www.sotano.co.za/" target="_blank" rel="noopener">Voir le site de Sótano Seafood & Sushi <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="fs-panel" aria-hidden="true">
-          <div class="fs-head"><span class="label">2019 - 2021 · Le Cap, Afrique du Sud</span><h3>Coach de tennis <em>· MTG Tennis</em></h3></div>
-          <ul class="fs-list"><li>Encadrement de 30 jeunes par saison, avec des explications adaptées</li><li>Organisation et animation des entraînements hebdomadaires</li></ul>
-          <div class="tags"><span>Pédagogie</span><span>Communication</span><span>Animation de groupe</span></div>
-          <a class="fs-link" href="https://mtgtennis.wixsite.com/mtgtennis" target="_blank" rel="noopener">Voir le site de MTG Tennis <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SPORT -->
-<section class="st" id="sport" aria-label="Parcours sportif">
-  <div class="st-pin">
-    <div class="st-track">
-      <div class="st-img"><img src="sport.jpg" alt="Karaté et tennis" loading="lazy"></div>
-      <div class="st-rail">
-        <div class="st-head">
-          <span class="label">À côté du code</span>
-          <h2>10 ans de <em>compétition.</em></h2>
+  <!-- ============================================================
+       EXPÉRIENCES : pellicule photo (piloté par js/main.js)
+       L'image au centre est "développée" en couleur, les autres restent en négatif.
+       Chaque .film__frame correspond au .film__panel de même position.
+       ============================================================ -->
+  <section class="experience" id="experiences">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <span class="label">Expériences</span>
+          <h2>Là où j'ai <em>travaillé.</em></h2>
         </div>
-        <p class="st-period">Karaté et tennis en Afrique du Sud : c'est là que j'ai appris la discipline et à ne rien lâcher.</p>
-        <div class="st-axis" aria-hidden="true"><span class="st-cap"></span><span class="st-line"></span></div>
-        <ol class="st-list">
-          <li class="st-item up" style="--i:0">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2011</span><span class="st-tag">Tennis · Karaté</span><h3>Premiers pas</h3><p>Débuts au tennis et au karaté, en Afrique du Sud.</p></div>
-          </li>
-          <li class="st-item down" style="--i:1">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2015</span><span class="st-tag">Karaté</span><h3>Champion d'Afrique du Sud</h3><p>Premier titre national, catégorie -11 ans.</p></div>
-          </li>
-          <li class="st-item up" style="--i:2">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2016</span><span class="st-tag">Tennis</span><h3>Champion d'Afrique du Sud</h3><p>Titre national, catégorie -12 ans.</p></div>
-          </li>
-          <li class="st-item down" style="--i:3">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2016</span><span class="st-tag">Tennis</span><h3>Champion d'Afrique</h3><p>Titre continental, en Égypte.</p></div>
-          </li>
-          <li class="st-item up" style="--i:4">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2018</span><span class="st-tag">Karaté</span><h3>Champion d'Afrique</h3><p>Titre continental, catégorie -18 ans.</p></div>
-          </li>
-          <li class="st-item down" style="--i:5">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2019</span><span class="st-tag">Karaté</span><h3>Championnats du monde</h3><p>Participation aux championnats du monde, en Suède.</p></div>
-          </li>
-          <li class="st-item up" style="--i:6">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2020</span><span class="st-tag">Karaté</span><h3>Sélection mondiale</h3><p>Sélectionné pour les championnats du monde en Afrique du Sud.</p></div>
-          </li>
-          <li class="st-item down" style="--i:7">
-            <span class="st-stem" aria-hidden="true"></span><span class="st-dot" aria-hidden="true"></span>
-            <div class="st-txt"><span class="st-year">2025</span><span class="st-tag">Handball</span><h3>En compétition</h3><p>Handball en club à Ambérieu-en-Bugey, niveau régional.</p></div>
-          </li>
-        </ol>
+        <p class="reveal">Des expériences en France et en Afrique du Sud, qui m'ont appris la rigueur, l'autonomie et le contact client.</p>
+      </div>
+
+      <div class="film reveal" id="film">
+        <div class="film__strip">
+          <div class="film__holes" aria-hidden="true"></div>
+          <ul class="film__track" aria-label="Mes expériences">
+            <li class="film__frame">
+              <div class="film__edge" aria-hidden="true"><span>01</span><span>TM · EXP</span><span>01A</span></div>
+              <button class="film__photo" type="button" aria-label="Voir : Caps Packaging">
+                <img src="assets/img/exp-caps.jpg" alt="Logo Caps Packaging sur fond de ligne de production" width="420" height="280" draggable="false">
+              </button>
+              <div class="film__edge" aria-hidden="true"></div>
+            </li>
+            <li class="film__frame">
+              <div class="film__edge" aria-hidden="true"><span>02</span><span></span><span>02A</span></div>
+              <button class="film__photo" type="button" aria-label="Voir : D. Gutzwiller Group">
+                <img src="assets/img/exp-gutzwiller.jpg" alt="Logo Gutzwiller Group sur fond de vignoble alsacien" width="420" height="280" draggable="false">
+              </button>
+              <div class="film__edge" aria-hidden="true"></div>
+            </li>
+            <li class="film__frame">
+              <div class="film__edge" aria-hidden="true"><span>03</span><span>TM · EXP</span><span>03A</span></div>
+              <button class="film__photo" type="button" aria-label="Voir : Fromagerie Antony">
+                <img src="assets/img/exp-antony.jpg" alt="Logo de la Fromagerie Antony sur fond de fromages en affinage" width="420" height="280" draggable="false">
+              </button>
+              <div class="film__edge" aria-hidden="true"></div>
+            </li>
+            <li class="film__frame">
+              <div class="film__edge" aria-hidden="true"><span>04</span><span></span><span>04A</span></div>
+              <button class="film__photo" type="button" aria-label="Voir : Sótano Seafood &amp; Sushi">
+                <img src="assets/img/exp-sotano.jpg" alt="Logo du restaurant Sótano sur fond de préparation de sushis" width="420" height="280" draggable="false">
+              </button>
+              <div class="film__edge" aria-hidden="true"></div>
+            </li>
+            <li class="film__frame">
+              <div class="film__edge" aria-hidden="true"><span>05</span><span>TM · EXP</span><span>05A</span></div>
+              <button class="film__photo" type="button" aria-label="Voir : MTG Tennis">
+                <img src="assets/img/exp-mtg.jpg" alt="Logo MTG Tennis sur fond de court de tennis" width="420" height="280" draggable="false">
+              </button>
+              <div class="film__edge" aria-hidden="true"></div>
+            </li>
+          </ul>
+          <div class="film__holes" aria-hidden="true"></div>
+          <span class="film__gate film__gate--top" aria-hidden="true"></span>
+          <span class="film__gate film__gate--bottom" aria-hidden="true"></span>
+        </div>
+
+        <div class="film__bar">
+          <span class="counter"><b data-counter>01</b> / 05</span>
+          <div class="arrows">
+            <button class="arrow" type="button" data-prev aria-label="Expérience précédente">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.6 2.6 5.1 7.1h9.1v1.8H5.1l4.5 4.5-1.2 1.2-6-6L1.8 8l.6-.6 6-6 1.2 1.2Z"/></svg>
+            </button>
+            <button class="arrow" type="button" data-next aria-label="Expérience suivante">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.4 2.6l4.5 4.5H1.8v1.8h9.1l-4.5 4.5 1.2 1.2 6-6 .6-.6-.6-.6-6-6-1.2 1.2Z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="film__panels" aria-live="polite">
+
+          <article class="film__panel is-active">
+            <span class="label">Juillet 2026 · Ain</span>
+            <h3>Opérateur de production (intérim) <em>· Caps Packaging</em></h3>
+            <ul class="bullets">
+              <li>Fabrication de flacons plastique en milieu industriel</li>
+              <li>Conduite de plusieurs souffleuses en autonomie</li>
+              <li>Contrôle qualité toutes les 2 à 4 h et suivi de la production</li>
+            </ul>
+            <div class="tags"><span>Autonomie</span><span>Multitâche</span><span>Rigueur</span><span>Respect des procédures</span></div>
+            <a class="link" href="https://www.caps-packaging.com/" target="_blank" rel="noopener">Voir le site de Caps Packaging →</a>
+          </article>
+
+          <article class="film__panel">
+            <span class="label">Été 2025 · Domaine du Grand Kohlberg, Alsace</span>
+            <h3>Ouvrier agricole polyvalent <em>· D. Gutzwiller Group</em></h3>
+            <ul class="bullets">
+              <li>Entretien de plus de 60 hectares en autonomie</li>
+              <li>Conduite de tracteurs et maintenance préventive des machines</li>
+            </ul>
+            <div class="tags"><span>Autonomie</span><span>Organisation</span><span>Maintenance préventive</span></div>
+            <a class="link" href="https://d-gutzwiller.com/" target="_blank" rel="noopener">Voir le site de D. Gutzwiller Group →</a>
+          </article>
+
+          <article class="film__panel">
+            <span class="label">Été 2023 · Vieux-Ferrette, Alsace</span>
+            <h3>Opérateur en affinerie de fromages <em>· Fromagerie Antony</em></h3>
+            <ul class="bullets">
+              <li>Contrôle qualité des produits selon des normes strictes</li>
+              <li>Préparation et expédition des commandes clients</li>
+            </ul>
+            <div class="tags"><span>Contrôle qualité</span><span>Respect des normes</span><span>Logistique</span></div>
+            <a class="link" href="https://www.fromagerieantony.fr/" target="_blank" rel="noopener">Voir le site de Fromagerie Antony →</a>
+          </article>
+
+          <article class="film__panel">
+            <span class="label">Étés 2020 et 2021 · Le Cap, Afrique du Sud</span>
+            <h3>Serveur <em>· Sótano Seafood &amp; Sushi</em></h3>
+            <ul class="bullets">
+              <li>Accueil et service des clients</li>
+              <li>Gestion des commandes</li>
+              <li>Nettoyage et mise en place</li>
+            </ul>
+            <div class="tags"><span>Sens du service</span><span>Gestion du stress</span><span>Anglais</span></div>
+            <a class="link" href="https://www.sotano.co.za/" target="_blank" rel="noopener">Voir le site de Sótano Seafood &amp; Sushi →</a>
+          </article>
+
+          <article class="film__panel">
+            <span class="label">2019 - 2021 · Le Cap, Afrique du Sud</span>
+            <h3>Coach de tennis <em>· MTG Tennis</em></h3>
+            <ul class="bullets">
+              <li>Encadrement de 30 jeunes par saison, avec des explications adaptées</li>
+              <li>Organisation et animation des entraînements hebdomadaires</li>
+            </ul>
+            <div class="tags"><span>Pédagogie</span><span>Communication</span><span>Animation de groupe</span></div>
+            <a class="link" href="https://mtgtennis.wixsite.com/mtgtennis" target="_blank" rel="noopener">Voir le site de MTG Tennis →</a>
+          </article>
+
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="contact-txt">
-        <h2 class="reveal"><em>Contact.</em></h2>
-        <p class="lead reveal">Disponible pour un stage du 12 avril au 18 juin 2027.</p>
+
+  <!-- ============================================================
+       SPORT : frise horizontale qui défile au scroll (piloté par js/main.js)
+       Sur ordinateur, la section reste fixe et la frise glisse vers la gauche.
+       Sur mobile, elle devient une frise verticale classique.
+       --i = position de l'étape sur la frise
+       ============================================================ -->
+  <section class="sport" id="sport" aria-label="Parcours sportif">
+    <div class="sport__pin">
+      <div class="sport__track">
+        <div class="sport__img"><img src="assets/img/sport.jpg" alt="Karaté et tennis" loading="lazy"></div>
+
+        <div class="sport__rail">
+          <div class="sport__head">
+            <span class="label">À côté du code</span>
+            <h2>10 ans de <em>compétition.</em></h2>
+          </div>
+          <p class="sport__intro">Karaté et tennis en Afrique du Sud : c'est là que j'ai appris la discipline et à ne rien lâcher.</p>
+
+          <div class="sport__axis" aria-hidden="true"><span class="sport__start"></span><span class="sport__line"></span></div>
+
+          <ol class="sport__list">
+            <li class="step step--up" style="--i:0">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2011</span><span class="step__tag">Tennis · Karaté</span><h3>Premiers pas</h3><p>Débuts au tennis et au karaté, en Afrique du Sud.</p></div>
+            </li>
+            <li class="step step--down" style="--i:1">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2015</span><span class="step__tag">Karaté</span><h3>Champion d'Afrique du Sud</h3><p>Premier titre national, catégorie -11 ans.</p></div>
+            </li>
+            <li class="step step--up" style="--i:2">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2016</span><span class="step__tag">Tennis</span><h3>Champion d'Afrique du Sud</h3><p>Titre national, catégorie -12 ans.</p></div>
+            </li>
+            <li class="step step--down" style="--i:3">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2016</span><span class="step__tag">Tennis</span><h3>Champion d'Afrique</h3><p>Titre continental, en Égypte.</p></div>
+            </li>
+            <li class="step step--up" style="--i:4">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2018</span><span class="step__tag">Karaté</span><h3>Champion d'Afrique</h3><p>Titre continental, catégorie -18 ans.</p></div>
+            </li>
+            <li class="step step--down" style="--i:5">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2019</span><span class="step__tag">Karaté</span><h3>Championnats du monde</h3><p>Participation aux championnats du monde, en Suède.</p></div>
+            </li>
+            <li class="step step--up" style="--i:6">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2020</span><span class="step__tag">Karaté</span><h3>Sélection mondiale</h3><p>Sélectionné pour les championnats du monde en Afrique du Sud.</p></div>
+            </li>
+            <li class="step step--down" style="--i:7">
+              <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
+              <div class="step__body"><span class="step__year">2025</span><span class="step__tag">Handball</span><h3>En compétition</h3><p>Handball en club à Ambérieu-en-Bugey, niveau régional.</p></div>
+            </li>
+          </ol>
+        </div>
       </div>
-      <div class="mac reveal">
-        <svg class="mac-svg" viewBox="0 0 650 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path fill="#3d7780" d="M79.56,13.18h491.32c7.23,0,13.1,5.87,13.1,13.1v336.61H66.46V26.28c0-7.23,5.87-13.1,13.1-13.1Z"/>
-          <path fill="#062e36" d="M79.96,14.24h490.45c6.83,0,12.37,5.54,12.37,12.37v336.28H67.59V26.6c0-6.83,5.54-12.37,12.37-12.37Z"/>
-          <path fill="#01161b" d="M570.25,15.74H80.34c-6.12,0-11.08,4.96-11.08,11.08v336.07h512.08V26.82c0-6.12-4.96-11.08-11.08-11.08ZM575.74,345.17H74.52V27.31c0-3.31,2.68-5.99,5.99-5.99h489.24c3.31,0,5.99,2.68,5.99,5.99v317.86Z"/>
-          <rect fill="#022830" x="74.52" y="21.32" width="501.22" rx="5" ry="5" height="323.85"/>
-          <rect fill="#04262d" x="69.09" y="350.51" width="512.11" height="12.48"/>
-          <path fill="#01161b" d="M298.14,21.02h54.07v6.5c0,1.56-1.27,2.82-2.82,2.82h-48.42c-1.56,0-2.82-1.27-2.82-2.82v-6.5h0Z"/>
-          <path fill="#6fa3aa" d="M19.04,362.77h611.92v10.39c0,5.95-4.830,10.79-10.79,10.790H29.83c-5.95,0-10.79-4.83-10.79-10.79v-10.39h0Z"/>
-          <path fill="#8FFFE0" d="M325.11,25.14c-1.99.03-1.99-3.09,0-3.06,1.99-.03,1.99,3.09,0,3.06Z"/>
-          <polygon fill="#86b6bc" points="600.06 385.39 567.29 385.39 565.84 383.95 601.82 383.95 600.06 385.39"/>
-          <polygon fill="#0b3a42" points="598.73 386.82 568.64 386.82 567.32 385.39 600.35 385.39 598.73 386.82"/>
-          <polygon fill="#86b6bc" points="82.64 385.39 49.87 385.39 48.43 383.95 84.41 383.95 82.64 385.39"/>
-          <polygon fill="#0b3a42" points="81.31 386.82 51.23 386.82 49.9 385.39 82.93 385.39 81.31 386.82"/>
-          <path fill="#4f8990" d="M278.11,362.6h94.05c0,3.63-2.95,6.58-6.58,6.58h-80.89c-3.63,0-6.58-2.95-6.58-6.58h0Z"/>
-        </svg>
-        <div class="mac-screen">
-          <div class="scr-bar"><i></i><i></i><i></i><span>contact</span></div>
-          <div class="scr">
-            <div class="scr-id ln" style="--d:0">
-              <div class="scr-av">TM</div>
-              <div><b>Tristan Muller</b><span>Étudiant en BUT Informatique · IUT Lyon 1</span></div>
-              <em class="scr-status"><i></i>Disponible · avril - juin 2027</em>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT : carte de contact affichée dans un MacBook
+       (sur mobile, le MacBook devient un téléphone, voir css/style.css)
+       ============================================================ -->
+  <section class="contact" id="contact">
+    <div class="wrap contact__inner">
+      <h2 class="contact__title reveal"><em>Contact.</em></h2>
+
+      <div class="device reveal">
+        <img class="device__frame" src="assets/img/macbook.svg" alt="" aria-hidden="true">
+
+        <div class="device__screen">
+          <div class="screen__bar" aria-hidden="true"><i></i><i></i><i></i><span>contact</span></div>
+
+          <div class="screen">
+            <div class="screen__id pop" style="--delay:0">
+              <div class="screen__avatar" aria-hidden="true">TM</div>
+              <div>
+                <b>Tristan Muller</b>
+                <span>Étudiant en BUT Informatique · IUT Lyon 1</span>
+              </div>
+              <p class="screen__status"><i></i>Disponible · avril - juin 2027</p>
             </div>
-            <div class="scr-grid">
-              <a class="scr-tile ln" style="--d:1" href="mailto:tristan@familymuller.me"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="t"><small>Email</small>tristan@familymuller.me</span></a>
-              <a class="scr-tile ln" style="--d:2" href="tel:+33749498137"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span class="t"><small>Téléphone</small>07 49 49 81 37</span></a>
-              <a class="scr-tile ln" style="--d:3" href="https://github.com/tristanmuller007" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span><span class="t"><small>GitHub</small>tristanmuller007</span></a>
-              <a class="scr-tile ln" style="--d:4" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span class="t"><small>CV</small>Voir / télécharger</span></a>
+
+            <div class="screen__grid">
+              <a class="tile pop" style="--delay:1" href="mailto:tristan@familymuller.me">
+                <i class="tile__icon icon--mail"></i>
+                <span class="tile__text"><small>Email</small>tristan@familymuller.me</span>
+              </a>
+              <a class="tile pop" style="--delay:2" href="tel:+33749498137">
+                <i class="tile__icon icon--phone"></i>
+                <span class="tile__text"><small>Téléphone</small>07 49 49 81 37</span>
+              </a>
+              <a class="tile pop" style="--delay:3" href="https://github.com/tristanmuller007" target="_blank" rel="noopener">
+                <i class="tile__icon icon--github"></i>
+                <span class="tile__text"><small>GitHub</small>tristanmuller007</span>
+              </a>
+              <a class="tile pop" style="--delay:4" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">
+                <i class="tile__icon icon--file"></i>
+                <span class="tile__text"><small>CV</small>Voir / télécharger</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="links">
-      <a class="clink reveal" href="mailto:tristan@familymuller.me"><span class="label">Email</span><b>tristan@familymuller.me</b></a>
-      <a class="clink reveal" href="tel:+33749498137"><span class="label">Téléphone</span><b>07 49 49 81 37</b></a>
-      <a class="clink reveal" href="https://github.com/tristanmuller007" target="_blank" rel="noopener"><span class="label">GitHub</span><b>tristanmuller007</b></a>
-      <a class="clink reveal" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener"><span class="label">CV</span><b>Voir / télécharger</b></a>
-    </div>
-  </div>
-  <footer>
-    <div class="wrap">
-      <span>© 2026 Tristan Muller</span>
-      <a href="#top">Retour en haut ↑</a>
-    </div>
-  </footer>
-</section>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <span>© 2026 Tristan Muller</span>
+        <a href="#top">Retour en haut ↑</a>
+      </div>
+    </footer>
+  </section>
 
 </main>
 
-<script>
-document.documentElement.classList.add('js');
-(function(){
-  var nav=document.getElementById('nav');
-  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
-
-  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
-  burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
-  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded',false)})});
-
-  var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})
-  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(e,i){e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)});
-})();
-</script>
-
-<script>
-(()=>{
-  const root=document.getElementById('sq'); if(!root) return;
-  const strip=document.getElementById('sqStrip');
-  const view=root.querySelector('.sq-view');
-  const data=[...root.querySelectorAll('.sq-data li')].map(li=>({img:li.dataset.img,alt:li.dataset.alt,name:li.dataset.name}));
-  const panels=[...root.querySelectorAll('.sq-panel')];
-  const num=document.getElementById('sqNum');
-  const n=data.length, SL=Math.max(1,Math.min(3,n-4)), VIS=4+SL;
-  const SH=[-.06,.61,.3,.15], ST=[0,.71,.4,.25], SQ=[-.12,.59,.28,.13];
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const MS=reduced?0:1000;
-  const wrap=i=>((i%n)+n)%n;
-  let cards=[], column=0, slid=0, hover=-1, open=0, timer=null, busy=false, g={};
-
-  function make(slide){
-    const b=document.createElement('button');
-    b.type='button'; b.className='sq-card'; b.setAttribute('role','tab');
-    b.setAttribute('aria-label',data[slide].name);
-    b.innerHTML='<img src="'+data[slide].img+'" alt="" draggable="false" loading="lazy"><span class="sq-name">'+data[slide].name+'</span>';
-    const c={el:b,slide};
-    b.addEventListener('click',()=>{const col=cards.indexOf(c)+column; if(col>0) step(col);});
-    b.addEventListener('mousemove',()=>{const col=cards.indexOf(c)+column; if(col!==hover){hover=col; paint();}});
-    return c;
-  }
-  function geo(){
-    const W=view.clientWidth, m=W<640;
-    const gap=m?10:16, slat=m?5:8, sgap=m?5:8;
-    let h=m?Math.round(W*.66):Math.round(Math.min(380,Math.max(260,W*.3)));
-    let hero=h*16/9; const max=W*(m?.7:.6); if(hero>max) hero=max;
-    const room=W-hero-SL*sgap-3*gap-SL*slat;
-    g={W,gap,slat,sgap,h,hero,room};
-    root.style.setProperty('--sq-h',h+'px'); root.style.setProperty('--sq-hero',Math.max(hero,h*16/9)+'px');
-  }
-  function width(col){
-    if(col<0||col>3) return g.slat;
-    const sh=(hover>=0&&hover<=3&&!reduced)?(hover===col?ST:SQ):SH;
-    return (col===0?g.hero:0)+g.room*sh[col];
-  }
-  function paint(){
-    cards.forEach((c,p)=>{
-      const col=p+column, w=width(col);
-      c.el.style.width=w+'px';
-      c.el.style.marginLeft=p===0?'0px':(col<4?g.gap:g.sgap)+'px';
-      c.el.style.borderRadius=Math.min(g.W<640?10:14,w/2)+'px';
-      c.el.classList.toggle('front',col===0);
-      c.el.setAttribute('aria-selected',col===0);
-      c.el.tabIndex=col===0?0:-1;
-    });
-    strip.style.transform='translateX('+(slid*(g.slat+g.gap))+'px)';
-  }
-  function still(fn){root.classList.add('still'); fn(); strip.offsetWidth; root.classList.remove('still');}
-  function show(i){
-    open=i; num.textContent=String(i+1).padStart(2,'0');
-    panels.forEach((p,k)=>{const on=k===i; p.classList.toggle('on',on); p.setAttribute('aria-hidden',!on); p.querySelectorAll('a').forEach(a=>a.tabIndex=on?0:-1);});
-  }
-  function build(){
-    strip.innerHTML=''; cards=[]; column=0; slid=0;
-    for(let p=0;p<VIS;p++){const c=make(wrap(open+p)); cards.push(c); strip.appendChild(c.el);}
-    still(paint);
-  }
-  function settle(fwd){
-    still(()=>{
-      const extra=cards.length-VIS;
-      const gone=fwd?cards.splice(0,extra):cards.splice(VIS,extra);
-      gone.forEach(c=>c.el.remove());
-      column=0; slid=0; paint();
-    });
-    busy=false;
-  }
-  function step(by){
-    if(n<2||!by) return;
-    if(busy){clearTimeout(timer); settle(lastFwd);}
-    busy=true; lastFwd=by>0;
-    if(by>0){
-      still(()=>{for(let k=0;k<by;k++){const c=make(wrap(cards[cards.length-1].slide+1)); cards.push(c); strip.appendChild(c.el);} paint();});
-      column-=by; slid-=by; paint();
-      show(cards[-column].slide);
-    }else{
-      const k=-by;
-      still(()=>{for(let j=0;j<k;j++){const c=make(wrap(cards[0].slide-1)); cards.unshift(c); strip.insertBefore(c.el,strip.firstChild);} column=-k; slid=-k; paint();});
-      column=0; slid=0; paint();
-      show(cards[0].slide);
-    }
-    timer=setTimeout(()=>settle(lastFwd),MS+30);
-  }
-  let lastFwd=true;
-  document.getElementById('sqNext').addEventListener('click',()=>step(1));
-  document.getElementById('sqPrev').addEventListener('click',()=>step(-1));
-  strip.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)} if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
-  view.addEventListener('mouseleave',()=>{hover=-1; paint();});
-  let sx=null; view.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  view.addEventListener('touchend',e=>{if(sx===null)return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40) step(dx<0?1:-1); sx=null;});
-  addEventListener('resize',()=>{geo(); still(paint);});
-  geo(); build(); show(0);
-})();
-</script>
-
-<script>
-(()=>{
-  const track=document.getElementById('fsTrack'); if(!track) return;
-  const frames=[...track.querySelectorAll('.fs-frame')];
-  const panels=[...document.querySelectorAll('#fs .fs-panel')];
-  const prev=document.getElementById('fsPrev'), next=document.getElementById('fsNext'), num=document.getElementById('fsNum');
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let active=-1, target=null, t=0;
-  function set(i){
-    if(i===active) return; active=i;
-    frames.forEach((f,k)=>f.classList.toggle('on',k===i));
-    panels.forEach((p,k)=>{p.classList.toggle('on',k===i);p.setAttribute('aria-hidden',k!==i);p.querySelectorAll('a').forEach(a=>a.tabIndex=k===i?0:-1)});
-    num.textContent=String(i+1).padStart(2,'0');
-    prev.disabled=i===0; next.disabled=i===frames.length-1;
-  }
-  function nearest(){
-    const c=track.scrollLeft+track.clientWidth/2; let b=0,d=1e9;
-    frames.forEach((f,k)=>{const x=Math.abs(f.offsetLeft+f.offsetWidth/2-c); if(x<d){d=x;b=k}}); return b;
-  }
-  function go(i,beh){
-    i=Math.max(0,Math.min(frames.length-1,i)); target=i; set(i);
-    const f=frames[i]; const left=f.offsetLeft-(track.clientWidth-f.offsetWidth)/2;
-    if(Math.abs(track.scrollLeft-left)<1){target=null;set(i);return}
-    track.scrollTo({left,behavior:beh||(reduce?'auto':'smooth')});
-    clearTimeout(t); t=setTimeout(settle,700);
-  }
-  function settle(){clearTimeout(t); const h=nearest(); if(target!==null&&h!==target&&performance.now&&track.dataset.moving) return; target=null; set(h);}
-  let raf=0;
-  track.addEventListener('scroll',()=>{clearTimeout(t); t=setTimeout(settle,100); if(target===null&&!raf){raf=requestAnimationFrame(()=>{raf=0; set(nearest())})}},{passive:true});
-  track.addEventListener('scrollend',settle);
-  ['pointerdown','wheel','touchstart'].forEach(e=>track.addEventListener(e,()=>{target=null},{passive:true}));
-  frames.forEach((f,k)=>f.querySelector('.fs-btn').addEventListener('click',()=>{if(k!==active) go(k)}));
-  const step=d=>go((target??active)+d);
-  prev.addEventListener('click',()=>step(-1)); next.addEventListener('click',()=>step(1));
-  track.addEventListener('keydown',e=>{const m={ArrowRight:1,ArrowLeft:-1}[e.key]; if(!m) return; e.preventDefault(); step(m); frames[Math.max(0,Math.min(frames.length-1,(target??active)))].querySelector('.fs-btn').focus({preventScroll:true});});
-  addEventListener('resize',()=>go(active,'auto'));
-  set(0); requestAnimationFrame(()=>go(0,'auto'));
-})();
-</script>
-
-<script>
-(()=>{
-  const sec=document.querySelector('.st'); if(!sec) return;
-  const pin=sec.querySelector('.st-pin'), track=sec.querySelector('.st-track'), rail=sec.querySelector('.st-rail'), line=sec.querySelector('.st-line');
-  const items=[...sec.querySelectorAll('.st-item')];
-  const mq=matchMedia('(max-width:860px),(prefers-reduced-motion:reduce)');
-  let dist=0, ticking=false;
-  function layout(){
-    if(mq.matches){sec.style.height='';track.style.transform='';update();return}
-    dist=Math.max(0,track.scrollWidth-innerWidth);
-    sec.style.height=(innerHeight+dist*0.85)+'px';
-    update();
-  }
-  function update(){
-    ticking=false;
-    if(mq.matches){
-      const list=sec.querySelector('.st-list'); const lr=list.getBoundingClientRect(); const front=innerHeight*0.75;
-      list.style.setProperty('--p',Math.min(1,Math.max(0,(front-lr.top)/lr.height)).toFixed(3));
-      items.forEach(it=>it.classList.toggle('in',it.getBoundingClientRect().top<front));
-      return;
-    }
-    const r=sec.getBoundingClientRect(); const range=sec.offsetHeight-innerHeight;
-    const p=Math.min(1,Math.max(0,-r.top/(range||1)));
-    track.style.transform='translateX('+(-p*dist)+'px)';
-    const front=innerWidth*0.72; const rr=rail.getBoundingClientRect();
-    line.style.width=Math.min(rr.width-10,Math.max(0,front-rr.left))+'px';
-    items.forEach(it=>{const x=it.getBoundingClientRect().left; it.classList.toggle('in',x<front)});
-  }
-  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
-  addEventListener('resize',layout); mq.addEventListener('change',layout);
-  const img=sec.querySelector('.st-img img'); if(img&&!img.complete) img.addEventListener('load',layout);
-  layout();
-})();
-</script>
 </body>
 </html>

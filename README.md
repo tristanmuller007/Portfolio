@@ -38,14 +38,34 @@ Il présente mon parcours, mes compétences et mes projets réalisés en BUT, et
 
 ---
 
+## Structure du projet
+
+```
+Portfolio/
+├── index.html          # contenu de la page, une section par partie du site
+├── css/
+│   └── style.css       # styles, organisés dans l'ordre de la page (sommaire en haut du fichier)
+├── js/
+│   └── main.js         # interactions : menu, apparitions, carrousel, pellicule, frise
+└── assets/
+    ├── img/            # photos des projets et des expériences, MacBook
+    └── icons/          # logos des langages et outils (SVG)
+```
+
+---
+
 ## Implémentation
 
-- **Un seul fichier HTML** avec le CSS et le JavaScript intégrés
+- **HTML, CSS et JavaScript natifs**, sans framework ni librairie
 - **CSS Grid / Flexbox**, variables CSS, design **responsive** (menu burger sur mobile)
-- Carrousel, pellicule et frise horizontale codés en **JavaScript pur**, sans librairie
-- Animations d'apparition au scroll avec **IntersectionObserver** (désactivées si l'utilisateur préfère moins d'animations)
+- Nommage des classes proche de **BEM** (`.carousel__panel`, `.btn--solid`, `.is-active`)
+- **Carrousel "squeeze"** des projets : largeurs calculées en JS, animations en CSS, boucle infinie
+- **Pellicule** des expériences : défilement natif avec `scroll-snap`, effet négatif avec les filtres CSS
+- **Frise sportive** horizontale pilotée par le scroll (section `sticky`), verticale sur mobile
+- **Carte de contact** dans un MacBook, dimensionnée avec les unités de conteneur (`cqw`) ; elle devient un téléphone sur mobile
+- Logos affichés en **masque CSS** : un seul fichier SVG par logo, couleur modifiable au survol
+- Animations d'apparition avec **IntersectionObserver**, désactivées si l'utilisateur préfère moins d'animations
 - Logos des outils : [Simple Icons](https://simpleicons.org/) · Photos : [Unsplash](https://unsplash.com/)
-- Aucune librairie externe à part Google Fonts
 - Hébergé avec **GitHub Pages**
 
 ---
