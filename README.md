@@ -22,11 +22,12 @@ Il présente mon parcours, mes compétences et mes projets réalisés en BUT, et
 ## Sections du site
 
 - **Accueil** : présentation et disponibilité pour un stage
-- **À propos** : parcours, langages et outils
-- **Projets** : HQ Steakhouse & Bar, éditeur de livre interactif en Qt, Puissance 4 sur ESP32, Memorizz, VetClinic, serveur web sur Raspberry Pi, cartes étudiantes pour les JPO
-- **Parcours** : formation et expériences
-- **À côté du code** : sport (karaté, tennis, handball)
-- **Contact** : email, téléphone, GitHub, CV
+- **À propos** : parcours et boîte à outils (langages, développement, réseau, systèmes embarqués, conception, systèmes) avec logos
+- **Projets** : carrousel des projets réalisés en BUT (HQ Steakhouse & Bar, éditeur de livre interactif en Qt, Puissance 4 sur ESP32, Memorizz, VetClinic, serveur web sur Raspberry Pi, cartes étudiantes pour les JPO)
+- **Parcours** : formation et langues
+- **Expériences** : galerie façon pellicule photo avec les logos des entreprises
+- **Sport** : frise horizontale animée au scroll (karaté, tennis, handball)
+- **Contact** : carte de contact affichée sur un écran d'ordinateur
 
 ---
 
@@ -41,7 +42,9 @@ Il présente mon parcours, mes compétences et mes projets réalisés en BUT, et
 
 - **Un seul fichier HTML** avec le CSS et le JavaScript intégrés
 - **CSS Grid / Flexbox**, variables CSS, design **responsive** (menu burger sur mobile)
+- Carrousel, pellicule et frise horizontale codés en **JavaScript pur**, sans librairie
 - Animations d'apparition au scroll avec **IntersectionObserver** (désactivées si l'utilisateur préfère moins d'animations)
+- Logos des outils : [Simple Icons](https://simpleicons.org/) · Photos : [Unsplash](https://unsplash.com/)
 - Aucune librairie externe à part Google Fonts
 - Hébergé avec **GitHub Pages**
 
