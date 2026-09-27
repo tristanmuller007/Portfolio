@@ -47,7 +47,7 @@
 
     /* À propos + boîte à outils */
     "about.title": "Curious, thorough <em>and solution-driven.</em>",
-    "about.p1": "I spent <strong>15 years in South Africa</strong> before moving to France. After a <strong>technology-focused baccalaureate</strong>, I started a Bachelor's in Computer Science, where I get hands-on with a bit of everything: web development, software development, object-oriented programming, databases, networking and embedded systems.",
+    "about.p1": "I spent <strong>15 years in South Africa</strong> before moving to France. After a <strong>high school diploma in engineering and technology</strong>, I started a Bachelor's in Computer Science, where I get hands-on with a bit of everything: web development, software development, object-oriented programming, databases, networking and embedded systems.",
     "about.p2": "What I enjoy most is taking an idea and turning it into <strong>something that actually works</strong>: a website, a web app, a tool people use every day.",
     "tools.label": "My toolkit",
     "tools.intro": "The languages and tools I use in class and on my own projects.",
@@ -91,7 +91,7 @@
     "edu.but.text": "IUT Lyon 1, Bourg-en-Bresse campus · planning to specialise in web development. Web, Java, C++, databases, OOP, project management.",
     "edu.but": "Bachelor's in Computer Science (BUT)",
     "edu.current": "In progress",
-    "edu.bac": "Baccalaureate, Engineering &amp; Technology (STI2D)",
+    "edu.bac": "High School Diploma, Engineering &amp; Technology (STI2D)",
     "edu.bac.text": "Lycée de la Plaine de l'Ain, Ambérieu-en-Bugey, France",
     "edu.done": "Completed",
     "edu.lang": "Languages",
