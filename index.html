@@ -33,24 +33,32 @@
      ============================================================ -->
 <header class="nav" id="nav">
   <div class="wrap nav__inner">
-    <a href="#top" class="logo" aria-label="Retour en haut de page"><span class="logo__mark">TM</span>Tristan Muller</a>
+    <a href="#top" class="logo" aria-label="Retour en haut de page" data-i18n-attr="aria-label:a11y.top"><span class="logo__mark">TM</span>Tristan Muller</a>
 
-    <nav aria-label="Navigation principale">
+    <nav aria-label="Navigation principale" data-i18n-attr="aria-label:a11y.nav">
       <ul class="nav__menu" id="menu">
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#parcours">Parcours</a></li>
-        <li><a href="#experiences">Expériences</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+        <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#parcours" data-i18n="nav.education">Parcours</a></li>
+        <li><a href="#experiences" data-i18n="nav.experience">Expériences</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
 
-    <a class="btn btn--solid btn--sm nav__cv" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">Mon CV</a>
+    <div class="nav__actions">
+      <!-- Choix de la langue (géré par js/i18n.js) -->
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
 
-    <!-- Menu burger, visible uniquement sur mobile -->
-    <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
+      <a class="btn btn--solid btn--sm nav__cv" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener" data-i18n="nav.cv">Mon CV</a>
+
+      <!-- Menu burger, visible uniquement sur mobile -->
+      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" data-i18n-attr="aria-label:a11y.menu" aria-controls="menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -63,35 +71,35 @@
     <div class="wrap hero__inner">
       <div>
         <div class="hero__id reveal">
-          <img class="hero__avatar" src="assets/img/avatar.jpg" alt="Photo de Tristan Muller" width="72" height="72">
+          <img class="hero__avatar" src="assets/img/avatar.jpg" alt="Photo de Tristan Muller" data-i18n-attr="alt:a11y.photo" width="72" height="72">
           <div>
-            <b>Étudiant en BUT Informatique</b>
-            <span>IUT Lyon 1</span>
+            <b data-i18n="hero.role">Étudiant en BUT Informatique</b>
+            <span data-i18n="hero.school">IUT Lyon 1</span>
           </div>
         </div>
 
         <h1 class="hero__title reveal">Tristan <span class="accent">Muller.</span></h1>
 
-        <p class="hero__lead reveal">
+        <p class="hero__lead reveal" data-i18n="hero.lead">
           Je me spécialise dans le <strong>développement web</strong> : sites et applications web,
           du front-end au back-end. Bilingue <strong>anglais-français</strong>.
         </p>
 
-        <p class="status reveal"><i></i>Disponible pour un stage · 12 avril - 18 juin 2027</p>
+        <p class="status reveal" data-i18n="hero.status"><i></i>Disponible pour un stage · 12 avril - 18 juin 2027</p>
 
         <div class="hero__cta reveal">
           <a class="btn btn--solid" href="#projets">
-            Voir mes projets
+            <span data-i18n="hero.cta">Voir mes projets</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
           </a>
-          <a class="btn btn--ghost" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">Mon CV</a>
+          <a class="btn btn--ghost" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener" data-i18n="nav.cv">Mon CV</a>
         </div>
       </div>
 
       <!-- Carte de code décorative -->
       <div class="code reveal" aria-hidden="true">
-        <div class="code__bar"><i></i><i></i><i></i><span>profil.js</span></div>
-<pre><span class="kw">const</span> <span class="var">tristan</span> = {
+        <div class="code__bar"><i></i><i></i><i></i><span data-i18n="hero.file">profil.js</span></div>
+<pre data-i18n="hero.code"><span class="kw">const</span> <span class="var">tristan</span> = {
   <span class="key">formation</span>: <span class="str">"BUT Informatique"</span>,
   <span class="key">ecole</span>: <span class="str">"IUT Lyon 1"</span>,
   <span class="key">focus</span>: [<span class="str">"sites web"</span>, <span class="str">"applications web"</span>],
@@ -111,24 +119,24 @@
   <section class="about" id="about">
     <div class="wrap about__inner">
       <div class="reveal">
-        <span class="label">À propos</span>
-        <h2 class="about__title">Curieux, rigoureux <em>et orienté solutions.</em></h2>
+        <span class="label" data-i18n="nav.about">À propos</span>
+        <h2 class="about__title" data-i18n="about.title">Curieux, rigoureux <em>et orienté solutions.</em></h2>
       </div>
 
       <div class="about__text reveal">
-        <p>J'ai grandi <strong>15 ans en Afrique du Sud</strong> avant de venir en France. Après un <strong>Bac STI2D</strong>, je suis entré en BUT Informatique, où je touche à tout : développement web, développement d'applications, programmation objet, bases de données, réseaux, systèmes embarqués.</p>
-        <p>Ce qui me plaît, c'est de passer d'une idée à <strong>quelque chose qui marche vraiment</strong> : un site, une application web, un outil utile au quotidien.</p>
+        <p data-i18n="about.p1">J'ai grandi <strong>15 ans en Afrique du Sud</strong> avant de venir en France. Après un <strong data-i18n="edu.bac">Bac STI2D</strong>, je suis entré en BUT Informatique, où je touche à tout : développement web, développement d'applications, programmation objet, bases de données, réseaux, systèmes embarqués.</p>
+        <p data-i18n="about.p2">Ce qui me plaît, c'est de passer d'une idée à <strong>quelque chose qui marche vraiment</strong> : un site, une application web, un outil utile au quotidien.</p>
       </div>
 
       <!-- Chaque outil : --brand = couleur officielle affichée au survol ; icon--xxx = logo (défini dans css/style.css) -->
       <div class="toolbox reveal">
         <div class="toolbox__head">
-          <span class="label">Ma boîte à outils</span>
-          <p>Les langages et outils que j'utilise en cours et sur mes projets.</p>
+          <span class="label" data-i18n="tools.label">Ma boîte à outils</span>
+          <p data-i18n="tools.intro">Les langages et outils que j'utilise en cours et sur mes projets.</p>
         </div>
 
         <div class="tool-group">
-          <h3>Langages <span>09</span></h3>
+          <h3 data-i18n="tools.languages">Langages <span>09</span></h3>
           <ul class="tool-grid">
             <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--java"></i>Java</li>
             <li class="tool" style="--brand:#00599C"><i class="icon icon--cpp"></i>C++</li>
@@ -143,7 +151,7 @@
         </div>
 
         <div class="tool-group">
-          <h3>Développement <span>08</span></h3>
+          <h3 data-i18n="tools.dev">Développement <span>08</span></h3>
           <ul class="tool-grid">
             <li class="tool" style="--brand:#F03C2E"><i class="icon icon--git"></i>Git</li>
             <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--github"></i>GitHub</li>
@@ -157,7 +165,7 @@
         </div>
 
         <div class="tool-group">
-          <h3>Réseau <span>03</span></h3>
+          <h3 data-i18n="tools.network">Réseau <span>03</span></h3>
           <ul class="tool-grid">
             <li class="tool" style="--brand:#1BA0D7"><i class="icon icon--cisco"></i>Packet Tracer</li>
             <li class="tool" style="--brand:#1679A7"><i class="icon icon--wireshark"></i>Wireshark</li>
@@ -166,7 +174,7 @@
         </div>
 
         <div class="tool-group">
-          <h3>Systèmes embarqués <span>03</span></h3>
+          <h3 data-i18n="tools.embedded">Systèmes embarqués <span>03</span></h3>
           <ul class="tool-grid">
             <li class="tool" style="--brand:#A22846"><i class="icon icon--raspberrypi"></i>Raspberry Pi</li>
             <li class="tool" style="--brand:#00878F"><i class="icon icon--arduino"></i>Arduino</li>
@@ -175,7 +183,7 @@
         </div>
 
         <div class="tool-group">
-          <h3>Conception &amp; organisation <span>03</span></h3>
+          <h3 data-i18n="tools.design">Conception &amp; organisation <span>03</span></h3>
           <ul class="tool-grid">
             <li class="tool" style="--brand:#F24E1E"><i class="icon icon--figma"></i>Figma</li>
             <li class="tool" style="--brand:#F08705"><i class="icon icon--drawio"></i>draw.io</li>
@@ -184,7 +192,7 @@
         </div>
 
         <div class="tool-group">
-          <h3>Systèmes <span>04</span></h3>
+          <h3 data-i18n="tools.systems">Systèmes <span>04</span></h3>
           <ul class="tool-grid">
             <li class="tool" style="--brand:#FCC624"><i class="icon icon--linux"></i>Linux</li>
             <li class="tool" style="--brand:#EAFBF6"><i class="icon icon--macos"></i>macOS</li>
@@ -206,20 +214,20 @@
     <div class="wrap">
       <div class="section-head">
         <div class="reveal">
-          <span class="label">Projets</span>
-          <h2>Ce que j'ai <em>construit.</em></h2>
+          <span class="label" data-i18n="nav.projects">Projets</span>
+          <h2 data-i18n="projects.title">Ce que j'ai <em>construit.</em></h2>
         </div>
-        <p class="reveal">Des projets réalisés pendant mon BUT Informatique. Le code est sur mon GitHub.</p>
+        <p class="reveal" data-i18n="projects.intro">Des projets réalisés pendant mon BUT Informatique. Le code est sur mon GitHub.</p>
       </div>
 
-      <div class="carousel reveal" id="carousel" aria-roledescription="carrousel" aria-label="Mes projets">
+      <div class="carousel reveal" id="carousel" aria-roledescription="carrousel" aria-label="Mes projets" data-i18n-attr="aria-label:a11y.projects;aria-roledescription:a11y.carousel">
         <div class="carousel__top">
           <span class="counter"><b data-counter>01</b> / 07</span>
           <div class="arrows">
-            <button class="arrow" type="button" data-prev aria-label="Projet précédent">
+            <button class="arrow" type="button" data-prev aria-label="Projet précédent" data-i18n-attr="aria-label:a11y.prevProject">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.6 2.6 5.1 7.1h9.1v1.8H5.1l4.5 4.5-1.2 1.2-6-6L1.8 8l.6-.6 6-6 1.2 1.2Z"/></svg>
             </button>
-            <button class="arrow" type="button" data-next aria-label="Projet suivant">
+            <button class="arrow" type="button" data-next aria-label="Projet suivant" data-i18n-attr="aria-label:a11y.nextProject">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.4 2.6l4.5 4.5H1.8v1.8h9.1l-4.5 4.5 1.2 1.2 6-6 .6-.6-.6-.6-6-6-1.2 1.2Z"/></svg>
             </button>
           </div>
@@ -227,38 +235,38 @@
 
         <ul class="carousel__data" hidden>
           <li data-img="assets/img/hq.jpg"          data-name="HQ Steakhouse"></li>
-          <li data-img="assets/img/livre.jpg"       data-name="Livre interactif en Qt"></li>
-          <li data-img="assets/img/puissance4.jpg"  data-name="Puissance 4 sur ESP32"></li>
+          <li data-img="assets/img/livre.jpg"       data-name="Livre interactif en Qt" data-name-en="Interactive book in Qt"></li>
+          <li data-img="assets/img/puissance4.jpg"  data-name="Puissance 4 sur ESP32" data-name-en="Connect Four on ESP32"></li>
           <li data-img="assets/img/memorizz.jpg"    data-name="Memorizz"></li>
           <li data-img="assets/img/vetclinic.jpg"   data-name="VetClinic"></li>
           <li data-img="assets/img/raspberry.jpg"   data-name="Raspberry Pi"></li>
-          <li data-img="assets/img/cartes-jpo.jpg"  data-name="Cartes JPO"></li>
+          <li data-img="assets/img/cartes-jpo.jpg"  data-name="Cartes JPO" data-name-en="Open Day cards"></li>
         </ul>
 
         <div class="carousel__view">
-          <div class="carousel__strip" role="tablist" aria-label="Projets"></div>
+          <div class="carousel__strip" role="tablist" aria-label="Projets" data-i18n-attr="aria-label:a11y.projectList"></div>
         </div>
 
         <div class="carousel__panels" aria-live="polite">
 
           <article class="carousel__panel is-active">
             <div class="carousel__text">
-              <span class="label">Projet BUT · 1re année · Client réel</span>
+              <span class="label" data-i18n="p1.label">Projet BUT · 1re année · Client réel</span>
               <h3>HQ Steakhouse &amp; Bar</h3>
-              <p>Analyse des besoins et conception du site d'un vrai restaurant du Cap : architecture, charte graphique, 11 pages HTML/CSS responsive (menu, promotions, réservation, contact).</p>
+              <p data-i18n="p1.text">Analyse des besoins et conception du site d'un vrai restaurant du Cap : architecture, charte graphique, 11 pages HTML/CSS responsive (menu, promotions, réservation, contact).</p>
               <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive</span></div>
             </div>
             <div class="carousel__actions">
-              <a class="btn btn--solid btn--square" href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank" rel="noopener">Voir le site →</a>
+              <a class="btn btn--solid btn--square" href="https://tristanmuller007.github.io/HQ-WEBSITE/Acceuil.html" target="_blank" rel="noopener" data-i18n="p1.site">Voir le site →</a>
               <a class="btn btn--ghost btn--square" href="https://github.com/tristanmuller007/HQ-WEBSITE" target="_blank" rel="noopener">Code →</a>
             </div>
           </article>
 
           <article class="carousel__panel">
             <div class="carousel__text">
-              <span class="label">Projet BUT · 1re année · Groupe de 3</span>
-              <h3>Éditeur de livre dont vous êtes le héros</h3>
-              <p>Application de bureau pour écrire, jouer et exporter en site web un livre interactif : éditeur de texte riche, points de vie et inventaire, sauvegarde JSON, export HTML avec carte interactive.</p>
+              <span class="label" data-i18n="p2.label">Projet BUT · 1re année · Groupe de 3</span>
+              <h3 data-i18n="p2.title">Éditeur de livre dont vous êtes le héros</h3>
+              <p data-i18n="p2.text">Application de bureau pour écrire, jouer et exporter en site web un livre interactif : éditeur de texte riche, points de vie et inventaire, sauvegarde JSON, export HTML avec carte interactive.</p>
               <div class="tags"><span>C++</span><span>Qt 6</span><span>JSON</span><span>HTML/JS</span></div>
             </div>
             <div class="carousel__actions">
@@ -268,23 +276,23 @@
 
           <article class="carousel__panel">
             <div class="carousel__text">
-              <span class="label">Projet BUT · 1re année · Binôme</span>
-              <h3>Puissance 4 sur ESP32</h3>
-              <p>Jeu embarqué sur cartes ESP32 et matrice de LED : 3 modes dont un duo en réseau sans fil entre deux cartes (ESP-NOW) et un bot. J'ai développé l'affichage et la partie réseau.</p>
+              <span class="label" data-i18n="p3.label">Projet BUT · 1re année · Binôme</span>
+              <h3 data-i18n="p3.title">Puissance 4 sur ESP32</h3>
+              <p data-i18n="p3.text">Jeu embarqué sur cartes ESP32 et matrice de LED : 3 modes dont un duo en réseau sans fil entre deux cartes (ESP-NOW) et un bot. J'ai développé l'affichage et la partie réseau.</p>
               <div class="tags"><span>C++</span><span>ESP32</span><span>ESP-NOW</span><span>NeoPixel</span></div>
             </div>
             <div class="carousel__actions">
               <a class="btn btn--solid btn--square" href="https://github.com/tristanmuller007/Puissance4-ESP32" target="_blank" rel="noopener">Code →</a>
-              <a class="btn btn--ghost btn--square" href="https://youtu.be/QPD8s98ix84" target="_blank" rel="noopener">Vidéo →</a>
+              <a class="btn btn--ghost btn--square" href="https://youtu.be/QPD8s98ix84" target="_blank" rel="noopener" data-i18n="p3.video">Vidéo →</a>
             </div>
           </article>
 
           <article class="carousel__panel">
             <div class="carousel__text">
-              <span class="label">Projet BUT · 1re année · Jeu</span>
+              <span class="label" data-i18n="p4.label">Projet BUT · 1re année · Jeu</span>
               <h3>Memorizz</h3>
-              <p>Jeu de memory éducatif (drapeaux, pays, hymnes...) : 3 difficultés, mode Enfer où les cartes se mélangent, classement sauvegardé, bilingue, mode sombre. Développé en programmation orientée objet.</p>
-              <div class="tags"><span>Processing</span><span>Java</span><span>POO</span></div>
+              <p data-i18n="p4.text">Jeu de memory éducatif (drapeaux, pays, hymnes...) : 3 difficultés, mode Enfer où les cartes se mélangent, classement sauvegardé, bilingue, mode sombre. Développé en programmation orientée objet.</p>
+              <div class="tags"><span>Processing</span><span>Java</span><span data-i18n="p4.oop">POO</span></div>
             </div>
             <div class="carousel__actions">
               <a class="btn btn--solid btn--square" href="https://github.com/tristanmuller007/Memorizz" target="_blank" rel="noopener">Code →</a>
@@ -293,27 +301,27 @@
 
           <article class="carousel__panel">
             <div class="carousel__text">
-              <span class="label">Projet BUT · 1re année · Groupe de 4</span>
+              <span class="label" data-i18n="p5.label">Projet BUT · 1re année · Groupe de 4</span>
               <h3>VetClinic</h3>
-              <p>Cahier des charges complet d'une application web de gestion de clinique vétérinaire : besoins, 8 modules, maquettes, dictionnaire de données, planning et devis. J'ai coordonné le groupe et rédigé le cahier des charges.</p>
-              <div class="tags"><span>Cahier des charges</span><span>Maquettes</span><span>Gestion de projet</span></div>
+              <p data-i18n="p5.text">Cahier des charges complet d'une application web de gestion de clinique vétérinaire : besoins, 8 modules, maquettes, dictionnaire de données, planning et devis. J'ai coordonné le groupe et rédigé le cahier des charges.</p>
+              <div class="tags"><span data-i18n="p5.tag1">Cahier des charges</span><span data-i18n="p5.tag2">Maquettes</span><span data-i18n="p5.tag3">Gestion de projet</span></div>
             </div>
           </article>
 
           <article class="carousel__panel">
             <div class="carousel__text">
-              <span class="label">Projet BUT · 1re année · Binôme</span>
-              <h3>Serveur web sur Raspberry Pi</h3>
-              <p>Mise en place d'un environnement de développement web : serveur Apache, PHP, base de données MariaDB, Git et script de sauvegarde en Bash.</p>
+              <span class="label" data-i18n="p3.label">Projet BUT · 1re année · Binôme</span>
+              <h3 data-i18n="p6.title">Serveur web sur Raspberry Pi</h3>
+              <p data-i18n="p6.text">Mise en place d'un environnement de développement web : serveur Apache, PHP, base de données MariaDB, Git et script de sauvegarde en Bash.</p>
               <div class="tags"><span>Linux</span><span>Apache</span><span>PHP</span><span>MariaDB</span><span>Bash</span></div>
             </div>
           </article>
 
           <article class="carousel__panel">
             <div class="carousel__text">
-              <span class="label">Projet BUT · 1re année · Travail en équipe</span>
-              <h3>Cartes étudiantes pour les JPO</h3>
-              <p>Pour valoriser l'IUT aux Journées Portes Ouvertes : des cartes étudiantes avec un QR code vers le site perso de chaque étudiant. Conception graphique en équipe et pipeline automatisé en Node.js (QR codes, cartes SVG).</p>
+              <span class="label" data-i18n="p7.label">Projet BUT · 1re année · Travail en équipe</span>
+              <h3 data-i18n="p7.title">Cartes étudiantes pour les JPO</h3>
+              <p data-i18n="p7.text">Pour valoriser l'IUT aux Journées Portes Ouvertes : des cartes étudiantes avec un QR code vers le site perso de chaque étudiant. Conception graphique en équipe et pipeline automatisé en Node.js (QR codes, cartes SVG).</p>
               <div class="tags"><span>Node.js</span><span>SVG</span><span>QR codes</span></div>
             </div>
             <div class="carousel__actions">
@@ -325,7 +333,7 @@
       </div>
 
       <div class="projects__more reveal">
-        <a class="btn btn--ghost" href="https://github.com/tristanmuller007?tab=repositories" target="_blank" rel="noopener">Tous mes dépôts GitHub →</a>
+        <a class="btn btn--ghost" href="https://github.com/tristanmuller007?tab=repositories" target="_blank" rel="noopener" data-i18n="projects.all">Tous mes dépôts GitHub →</a>
       </div>
     </div>
   </section>
@@ -338,8 +346,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <span class="label">Parcours</span>
-          <h2>D'où je <em>viens.</em></h2>
+          <span class="label" data-i18n="nav.education">Parcours</span>
+          <h2 data-i18n="edu.title">D'où je <em>viens.</em></h2>
         </div>
       </div>
 
@@ -347,26 +355,26 @@
         <div class="path__row reveal">
           <span class="path__when">2025 - 2028</span>
           <div>
-            <h3>BUT Informatique</h3>
-            <p>IUT Lyon 1, site de Bourg-en-Bresse · spécialité visée : développement web. Web, Java, C++, bases de données, POO, gestion de projet.</p>
+            <h3 data-i18n="edu.but">BUT Informatique</h3>
+            <p data-i18n="edu.but.text">IUT Lyon 1, site de Bourg-en-Bresse · spécialité visée : développement web. Web, Java, C++, bases de données, POO, gestion de projet.</p>
           </div>
-          <span class="badge">En cours</span>
+          <span class="badge" data-i18n="edu.current">En cours</span>
         </div>
         <div class="path__row reveal">
           <span class="path__when">2024 - 2025</span>
           <div>
-            <h3>Bac STI2D</h3>
-            <p>Lycée de la Plaine de l'Ain, Ambérieu-en-Bugey</p>
+            <h3 data-i18n="edu.bac">Bac STI2D</h3>
+            <p data-i18n="edu.bac.text">Lycée de la Plaine de l'Ain, Ambérieu-en-Bugey</p>
           </div>
-          <span class="badge">Obtenu</span>
+          <span class="badge" data-i18n="edu.done">Obtenu</span>
         </div>
         <div class="path__row reveal">
-          <span class="path__when">Langues</span>
+          <span class="path__when" data-i18n="edu.lang">Langues</span>
           <div>
-            <h3>Anglais · Français</h3>
-            <p>Anglais langue maternelle, 15 ans vécus en Afrique du Sud.</p>
+            <h3 data-i18n="edu.lang.title">Anglais · Français</h3>
+            <p data-i18n="edu.lang.text">Anglais langue maternelle, 15 ans vécus en Afrique du Sud.</p>
           </div>
-          <span class="badge">Bilingue</span>
+          <span class="badge" data-i18n="edu.bilingual">Bilingue</span>
         </div>
       </div>
     </div>
@@ -382,48 +390,48 @@
     <div class="wrap">
       <div class="section-head">
         <div class="reveal">
-          <span class="label">Expériences</span>
-          <h2>Là où j'ai <em>travaillé.</em></h2>
+          <span class="label" data-i18n="nav.experience">Expériences</span>
+          <h2 data-i18n="exp.title">Là où j'ai <em>travaillé.</em></h2>
         </div>
-        <p class="reveal">Des expériences en France et en Afrique du Sud, qui m'ont appris la rigueur, l'autonomie et le contact client.</p>
+        <p class="reveal" data-i18n="exp.intro">Des expériences en France et en Afrique du Sud, qui m'ont appris la rigueur, l'autonomie et le contact client.</p>
       </div>
 
       <div class="film reveal" id="film">
         <div class="film__strip">
           <div class="film__holes" aria-hidden="true"></div>
-          <ul class="film__track" aria-label="Mes expériences">
+          <ul class="film__track" aria-label="Mes expériences" data-i18n-attr="aria-label:a11y.experience">
             <li class="film__frame">
               <div class="film__edge" aria-hidden="true"><span>01</span><span>TM · EXP</span><span>01A</span></div>
-              <button class="film__photo" type="button" aria-label="Voir : Caps Packaging">
-                <img src="assets/img/exp-caps.jpg" alt="Logo Caps Packaging sur fond de ligne de production" width="420" height="280" draggable="false">
+              <button class="film__photo" type="button" aria-label="Voir : Caps Packaging" data-i18n-attr="aria-label:a11y.see.caps">
+                <img src="assets/img/exp-caps.jpg" alt="Logo Caps Packaging sur fond de ligne de production" data-i18n-attr="alt:a11y.img.caps" width="420" height="280" draggable="false">
               </button>
               <div class="film__edge" aria-hidden="true"></div>
             </li>
             <li class="film__frame">
               <div class="film__edge" aria-hidden="true"><span>02</span><span></span><span>02A</span></div>
-              <button class="film__photo" type="button" aria-label="Voir : D. Gutzwiller Group">
-                <img src="assets/img/exp-gutzwiller.jpg" alt="Logo Gutzwiller Group sur fond de vignoble alsacien" width="420" height="280" draggable="false">
+              <button class="film__photo" type="button" aria-label="Voir : D. Gutzwiller Group" data-i18n-attr="aria-label:a11y.see.gutzwiller">
+                <img src="assets/img/exp-gutzwiller.jpg" alt="Logo Gutzwiller Group sur fond de vignoble alsacien" data-i18n-attr="alt:a11y.img.gutzwiller" width="420" height="280" draggable="false">
               </button>
               <div class="film__edge" aria-hidden="true"></div>
             </li>
             <li class="film__frame">
               <div class="film__edge" aria-hidden="true"><span>03</span><span>TM · EXP</span><span>03A</span></div>
-              <button class="film__photo" type="button" aria-label="Voir : Fromagerie Antony">
-                <img src="assets/img/exp-antony.jpg" alt="Logo de la Fromagerie Antony sur fond de fromages en affinage" width="420" height="280" draggable="false">
+              <button class="film__photo" type="button" aria-label="Voir : Fromagerie Antony" data-i18n-attr="aria-label:a11y.see.antony">
+                <img src="assets/img/exp-antony.jpg" alt="Logo de la Fromagerie Antony sur fond de fromages en affinage" data-i18n-attr="alt:a11y.img.antony" width="420" height="280" draggable="false">
               </button>
               <div class="film__edge" aria-hidden="true"></div>
             </li>
             <li class="film__frame">
               <div class="film__edge" aria-hidden="true"><span>04</span><span></span><span>04A</span></div>
-              <button class="film__photo" type="button" aria-label="Voir : Sótano Seafood &amp; Sushi">
-                <img src="assets/img/exp-sotano.jpg" alt="Logo du restaurant Sótano sur fond de préparation de sushis" width="420" height="280" draggable="false">
+              <button class="film__photo" type="button" aria-label="Voir : Sótano Seafood &amp; Sushi" data-i18n-attr="aria-label:a11y.see.sotano">
+                <img src="assets/img/exp-sotano.jpg" alt="Logo du restaurant Sótano sur fond de préparation de sushis" data-i18n-attr="alt:a11y.img.sotano" width="420" height="280" draggable="false">
               </button>
               <div class="film__edge" aria-hidden="true"></div>
             </li>
             <li class="film__frame">
               <div class="film__edge" aria-hidden="true"><span>05</span><span>TM · EXP</span><span>05A</span></div>
-              <button class="film__photo" type="button" aria-label="Voir : MTG Tennis">
-                <img src="assets/img/exp-mtg.jpg" alt="Logo MTG Tennis sur fond de court de tennis" width="420" height="280" draggable="false">
+              <button class="film__photo" type="button" aria-label="Voir : MTG Tennis" data-i18n-attr="aria-label:a11y.see.mtg">
+                <img src="assets/img/exp-mtg.jpg" alt="Logo MTG Tennis sur fond de court de tennis" data-i18n-attr="alt:a11y.img.mtg" width="420" height="280" draggable="false">
               </button>
               <div class="film__edge" aria-hidden="true"></div>
             </li>
@@ -436,10 +444,10 @@
         <div class="film__bar">
           <span class="counter"><b data-counter>01</b> / 05</span>
           <div class="arrows">
-            <button class="arrow" type="button" data-prev aria-label="Expérience précédente">
+            <button class="arrow" type="button" data-prev aria-label="Expérience précédente" data-i18n-attr="aria-label:a11y.prevExp">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.6 2.6 5.1 7.1h9.1v1.8H5.1l4.5 4.5-1.2 1.2-6-6L1.8 8l.6-.6 6-6 1.2 1.2Z"/></svg>
             </button>
-            <button class="arrow" type="button" data-next aria-label="Expérience suivante">
+            <button class="arrow" type="button" data-next aria-label="Expérience suivante" data-i18n-attr="aria-label:a11y.nextExp">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.4 2.6l4.5 4.5H1.8v1.8h9.1l-4.5 4.5 1.2 1.2 6-6 .6-.6-.6-.6-6-6-1.2 1.2Z"/></svg>
             </button>
           </div>
@@ -448,60 +456,60 @@
         <div class="film__panels" aria-live="polite">
 
           <article class="film__panel is-active">
-            <span class="label">Juillet 2026 · Ain</span>
-            <h3>Opérateur de production (intérim) <em>· Caps Packaging</em></h3>
+            <span class="label" data-i18n="e1.when">Juillet 2026 · Ain</span>
+            <h3 data-i18n="e1.title">Opérateur de production (intérim) <em>· Caps Packaging</em></h3>
             <ul class="bullets">
-              <li>Fabrication de flacons plastique en milieu industriel</li>
-              <li>Conduite de plusieurs souffleuses en autonomie</li>
-              <li>Contrôle qualité toutes les 2 à 4 h et suivi de la production</li>
+              <li data-i18n="e1.l1">Fabrication de flacons plastique en milieu industriel</li>
+              <li data-i18n="e1.l2">Conduite de plusieurs souffleuses en autonomie</li>
+              <li data-i18n="e1.l3">Contrôle qualité toutes les 2 à 4 h et suivi de la production</li>
             </ul>
-            <div class="tags"><span>Autonomie</span><span>Multitâche</span><span>Rigueur</span><span>Respect des procédures</span></div>
-            <a class="link" href="https://www.caps-packaging.com/" target="_blank" rel="noopener">Voir le site de Caps Packaging →</a>
+            <div class="tags"><span data-i18n="tag.autonomy">Autonomie</span><span data-i18n="tag.multitask">Multitâche</span><span data-i18n="tag.rigour">Rigueur</span><span data-i18n="tag.procedures">Respect des procédures</span></div>
+            <a class="link" href="https://www.caps-packaging.com/" target="_blank" rel="noopener" data-i18n="e1.link">Voir le site de Caps Packaging →</a>
           </article>
 
           <article class="film__panel">
-            <span class="label">Été 2025 · Domaine du Grand Kohlberg, Alsace</span>
-            <h3>Ouvrier agricole polyvalent <em>· D. Gutzwiller Group</em></h3>
+            <span class="label" data-i18n="e2.when">Été 2025 · Domaine du Grand Kohlberg, Alsace</span>
+            <h3 data-i18n="e2.title">Ouvrier agricole polyvalent <em>· D. Gutzwiller Group</em></h3>
             <ul class="bullets">
-              <li>Entretien de plus de 60 hectares en autonomie</li>
-              <li>Conduite de tracteurs et maintenance préventive des machines</li>
+              <li data-i18n="e2.l1">Entretien de plus de 60 hectares en autonomie</li>
+              <li data-i18n="e2.l2">Conduite de tracteurs et maintenance préventive des machines</li>
             </ul>
-            <div class="tags"><span>Autonomie</span><span>Organisation</span><span>Maintenance préventive</span></div>
-            <a class="link" href="https://d-gutzwiller.com/" target="_blank" rel="noopener">Voir le site de D. Gutzwiller Group →</a>
+            <div class="tags"><span data-i18n="tag.autonomy">Autonomie</span><span data-i18n="tag.organisation">Organisation</span><span data-i18n="tag.maintenance">Maintenance préventive</span></div>
+            <a class="link" href="https://d-gutzwiller.com/" target="_blank" rel="noopener" data-i18n="e2.link">Voir le site de D. Gutzwiller Group →</a>
           </article>
 
           <article class="film__panel">
-            <span class="label">Été 2023 · Vieux-Ferrette, Alsace</span>
-            <h3>Opérateur en affinerie de fromages <em>· Fromagerie Antony</em></h3>
+            <span class="label" data-i18n="e3.when">Été 2023 · Vieux-Ferrette, Alsace</span>
+            <h3 data-i18n="e3.title">Opérateur en affinerie de fromages <em>· Fromagerie Antony</em></h3>
             <ul class="bullets">
-              <li>Contrôle qualité des produits selon des normes strictes</li>
-              <li>Préparation et expédition des commandes clients</li>
+              <li data-i18n="e3.l1">Contrôle qualité des produits selon des normes strictes</li>
+              <li data-i18n="e3.l2">Préparation et expédition des commandes clients</li>
             </ul>
-            <div class="tags"><span>Contrôle qualité</span><span>Respect des normes</span><span>Logistique</span></div>
-            <a class="link" href="https://www.fromagerieantony.fr/" target="_blank" rel="noopener">Voir le site de Fromagerie Antony →</a>
+            <div class="tags"><span data-i18n="tag.quality">Contrôle qualité</span><span data-i18n="tag.standards">Respect des normes</span><span data-i18n="tag.logistics">Logistique</span></div>
+            <a class="link" href="https://www.fromagerieantony.fr/" target="_blank" rel="noopener" data-i18n="e3.link">Voir le site de Fromagerie Antony →</a>
           </article>
 
           <article class="film__panel">
-            <span class="label">Étés 2020 et 2021 · Le Cap, Afrique du Sud</span>
-            <h3>Serveur <em>· Sótano Seafood &amp; Sushi</em></h3>
+            <span class="label" data-i18n="e4.when">Étés 2020 et 2021 · Le Cap, Afrique du Sud</span>
+            <h3 data-i18n="e4.title">Serveur <em>· Sótano Seafood &amp; Sushi</em></h3>
             <ul class="bullets">
-              <li>Accueil et service des clients</li>
-              <li>Gestion des commandes</li>
-              <li>Nettoyage et mise en place</li>
+              <li data-i18n="e4.l1">Accueil et service des clients</li>
+              <li data-i18n="e4.l2">Gestion des commandes</li>
+              <li data-i18n="e4.l3">Nettoyage et mise en place</li>
             </ul>
-            <div class="tags"><span>Sens du service</span><span>Gestion du stress</span><span>Anglais</span></div>
-            <a class="link" href="https://www.sotano.co.za/" target="_blank" rel="noopener">Voir le site de Sótano Seafood &amp; Sushi →</a>
+            <div class="tags"><span data-i18n="tag.service">Sens du service</span><span data-i18n="tag.stress">Gestion du stress</span><span data-i18n="tag.english">Anglais</span></div>
+            <a class="link" href="https://www.sotano.co.za/" target="_blank" rel="noopener" data-i18n="e4.link">Voir le site de Sótano Seafood &amp; Sushi →</a>
           </article>
 
           <article class="film__panel">
-            <span class="label">2019 - 2021 · Le Cap, Afrique du Sud</span>
-            <h3>Coach de tennis <em>· MTG Tennis</em></h3>
+            <span class="label" data-i18n="e5.when">2019 - 2021 · Le Cap, Afrique du Sud</span>
+            <h3 data-i18n="e5.title">Coach de tennis <em>· MTG Tennis</em></h3>
             <ul class="bullets">
-              <li>Encadrement de 30 jeunes par saison, avec des explications adaptées</li>
-              <li>Organisation et animation des entraînements hebdomadaires</li>
+              <li data-i18n="e5.l1">Encadrement de 30 jeunes par saison, avec des explications adaptées</li>
+              <li data-i18n="e5.l2">Organisation et animation des entraînements hebdomadaires</li>
             </ul>
-            <div class="tags"><span>Pédagogie</span><span>Communication</span><span>Animation de groupe</span></div>
-            <a class="link" href="https://mtgtennis.wixsite.com/mtgtennis" target="_blank" rel="noopener">Voir le site de MTG Tennis →</a>
+            <div class="tags"><span data-i18n="tag.teaching">Pédagogie</span><span>Communication</span><span data-i18n="tag.group">Animation de groupe</span></div>
+            <a class="link" href="https://mtgtennis.wixsite.com/mtgtennis" target="_blank" rel="noopener" data-i18n="e5.link">Voir le site de MTG Tennis →</a>
           </article>
 
         </div>
@@ -516,52 +524,52 @@
        Sur mobile, elle devient une frise verticale classique.
        --i = position de l'étape sur la frise
        ============================================================ -->
-  <section class="sport" id="sport" aria-label="Parcours sportif">
+  <section class="sport" id="sport" aria-label="Parcours sportif" data-i18n-attr="aria-label:a11y.sport">
     <div class="sport__pin">
       <div class="sport__track">
-        <div class="sport__img"><img src="assets/img/sport.jpg" alt="Karaté et tennis" loading="lazy"></div>
+        <div class="sport__img"><img src="assets/img/sport.jpg" alt="Karaté et tennis" data-i18n-attr="alt:a11y.img.sport" loading="lazy"></div>
 
         <div class="sport__rail">
           <div class="sport__head">
-            <span class="label">À côté du code</span>
-            <h2>10 ans de <em>compétition.</em></h2>
+            <span class="label" data-i18n="sport.label">À côté du code</span>
+            <h2 data-i18n="sport.title">10 ans de <em>compétition.</em></h2>
           </div>
-          <p class="sport__intro">Karaté et tennis en Afrique du Sud : c'est là que j'ai appris la discipline et à ne rien lâcher.</p>
+          <p class="sport__intro" data-i18n="sport.intro">Karaté et tennis en Afrique du Sud : c'est là que j'ai appris la discipline et à ne rien lâcher.</p>
 
           <div class="sport__axis" aria-hidden="true"><span class="sport__start"></span><span class="sport__line"></span></div>
 
           <ol class="sport__list">
             <li class="step step--up" style="--i:0">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2011</span><span class="step__tag">Tennis · Karaté</span><h3>Premiers pas</h3><p>Débuts au tennis et au karaté, en Afrique du Sud.</p></div>
+              <div class="step__body"><span class="step__year">2011</span><span class="step__tag" data-i18n="sport.both">Tennis · Karaté</span><h3 data-i18n="s1.title">Premiers pas</h3><p data-i18n="s1.text">Débuts au tennis et au karaté, en Afrique du Sud.</p></div>
             </li>
             <li class="step step--down" style="--i:1">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2015</span><span class="step__tag">Karaté</span><h3>Champion d'Afrique du Sud</h3><p>Premier titre national, catégorie -11 ans.</p></div>
+              <div class="step__body"><span class="step__year">2015</span><span class="step__tag" data-i18n="sport.karate">Karaté</span><h3 data-i18n="s.sa">Champion d'Afrique du Sud</h3><p data-i18n="s2.text">Premier titre national, catégorie -11 ans.</p></div>
             </li>
             <li class="step step--up" style="--i:2">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2016</span><span class="step__tag">Tennis</span><h3>Champion d'Afrique du Sud</h3><p>Titre national, catégorie -12 ans.</p></div>
+              <div class="step__body"><span class="step__year">2016</span><span class="step__tag">Tennis</span><h3 data-i18n="s.sa">Champion d'Afrique du Sud</h3><p data-i18n="s3.text">Titre national, catégorie -12 ans.</p></div>
             </li>
             <li class="step step--down" style="--i:3">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2016</span><span class="step__tag">Tennis</span><h3>Champion d'Afrique</h3><p>Titre continental, en Égypte.</p></div>
+              <div class="step__body"><span class="step__year">2016</span><span class="step__tag">Tennis</span><h3 data-i18n="s.africa">Champion d'Afrique</h3><p data-i18n="s4.text">Titre continental, en Égypte.</p></div>
             </li>
             <li class="step step--up" style="--i:4">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2018</span><span class="step__tag">Karaté</span><h3>Champion d'Afrique</h3><p>Titre continental, catégorie -18 ans.</p></div>
+              <div class="step__body"><span class="step__year">2018</span><span class="step__tag" data-i18n="sport.karate">Karaté</span><h3 data-i18n="s.africa">Champion d'Afrique</h3><p data-i18n="s5.text">Titre continental, catégorie -18 ans.</p></div>
             </li>
             <li class="step step--down" style="--i:5">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2019</span><span class="step__tag">Karaté</span><h3>Championnats du monde</h3><p>Participation aux championnats du monde, en Suède.</p></div>
+              <div class="step__body"><span class="step__year">2019</span><span class="step__tag" data-i18n="sport.karate">Karaté</span><h3 data-i18n="s6.title">Championnats du monde</h3><p data-i18n="s6.text">Participation aux championnats du monde, en Suède.</p></div>
             </li>
             <li class="step step--up" style="--i:6">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2020</span><span class="step__tag">Karaté</span><h3>Sélection mondiale</h3><p>Sélectionné pour les championnats du monde en Afrique du Sud.</p></div>
+              <div class="step__body"><span class="step__year">2020</span><span class="step__tag" data-i18n="sport.karate">Karaté</span><h3 data-i18n="s7.title">Sélection mondiale</h3><p data-i18n="s7.text">Sélectionné pour les championnats du monde en Afrique du Sud.</p></div>
             </li>
             <li class="step step--down" style="--i:7">
               <span class="step__stem" aria-hidden="true"></span><span class="step__dot" aria-hidden="true"></span>
-              <div class="step__body"><span class="step__year">2025</span><span class="step__tag">Handball</span><h3>En compétition</h3><p>Handball en club à Ambérieu-en-Bugey, niveau régional.</p></div>
+              <div class="step__body"><span class="step__year">2025</span><span class="step__tag">Handball</span><h3 data-i18n="s8.title">En compétition</h3><p data-i18n="s8.text">Handball en club à Ambérieu-en-Bugey, niveau régional.</p></div>
             </li>
           </ol>
         </div>
@@ -589,9 +597,9 @@
               <div class="screen__avatar" aria-hidden="true">TM</div>
               <div>
                 <b>Tristan Muller</b>
-                <span>Étudiant en BUT Informatique · IUT Lyon 1</span>
+                <span data-i18n="contact.role">Étudiant en BUT Informatique · IUT Lyon 1</span>
               </div>
-              <p class="screen__status"><i></i>Disponible · avril - juin 2027</p>
+              <p class="screen__status" data-i18n="contact.status"><i></i>Disponible · avril - juin 2027</p>
             </div>
 
             <div class="screen__grid">
@@ -601,7 +609,7 @@
               </a>
               <a class="tile pop" style="--delay:2" href="tel:+33749498137">
                 <i class="tile__icon icon--phone"></i>
-                <span class="tile__text"><small>Téléphone</small>07 49 49 81 37</span>
+                <span class="tile__text"><small data-i18n="contact.phone">Téléphone</small>07 49 49 81 37</span>
               </a>
               <a class="tile pop" style="--delay:3" href="https://github.com/tristanmuller007" target="_blank" rel="noopener">
                 <i class="tile__icon icon--github"></i>
@@ -609,7 +617,7 @@
               </a>
               <a class="tile pop" style="--delay:4" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener">
                 <i class="tile__icon icon--file"></i>
-                <span class="tile__text"><small>CV</small>Voir / télécharger</span>
+                <span class="tile__text"><small>CV</small><span data-i18n="contact.cv">Voir / télécharger</span></span>
               </a>
             </div>
           </div>
@@ -620,12 +628,15 @@
     <footer class="footer">
       <div class="wrap footer__inner">
         <span>© 2026 Tristan Muller</span>
-        <a href="#top">Retour en haut ↑</a>
+        <a href="#top" data-i18n="footer.top">Retour en haut ↑</a>
       </div>
     </footer>
   </section>
 
 </main>
 
+<!-- Traduction : chargée en fin de page (sans defer) pour passer en anglais
+     avant le premier affichage, et avant js/main.js -->
+<script src="js/i18n.js"></script>
 </body>
 </html>

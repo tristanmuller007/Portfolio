@@ -46,6 +46,7 @@ Portfolio/
 ├── css/
 │   └── style.css       # styles, organisés dans l'ordre de la page (sommaire en haut du fichier)
 ├── js/
+│   ├── i18n.js         # version anglaise : textes EN et bouton FR / EN
 │   └── main.js         # interactions : menu, apparitions, carrousel, pellicule, frise
 └── assets/
     ├── img/            # photos des projets et des expériences, MacBook
@@ -63,6 +64,7 @@ Portfolio/
 - **Pellicule** des expériences : défilement natif avec `scroll-snap`, effet négatif avec les filtres CSS
 - **Frise sportive** horizontale pilotée par le scroll (section `sticky`), verticale sur mobile
 - **Carte de contact** dans un MacBook, dimensionnée avec les unités de conteneur (`cqw`) ; elle devient un téléphone sur mobile
+- **Bilingue français / anglais** : bouton FR / EN, textes repérés par `data-i18n`, choix mémorisé et partagé avec le CV
 - Logos affichés en **masque CSS** : un seul fichier SVG par logo, couleur modifiable au survol
 - Animations d'apparition avec **IntersectionObserver**, désactivées si l'utilisateur préfère moins d'animations
 - Logos des outils : [Simple Icons](https://simpleicons.org/) · Photos : [Unsplash](https://unsplash.com/)
@@ -72,7 +74,6 @@ Portfolio/
 
 ## Suite du projet
 
-- version anglaise (bouton FR / EN)
 - pages de détail pour chaque projet
 - ajout des nouveaux projets
 

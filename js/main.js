@@ -93,9 +93,14 @@ function initCarousel(root) {
   const panels   = [...root.querySelectorAll('.carousel__panel')];
   const counter  = root.querySelector('[data-counter]');
   const projects = [...root.querySelectorAll('.carousel__data li')].map((li) => ({
-    image: li.dataset.img,
-    name:  li.dataset.name,
+    image:  li.dataset.img,
+    nameFr: li.dataset.name,
+    nameEn: li.dataset.nameEn || li.dataset.name, // data-name-en si le nom change en anglais
   }));
+
+  // Nom affiché selon la langue choisie (voir js/i18n.js)
+  const nameOf = (project) =>
+    window.i18n && window.i18n.lang === 'en' ? projects[project].nameEn : projects[project].nameFr;
 
   const total      = projects.length;
   const slats      = Math.max(1, Math.min(3, total - 4)); // nombre de lamelles à droite
@@ -124,10 +129,10 @@ function initCarousel(root) {
     el.type = 'button';
     el.className = 'slide';
     el.setAttribute('role', 'tab');
-    el.setAttribute('aria-label', projects[project].name);
+    el.setAttribute('aria-label', nameOf(project));
     el.innerHTML =
       `<img src="${projects[project].image}" alt="" draggable="false" loading="lazy">` +
-      `<span class="slide__name">${projects[project].name}</span>`;
+      `<span class="slide__name">${nameOf(project)}</span>`;
 
     const slide = { el, project };
     const column = () => slides.indexOf(slide) + offset;
@@ -288,6 +293,14 @@ function initCarousel(root) {
   });
 
   window.addEventListener('resize', () => { measure(); instantly(paint); });
+
+  // Changement de langue : on renomme les vignettes déjà affichées
+  document.addEventListener('langchange', () => {
+    slides.forEach(({ el, project }) => {
+      el.setAttribute('aria-label', nameOf(project));
+      el.querySelector('.slide__name').textContent = nameOf(project);
+    });
+  });
 
   measure();
   build();
