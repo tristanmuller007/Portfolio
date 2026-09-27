@@ -91,7 +91,7 @@
     "edu.but.text": "IUT Lyon 1, Bourg-en-Bresse campus · planning to specialise in web development. Web, Java, C++, databases, OOP, project management.",
     "edu.but": "Bachelor's in Computer Science (BUT)",
     "edu.current": "In progress",
-    "edu.bac": "High School Diploma, Engineering &amp; Technology (STI2D)",
+    "edu.bac": "Baccalauréat STI2D - French high-school diploma (engineering &amp; technology)",
     "edu.bac.text": "Lycée de la Plaine de l'Ain, Ambérieu-en-Bugey, France",
     "edu.done": "Completed",
     "edu.lang": "Languages",
