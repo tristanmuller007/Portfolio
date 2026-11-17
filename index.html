@@ -29,11 +29,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 
+  <link rel="preload" as="image" href="assets/img/portrait-hd.webp">
   <link rel="stylesheet" href="css/style.css?v=20261118">
   <script src="js/main.js?v=20261118" defer></script>
+  <script src="js/intro.js?v=20261118" defer></script>
 </head>
 
-<body>
+<body class="has-intro">
+<div class="ih-loader" id="ih-loader" aria-hidden="true">
+  <div class="ih-loader__mark"><span>T</span><span>M</span></div>
+  <div class="ih-loader__foot"><span>Tristan Muller</span><span id="ih-pct">0%</span></div>
+  <div class="ih-loader__bar" id="ih-bar"></div>
+</div>
 <a class="skip" href="#top" data-i18n="a11y.skip">Aller au contenu</a>
 
 <header class="nav" id="nav">
@@ -67,59 +74,45 @@
 
 <main id="top">
 
-  <section class="hero">
-    <div class="wrap hero__inner">
-      <div>
-        <div class="hero__id reveal">
-          <picture><source srcset="assets/img/portrait.webp" type="image/webp"><img class="hero__avatar" src="assets/img/portrait.jpg" alt="Photo de Tristan Muller" data-i18n-attr="alt:a11y.photo" width="88" height="88" fetchpriority="high"></picture>
-          <div>
-            <b data-i18n="hero.role">Étudiant en BUT Informatique</b>
-            <span data-i18n="hero.school">IUT Lyon 1</span>
-          </div>
-        </div>
-
-        <p class="status status--hero reveal" data-i18n="hero.status"><i></i>Disponible pour un stage · 12 avril - 18 juin 2027</p>
-        <h1 class="hero__title reveal">Tristan <span class="accent">Muller.</span></h1>
-
-        <p class="hero__lead reveal" data-i18n="hero.lead">
-          Je me spécialise dans le <strong>développement web</strong> : sites et applications web,
-          du front-end au back-end. Bilingue <strong>anglais-français</strong>.
-        </p>
-
-        <div class="hero__cta reveal">
-          <a class="btn btn--solid" href="#projets">
-            <span data-i18n="hero.cta">Voir mes projets</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="assets/cv/CV-Tristan-Muller-FR.pdf" download data-i18n-attr="href:cv.pdf">
-            <span data-i18n="hero.cv">Télécharger mon CV</span>
-            <i class="icon icon--download" aria-hidden="true"></i>
-          </a>
-        </div>
-        <ul class="hero__links reveal">
-          <li><a href="https://github.com/tristanmuller007" target="_blank" rel="noopener"><i class="icon icon--github" aria-hidden="true"></i>GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/tristan-muller-8a808934a/" target="_blank" rel="noopener"><i class="icon icon--linkedin" aria-hidden="true"></i>LinkedIn</a></li>
-          <li><a href="#contact"><i class="icon icon--mail" aria-hidden="true"></i><span data-i18n="hero.contact">Me contacter</span></a></li>
-        </ul>
-      </div>
-      <div class="code reveal" aria-hidden="true">
-        <div class="code__bar"><i></i><i></i><i></i><span data-i18n="hero.file">profil.js</span></div>
-<pre data-i18n="hero.code"><span class="kw">const</span> <span class="var">tristan</span> = {
-  <span class="key">formation</span>: <span class="str">"BUT Informatique"</span>,
-  <span class="key">ecole</span>: <span class="str">"IUT Lyon 1"</span>,
-  <span class="key">focus</span>: [<span class="str">"sites web"</span>, <span class="str">"applications web"</span>],
-  <span class="key">stack</span>: [<span class="str">"JavaScript"</span>, <span class="str">"HTML/CSS"</span>,
-          <span class="str">"PHP"</span>, <span class="str">"Java"</span>, <span class="str">"SQL"</span>],
-  <span class="key">langues</span>: [<span class="str">"anglais"</span>, <span class="str">"français"</span>],
-  <span class="key">stage</span>: <span class="str">"12 avril - 18 juin 2027"</span>,
-  <span class="key">alternance</span>: <span class="str">"rentrée 2027"</span>,
-};</pre>
-      </div>
+  <div class="ih-pin">
+  <section class="ih" id="accueil" aria-labelledby="ih-name">
+    <canvas class="ih__topo" id="ih-topo" aria-hidden="true"></canvas>
+    <div class="ih__stage" id="ih-stage">
+      <img class="ih__photo" id="ih-photo" src="assets/img/portrait-hd.webp" alt="Photo de Tristan Muller" data-i18n-attr="alt:a11y.photo" width="1710" height="2070" fetchpriority="high" decoding="async">
+      <canvas class="ih__gl" id="ih-gl" aria-hidden="true"></canvas>
+      <div class="ih__ghost" id="ih-ghost" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3l14 7.5-6.2 1.6L10 18.5z"/></svg><span></span></div>
     </div>
+
+    <header class="ih__top">
+      <h1 class="ih__brand ih-in" id="ih-name" style="--t:.2s"><span>Tristan</span><span>Muller</span></h1>
+      <a class="ih__mark ih-in" style="--t:.3s" href="#about" aria-label="À propos" data-i18n-attr="aria-label:nav.about">TM</a>
+      <div class="ih__tools ih-in" style="--t:.4s">
+        <div class="lang-switch" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="ih__cv" href="assets/cv/CV-Tristan-Muller-FR.pdf" download data-i18n-attr="href:cv.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>CV</a>
+        <button class="ih__menu" id="ih-menu" type="button" aria-label="Ouvrir le menu" data-i18n-attr="aria-label:a11y.menu" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </header>
+
+    <div class="ih__card ih-in" style="--t:.6s">
+      <p class="ih__k"><i></i><span data-i18n="ih.next">Prochaine étape</span></p>
+      <p class="ih__d"><span data-i18n="ih.stage">Stage</span><small data-i18n="ih.dates">12.04 → 18.06.2027</small></p>
+      <p class="ih__p" data-i18n="ih.area">Ain · Lyon · Grenoble<br>puis alternance BUT 3</p>
+    </div>
+
+    <div class="ih__side ih-in" style="--t:.75s">
+      <p class="ih__role"><span data-i18n="ih.role">Étudiant en BUT Informatique</span><small>IUT Lyon 1 · Bourg-en-Bresse</small></p>
+      <a class="btn btn--solid" href="#projets"><span data-i18n="hero.cta">Voir mes projets</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+    </div>
+
+    <p class="ih__hint ih-in" id="ih-hint" style="--t:1.4s"><b>●</b><span data-i18n="ih.hint">Passe la souris sur mon visage pour voir le code</span></p>
   </section>
+  </div>
 
 
-  <section class="about" id="about">
+  <section class="about ih-next" id="about">
     <div class="wrap about__inner">
       <div class="reveal">
         <span class="label" data-i18n="nav.about">À propos</span>

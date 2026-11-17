@@ -12,7 +12,7 @@ Il présente mon parcours, mes compétences et mes projets, et sert de support p
 
 ## Contenu
 
-- **Accueil** : présentation, disponibilité pour le stage, CV en PDF (français ou anglais selon la langue)
+- **Accueil** : écran de chargement, portrait en grand et effet au survol qui révèle le visage écrit avec le vrai code de mes projets (WebGL, sans librairie), disponibilité pour le stage, CV en PDF
 - **À propos** : parcours et boîte à outils, rangée par domaine avec les logos
 - **Projets** : carrousel « squeeze » des 7 projets de BUT, puis la liste complète
 - **Études de cas** : une page par projet dans `projects/` (contexte, objectif, démarche, fonctionnalités, ma contribution, captures)
