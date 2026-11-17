@@ -13,14 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initNavigation() {
-  const nav    = document.getElementById('nav');
+  const nav = document.getElementById('nav');
   const burger = document.getElementById('burger');
-  const menu   = document.getElementById('menu');
+  const menu = document.getElementById('menu');
   if (!nav || !burger || !menu) return;
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('is-scrolled', window.scrollY > 10);
-  }, { passive: true });
+  window.addEventListener(
+    'scroll',
+    () => {
+      nav.classList.toggle('is-scrolled', window.scrollY > 10);
+    },
+    { passive: true },
+  );
 
   const setMenu = (open) => {
     menu.classList.toggle('is-open', open);
@@ -29,7 +33,9 @@ function initNavigation() {
     if (!open) document.dispatchEvent(new Event('menuclose'));
   };
   burger.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
-  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+  menu
+    .querySelectorAll('a')
+    .forEach((link) => link.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) {
       setMenu(false);
@@ -46,13 +52,16 @@ function initReveal() {
     return;
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('in');
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+  );
 
   elements.forEach((el) => {
     const siblings = [...el.parentElement.children].filter((c) => c.classList.contains('reveal'));
@@ -64,13 +73,13 @@ function initReveal() {
 function initCarousel(root) {
   if (!root) return;
 
-  const view     = root.querySelector('.carousel__view');
-  const strip    = root.querySelector('.carousel__strip');
-  const panels   = [...root.querySelectorAll('.carousel__panel')];
-  const counter  = root.querySelector('[data-counter]');
+  const view = root.querySelector('.carousel__view');
+  const strip = root.querySelector('.carousel__strip');
+  const panels = [...root.querySelectorAll('.carousel__panel')];
+  const counter = root.querySelector('[data-counter]');
   const projects = [...root.querySelectorAll('.carousel__data li')].map((li) => ({
-    image:  li.dataset.img,
-    large:  li.dataset.imgLg,
+    image: li.dataset.img,
+    large: li.dataset.imgLg,
     nameFr: li.dataset.name,
     nameEn: li.dataset.nameEn || li.dataset.name,
   }));
@@ -78,22 +87,22 @@ function initCarousel(root) {
   const nameOf = (project) =>
     window.i18n && window.i18n.lang === 'en' ? projects[project].nameEn : projects[project].nameFr;
 
-  const total      = projects.length;
-  const slats      = Math.max(1, Math.min(3, total - 4));
-  const visible    = 4 + slats;
-  const DURATION   = prefersReducedMotion ? 0 : 1000;
+  const total = projects.length;
+  const slats = Math.max(1, Math.min(3, total - 4));
+  const visible = 4 + slats;
+  const DURATION = prefersReducedMotion ? 0 : 1000;
 
-  const SHARES           = [-0.06, 0.61, 0.30, 0.15];
-  const SHARES_HOVERED   = [ 0.00, 0.71, 0.40, 0.25];
-  const SHARES_SQUEEZED  = [-0.12, 0.59, 0.28, 0.13];
+  const SHARES = [-0.06, 0.61, 0.3, 0.15];
+  const SHARES_HOVERED = [0.0, 0.71, 0.4, 0.25];
+  const SHARES_SQUEEZED = [-0.12, 0.59, 0.28, 0.13];
 
-  let slides   = [];
-  let offset   = 0;
-  let hovered  = -1;
-  let sizes    = {};
-  let busy     = false;
-  let forward  = true;
-  let timer    = null;
+  let slides = [];
+  let offset = 0;
+  let hovered = -1;
+  let sizes = {};
+  let busy = false;
+  let forward = true;
+  let timer = null;
 
   const wrap = (i) => ((i % total) + total) % total;
 
@@ -105,33 +114,42 @@ function initCarousel(root) {
     el.setAttribute('aria-label', nameOf(project));
     el.innerHTML =
       `<img src="${projects[project].image}"` +
-      (projects[project].large ? ` srcset="${projects[project].image} 720w, ${projects[project].large} 1440w" sizes="(min-width: 900px) 640px, 90vw"` : '') +
+      (projects[project].large
+        ? ` srcset="${projects[project].image} 720w, ${projects[project].large} 1440w" sizes="(min-width: 900px) 640px, 90vw"`
+        : '') +
       ` alt="" draggable="false" decoding="async">` +
       `<span class="slide__name">${nameOf(project)}</span>`;
 
     const slide = { el, project };
     const column = () => slides.indexOf(slide) + offset;
 
-    el.addEventListener('click', () => { if (column() > 0) step(column()); });
+    el.addEventListener('click', () => {
+      if (column() > 0) step(column());
+    });
     el.addEventListener('mousemove', () => {
-      if (column() !== hovered) { hovered = column(); paint(); }
+      if (column() !== hovered) {
+        hovered = column();
+        paint();
+      }
     });
     return slide;
   }
 
   function measure() {
-    const width  = view.clientWidth;
+    const width = view.clientWidth;
     const mobile = width < 640;
-    const gap    = mobile ? 10 : 16;
-    const slat   = mobile ? 5 : 8;
-    const height = mobile ? Math.round(width * 0.66) : Math.round(Math.min(380, Math.max(260, width * 0.3)));
+    const gap = mobile ? 10 : 16;
+    const slat = mobile ? 5 : 8;
+    const height = mobile
+      ? Math.round(width * 0.66)
+      : Math.round(Math.min(380, Math.max(260, width * 0.3)));
 
-    const hero = Math.min(height * 16 / 9, width * (mobile ? 0.7 : 0.6));
+    const hero = Math.min((height * 16) / 9, width * (mobile ? 0.7 : 0.6));
     const room = width - hero - slats * slat * 2 - 3 * gap;
 
     sizes = { width, mobile, gap, slat, hero, room };
     root.style.setProperty('--height', height + 'px');
-    root.style.setProperty('--image-width', Math.max(hero, height * 16 / 9) + 'px');
+    root.style.setProperty('--image-width', Math.max(hero, (height * 16) / 9) + 'px');
   }
 
   function widthOf(column) {
@@ -144,11 +162,11 @@ function initCarousel(root) {
   function paint() {
     slides.forEach((slide, index) => {
       const column = index + offset;
-      const width  = widthOf(column);
-      const front  = column === 0;
+      const width = widthOf(column);
+      const front = column === 0;
 
-      slide.el.style.width        = width + 'px';
-      slide.el.style.marginLeft   = index === 0 ? '0' : (column < 4 ? sizes.gap : sizes.slat) + 'px';
+      slide.el.style.width = width + 'px';
+      slide.el.style.marginLeft = index === 0 ? '0' : (column < 4 ? sizes.gap : sizes.slat) + 'px';
       slide.el.style.borderRadius = Math.min(sizes.mobile ? 10 : 14, width / 2) + 'px';
       slide.el.classList.toggle('is-front', front);
       slide.el.setAttribute('aria-selected', front);
@@ -170,13 +188,15 @@ function initCarousel(root) {
       const active = i === index;
       panel.classList.toggle('is-active', active);
       panel.setAttribute('aria-hidden', !active);
-      panel.querySelectorAll('a').forEach((a) => { a.tabIndex = active ? 0 : -1; });
+      panel.querySelectorAll('a').forEach((a) => {
+        a.tabIndex = active ? 0 : -1;
+      });
     });
   }
 
   function settle() {
     instantly(() => {
-      const extra   = slides.length - visible;
+      const extra = slides.length - visible;
       const removed = forward ? slides.splice(0, extra) : slides.splice(visible, extra);
       removed.forEach((slide) => slide.el.remove());
       offset = 0;
@@ -188,7 +208,10 @@ function initCarousel(root) {
   function step(by) {
     if (total < 2 || by === 0) return;
 
-    if (busy) { clearTimeout(timer); settle(); }
+    if (busy) {
+      clearTimeout(timer);
+      settle();
+    }
     busy = true;
     forward = by > 0;
 
@@ -239,14 +262,29 @@ function initCarousel(root) {
   root.querySelector('[data-prev]').addEventListener('click', () => step(-1));
 
   strip.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); step(-1); }
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      step(1);
+    }
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      step(-1);
+    }
   });
 
-  view.addEventListener('mouseleave', () => { hovered = -1; paint(); });
+  view.addEventListener('mouseleave', () => {
+    hovered = -1;
+    paint();
+  });
 
   let touchStartX = null;
-  view.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  view.addEventListener(
+    'touchstart',
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+    },
+    { passive: true },
+  );
   view.addEventListener('touchend', (e) => {
     if (touchStartX === null) return;
     const dx = e.changedTouches[0].clientX - touchStartX;
@@ -254,7 +292,10 @@ function initCarousel(root) {
     touchStartX = null;
   });
 
-  window.addEventListener('resize', () => { measure(); instantly(paint); });
+  window.addEventListener('resize', () => {
+    measure();
+    instantly(paint);
+  });
 
   document.addEventListener('langchange', () => {
     slides.forEach(({ el, project }) => {
@@ -271,9 +312,9 @@ function initCarousel(root) {
 function initFilmstrip(root) {
   if (!root) return;
 
-  const track   = root.querySelector('.film__track');
-  const frames  = [...root.querySelectorAll('.film__frame')];
-  const panels  = [...root.querySelectorAll('.film__panel')];
+  const track = root.querySelector('.film__track');
+  const frames = [...root.querySelectorAll('.film__frame')];
+  const panels = [...root.querySelectorAll('.film__panel')];
   const prevBtn = root.querySelector('[data-prev]');
   const nextBtn = root.querySelector('[data-next]');
   const counter = root.querySelector('[data-counter]');
@@ -292,7 +333,9 @@ function initFilmstrip(root) {
       const on = i === index;
       panel.classList.toggle('is-active', on);
       panel.setAttribute('aria-hidden', !on);
-      panel.querySelectorAll('a').forEach((a) => { a.tabIndex = on ? 0 : -1; });
+      panel.querySelectorAll('a').forEach((a) => {
+        a.tabIndex = on ? 0 : -1;
+      });
     });
 
     counter.textContent = String(index + 1).padStart(2, '0');
@@ -306,7 +349,10 @@ function initFilmstrip(root) {
     let bestDistance = Infinity;
     frames.forEach((frame, i) => {
       const distance = Math.abs(frame.offsetLeft + frame.offsetWidth / 2 - center);
-      if (distance < bestDistance) { bestDistance = distance; best = i; }
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = i;
+      }
     });
     return best;
   }
@@ -317,8 +363,11 @@ function initFilmstrip(root) {
     setActive(index);
 
     const frame = frames[index];
-    const left  = frame.offsetLeft - (track.clientWidth - frame.offsetWidth) / 2;
-    track.scrollTo({ left, behavior: behavior || (prefersReducedMotion ? 'auto' : 'smooth') });
+    const left = frame.offsetLeft - (track.clientWidth - frame.offsetWidth) / 2;
+    track.scrollTo({
+      left,
+      behavior: behavior || (prefersReducedMotion ? 'auto' : 'smooth'),
+    });
 
     clearTimeout(settleTimer);
     settleTimer = setTimeout(settle, 700);
@@ -330,22 +379,32 @@ function initFilmstrip(root) {
     setActive(nearestToCenter());
   }
 
-  track.addEventListener('scroll', () => {
-    clearTimeout(settleTimer);
-    settleTimer = setTimeout(settle, 100);
+  track.addEventListener(
+    'scroll',
+    () => {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(settle, 100);
 
-    if (target === null && !frameRequest) {
-      frameRequest = requestAnimationFrame(() => {
-        frameRequest = 0;
-        setActive(nearestToCenter());
-      });
-    }
-  }, { passive: true });
+      if (target === null && !frameRequest) {
+        frameRequest = requestAnimationFrame(() => {
+          frameRequest = 0;
+          setActive(nearestToCenter());
+        });
+      }
+    },
+    { passive: true },
+  );
 
   track.addEventListener('scrollend', settle);
 
   ['pointerdown', 'wheel', 'touchstart'].forEach((type) => {
-    track.addEventListener(type, () => { target = null; }, { passive: true });
+    track.addEventListener(
+      type,
+      () => {
+        target = null;
+      },
+      { passive: true },
+    );
   });
 
   frames.forEach((frame, i) => {
@@ -376,15 +435,15 @@ function initSportTimeline(section) {
   if (!section) return;
 
   const track = section.querySelector('.sport__track');
-  const rail  = section.querySelector('.sport__rail');
-  const line  = section.querySelector('.sport__line');
-  const list  = section.querySelector('.sport__list');
+  const rail = section.querySelector('.sport__rail');
+  const line = section.querySelector('.sport__line');
+  const list = section.querySelector('.sport__list');
   const steps = [...section.querySelectorAll('.step')];
 
   const verticalMode = window.matchMedia('(max-width: 860px), (prefers-reduced-motion: reduce)');
 
   let distance = 0;
-  let ticking  = false;
+  let ticking = false;
 
   function layout() {
     if (verticalMode.matches) {
@@ -405,7 +464,9 @@ function initSportTimeline(section) {
       const box = list.getBoundingClientRect();
       const progress = Math.min(1, Math.max(0, (threshold - box.top) / box.height));
       list.style.setProperty('--progress', progress.toFixed(3));
-      steps.forEach((step) => step.classList.toggle('is-visible', step.getBoundingClientRect().top < threshold));
+      steps.forEach((step) =>
+        step.classList.toggle('is-visible', step.getBoundingClientRect().top < threshold),
+      );
       return;
     }
 
@@ -417,12 +478,21 @@ function initSportTimeline(section) {
     const threshold = window.innerWidth * 0.72;
     const railBox = rail.getBoundingClientRect();
     line.style.width = Math.min(railBox.width - 10, Math.max(0, threshold - railBox.left)) + 'px';
-    steps.forEach((step) => step.classList.toggle('is-visible', step.getBoundingClientRect().left < threshold));
+    steps.forEach((step) =>
+      step.classList.toggle('is-visible', step.getBoundingClientRect().left < threshold),
+    );
   }
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) { ticking = true; requestAnimationFrame(update); }
-  }, { passive: true });
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    },
+    { passive: true },
+  );
   window.addEventListener('resize', layout);
   verticalMode.addEventListener('change', layout);
 
@@ -442,15 +512,20 @@ function initActiveLinks() {
   });
   if (!targets.size || !('IntersectionObserver' in window)) return;
   const visible = new Set();
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => (entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target)));
-    let current = null;
-    targets.forEach((a, el) => {
-      if (visible.has(el) && (!current || el.offsetTop > current.offsetTop)) current = el;
-    });
-    links.forEach((a) => a.removeAttribute('aria-current'));
-    if (current) targets.get(current).setAttribute('aria-current', 'true');
-  }, { rootMargin: '-40% 0px -55% 0px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) =>
+        entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target),
+      );
+      let current = null;
+      targets.forEach((a, el) => {
+        if (visible.has(el) && (!current || el.offsetTop > current.offsetTop)) current = el;
+      });
+      links.forEach((a) => a.removeAttribute('aria-current'));
+      if (current) targets.get(current).setAttribute('aria-current', 'true');
+    },
+    { rootMargin: '-40% 0px -55% 0px' },
+  );
   targets.forEach((a, el) => observer.observe(el));
 }
 
@@ -460,7 +535,8 @@ function initCasePage() {
     box.querySelector('.case__play').addEventListener('click', () => {
       const frame = document.createElement('iframe');
       frame.src = `https://www.youtube-nocookie.com/embed/${box.dataset.video}?autoplay=1&rel=0`;
-      frame.title = document.documentElement.lang === 'en' ? 'Demo video' : 'Vidéo de démonstration';
+      frame.title =
+        document.documentElement.lang === 'en' ? 'Demo video' : 'Vidéo de démonstration';
       frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       frame.allowFullscreen = true;
       box.replaceChildren(frame);

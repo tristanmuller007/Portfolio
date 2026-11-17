@@ -30,6 +30,8 @@ Le site est **bilingue français / anglais** : choix mémorisé, forçable avec 
 - HTML, CSS et JavaScript, **sans framework**, hébergé sur **GitHub Pages**
 - Images en **WebP**, vraies captures des projets, chargement différé, textes alternatifs dans les deux langues
 - Responsive, menu mobile, lien actif selon la section affichée
+- Code formaté avec **Prettier** (`.prettierrc`), sans style ni script en ligne dans le HTML
+- Accueil optimisé pour mobile : rendu WebGL limité à la zone du portrait, animation en pause hors écran
 - Accessibilité : lien d'évitement, focus visible, contrastes vérifiés, respect de `prefers-reduced-motion`
 - SEO : Open Graph, données structurées, `sitemap.xml`, `robots.txt`, page 404
 
@@ -43,9 +45,12 @@ Le site est **bilingue français / anglais** : choix mémorisé, forçable avec 
 ```
 index.html
 projects/          une page par projet
-css/style.css
-js/main.js
+css/style.css      tous les styles, rangés par section
+js/main.js         navigation, carrousel, pellicule, frise, études de cas
+js/intro.js        écran d'accueil : chargement, fond topographique, effet WebGL
+js/i18n.js         traduction français / anglais
 assets/
+  data/            texte de code utilisé par l'effet de l'accueil
   cv/              CV en PDF (FR et EN)
   icons/           logos des outils et favicons
   img/             portrait, projets, expériences, image de partage
