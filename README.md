@@ -12,31 +12,31 @@ Il présente mon parcours, mes compétences et mes projets, et sert de support p
 
 ## Contenu
 
-- **Accueil** : présentation, disponibilité, CV à télécharger (PDF français et anglais)
-- **À propos** : parcours entre l'Afrique du Sud et l'Ain, formation
-- **Compétences** : langages et outils rangés par domaine
-- **Projets** : 7 projets de BUT et un projet en cours, filtrables par catégorie
+- **Accueil** : présentation, disponibilité pour le stage, CV en PDF (français ou anglais selon la langue)
+- **À propos** : parcours et boîte à outils, rangée par domaine avec les logos
+- **Projets** : carrousel « squeeze » des 7 projets de BUT, puis la liste complète
 - **Études de cas** : une page par projet dans `projects/` (contexte, objectif, démarche, fonctionnalités, ma contribution, captures)
-- **Expérience** : frise des emplois et du bénévolat
-- **À côté du code** : parcours sportif (karaté, tennis, handball)
-- **Contact** : email, téléphone, LinkedIn, GitHub, CV
+- **Parcours** : formation et langues
+- **Expériences** : pellicule photo avec les logos des entreprises
+- **Sport** : frise horizontale animée au scroll
+- **Contact** : carte de contact sur un écran d'ordinateur (téléphone sur mobile)
 
-Le site est entièrement **bilingue français / anglais**. Le choix de la langue est mémorisé et peut être forcé avec `?lang=en` ou `?lang=fr`.
+Le site est **bilingue français / anglais** : choix mémorisé, forçable avec `?lang=en` ou `?lang=fr`.
 
 ---
 
 ## Technique
 
 - HTML, CSS et JavaScript, **sans framework**, hébergé sur **GitHub Pages**
-- Images en **WebP**, chargement différé, textes alternatifs dans les deux langues
-- Responsive (mobile, tablette, ordinateur), menu mobile, navigation active selon la section
+- Images en **WebP**, vraies captures des projets, chargement différé, textes alternatifs dans les deux langues
+- Responsive, menu mobile, lien actif selon la section affichée
 - Accessibilité : lien d'évitement, focus visible, contrastes vérifiés, respect de `prefers-reduced-motion`
-- SEO : balises Open Graph, données structurées, `sitemap.xml`, `robots.txt`, page 404
+- SEO : Open Graph, données structurées, `sitemap.xml`, `robots.txt`, page 404
 
 ## Charte graphique
 
-- Fond quasi noir `#0D0E10`, texte blanc cassé `#F2EEE6`, accent orange `#E8804A`
-- Typographies : **Inter Tight** (texte), **Instrument Serif** (accents), **JetBrains Mono** (étiquettes)
+- Couleurs : **bleu pétrole `#03313A`** et **menthe `#8FFFE0`**, en thème sombre
+- Typographies : **Space Grotesk** (titres), **Manrope** (texte), **JetBrains Mono** (étiquettes)
 
 ## Structure
 
