@@ -25,6 +25,8 @@ function initNavigation() {
   const setMenu = (open) => {
     menu.classList.toggle('is-open', open);
     burger.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('menu-open', open);
+    if (!open) document.dispatchEvent(new Event('menuclose'));
   };
   burger.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
   menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));

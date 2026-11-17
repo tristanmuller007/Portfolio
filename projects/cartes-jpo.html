@@ -2,7 +2,7 @@
 <html lang="fr" data-title-en="Student Cards for Open Days - Tristan Muller" data-desc-en="Student cards with a QR code linking to each student&#x27;s website, to present the university at its Open Days. The cards are generated automatically by a Node.js tool.">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Cartes étudiantes pour les JPO - Tristan Muller</title>
   <meta name="description" content="Des cartes étudiantes avec un QR code vers le site de chaque étudiant, pour présenter l&#x27;IUT aux Journées Portes Ouvertes. Les cartes sont générées automatiquement par un outil Node.js.">
   <meta name="color-scheme" content="dark">
@@ -38,6 +38,7 @@
         <li><a href="../index.html#parcours" data-i18n="nav.education">Parcours</a></li>
         <li><a href="../index.html#experiences" data-i18n="nav.experience">Expériences</a></li>
         <li><a href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+        <li class="nav__foot"><span class="nav__avail" data-i18n="contact.status"><i></i>Disponible · 12 avril - 18 juin 2027</span><a class="btn btn--solid btn--sm" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener" data-i18n="nav.cv">Mon CV</a><a class="nav__mail" href="mailto:tristan@familymuller.me">tristan@familymuller.me</a></li>
       </ul>
     </nav>
     <div class="nav__actions">
@@ -47,7 +48,7 @@
       </div>
       <a class="btn btn--solid btn--sm nav__cv" href="https://tristanmuller007.github.io/CV-Tristan-Muller/" target="_blank" rel="noopener" data-i18n="nav.cv">Mon CV</a>
       <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" data-i18n-attr="aria-label:a11y.menu" aria-controls="menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="burger__open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="burger__close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
     </div>
   </div>

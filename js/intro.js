@@ -184,6 +184,7 @@ void main(){
     fades.forEach((el) => { el.style.opacity = String(Math.max(0, 1 - p * 2.2)); });
   };
   addEventListener('scroll', onScroll, { passive: true });
+  document.addEventListener('menuclose', () => { sp = -1; onScroll(); if (nav && scrollY <= hero.clientHeight * 0.6) nav.classList.remove('is-shown'); });
   const menuBtn = document.getElementById('ih-menu');
   if (menuBtn && nav) menuBtn.addEventListener('click', () => {
     nav.classList.add('is-shown');
@@ -216,11 +217,22 @@ void main(){
     ptr.x = (e.clientX - r.left) / k; ptr.y = (e.clientY - r.top) / k; ptr.active = true; ptr.last = performance.now();
     document.getElementById('ih-hint').classList.add('is-off');
   });
-  hero.addEventListener('pointerleave', () => { ptr.active = false; });
+  hero.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') ptr.active = false; });
   let moved = false;
   const stopDemo = () => { moved = true; document.getElementById('ih-hint').classList.add('is-off'); };
   addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') stopDemo(); }, { passive: true });
-  hero.addEventListener('pointerdown', stopDemo);
+  const touchAt = (e) => {
+    const t = e.touches[0];
+    if (!t) return;
+    const r = stage.getBoundingClientRect();
+    const k = r.width / hero.clientWidth || 1;
+    ptr.x = (t.clientX - r.left) / k; ptr.y = (t.clientY - r.top) / k; ptr.active = true; ptr.last = performance.now();
+    stopDemo();
+  };
+  hero.addEventListener('touchstart', touchAt, { passive: true });
+  hero.addEventListener('touchmove', touchAt, { passive: true });
+  hero.addEventListener('touchend', () => { ptr.active = false; }, { passive: true });
+  hero.addEventListener('touchcancel', () => { ptr.active = false; }, { passive: true });
 
   let t0 = 0, intro = 0, vel = 0, curSize = 0;
   const hist = [];
@@ -292,6 +304,7 @@ void main(){
       clearInterval(tick); bar.style.setProperty('--p', 1); pct.textContent = '100%';
       setTimeout(() => {
         loader.classList.add('is-out');
+        setTimeout(() => loader.classList.add('is-skip'), 1200);
         document.body.classList.remove('ih-loading');
         hero.classList.add('is-ready');
         setTimeout(() => requestAnimationFrame(frame), quick ? 0 : 500);
