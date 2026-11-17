@@ -217,6 +217,10 @@ void main(){
     document.getElementById('ih-hint').classList.add('is-off');
   });
   hero.addEventListener('pointerleave', () => { ptr.active = false; });
+  let moved = false;
+  const stopDemo = () => { moved = true; document.getElementById('ih-hint').classList.add('is-off'); };
+  addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') stopDemo(); }, { passive: true });
+  hero.addEventListener('pointerdown', stopDemo);
 
   let t0 = 0, intro = 0, vel = 0, curSize = 0;
   const hist = [];
@@ -229,7 +233,7 @@ void main(){
     const s = rect[3] / 900 * (hero.clientWidth < 820 ? 1.3 : 1);
     const fx = rect[0] + rect[2] * 0.5, fy = rect[1] + rect[3] * 0.33;
     let tx, ty, size;
-    const user = ptr.last > 0;
+    const user = moved || ptr.last > 0;
     let demo = false;
     if (reduce) { tx = fx; ty = fy; size = 0; }
     else if (user) { tx = ptr.x; ty = ptr.y; size = ptr.active ? 1 : 0; }
