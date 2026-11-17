@@ -6,80 +6,52 @@
 
 Mon **portfolio personnel**, réalisé pendant mon **BUT Informatique** à l'**IUT Lyon 1 - site de Bourg-en-Bresse**.
 
-Il présente mon parcours, mes compétences et mes projets réalisés en BUT, et sert de support pour ma **recherche de stage** (avril - juin 2027).
+Il présente mon parcours, mes compétences et mes projets, et sert de support pour ma recherche de **stage** (12 avril - 18 juin 2027) et d'**alternance** (BUT 3, rentrée 2027).
 
 ---
 
-## Objectifs
+## Contenu
 
-- Présenter clairement **qui je suis** et **ce que je cherche**
-- Mettre en avant mes **projets** avec des liens vers le code
-- Avoir un site **rapide, lisible et responsive**, sans framework
-- Soigner la **direction artistique** (couleurs, typographies, mise en page)
+- **Accueil** : présentation, disponibilité, CV à télécharger (PDF français et anglais)
+- **À propos** : parcours entre l'Afrique du Sud et l'Ain, formation
+- **Compétences** : langages et outils rangés par domaine
+- **Projets** : 7 projets de BUT et un projet en cours, filtrables par catégorie
+- **Études de cas** : une page par projet dans `projects/` (contexte, objectif, démarche, fonctionnalités, ma contribution, captures)
+- **Expérience** : frise des emplois et du bénévolat
+- **À côté du code** : parcours sportif (karaté, tennis, handball)
+- **Contact** : email, téléphone, LinkedIn, GitHub, CV
 
----
-
-## Sections du site
-
-- **Accueil** : présentation et disponibilité pour un stage
-- **À propos** : parcours et boîte à outils (langages, développement, réseau, systèmes embarqués, conception, systèmes) avec logos
-- **Projets** : carrousel des projets réalisés en BUT (HQ Steakhouse & Bar, éditeur de livre interactif en Qt, Puissance 4 sur ESP32, Memorizz, VetClinic, serveur web sur Raspberry Pi, cartes étudiantes pour les JPO)
-- **Parcours** : formation et langues
-- **Expériences** : galerie façon pellicule photo avec les logos des entreprises
-- **Sport** : frise horizontale animée au scroll (karaté, tennis, handball)
-- **Contact** : carte de contact affichée sur un écran d'ordinateur
+Le site est entièrement **bilingue français / anglais**. Le choix de la langue est mémorisé et peut être forcé avec `?lang=en` ou `?lang=fr`.
 
 ---
+
+## Technique
+
+- HTML, CSS et JavaScript, **sans framework**, hébergé sur **GitHub Pages**
+- Images en **WebP**, chargement différé, textes alternatifs dans les deux langues
+- Responsive (mobile, tablette, ordinateur), menu mobile, navigation active selon la section
+- Accessibilité : lien d'évitement, focus visible, contrastes vérifiés, respect de `prefers-reduced-motion`
+- SEO : balises Open Graph, données structurées, `sitemap.xml`, `robots.txt`, page 404
 
 ## Charte graphique
 
-- Couleurs : **bleu pétrole `#03313A`** et **menthe `#8FFFE0`**, en thème sombre
-- Typographies : **Space Grotesk** (titres), **Manrope** (texte), **JetBrains Mono** (étiquettes)
+- Fond quasi noir `#0D0E10`, texte blanc cassé `#F2EEE6`, accent orange `#E8804A`
+- Typographies : **Inter Tight** (texte), **Instrument Serif** (accents), **JetBrains Mono** (étiquettes)
 
----
-
-## Structure du projet
+## Structure
 
 ```
-Portfolio/
-├── index.html          # contenu de la page, une section par partie du site
-├── css/
-│   └── style.css       # styles, organisés dans l'ordre de la page (sommaire en haut du fichier)
-├── js/
-│   ├── i18n.js         # version anglaise : textes EN et bouton FR / EN
-│   └── main.js         # interactions : menu, apparitions, carrousel, pellicule, frise
-└── assets/
-    ├── img/            # photos des projets et des expériences, MacBook
-    └── icons/          # logos des langages et outils (SVG)
+index.html
+projects/          une page par projet
+css/style.css
+js/main.js
+assets/
+  cv/              CV en PDF (FR et EN)
+  icons/           logos des outils et favicons
+  img/             portrait, projets, expériences, image de partage
 ```
 
 ---
-
-## Implémentation
-
-- **HTML, CSS et JavaScript natifs**, sans framework ni librairie
-- **CSS Grid / Flexbox**, variables CSS, design **responsive** (menu burger sur mobile)
-- Nommage des classes proche de **BEM** (`.carousel__panel`, `.btn--solid`, `.is-active`)
-- **Carrousel "squeeze"** des projets : largeurs calculées en JS, animations en CSS, boucle infinie
-- **Pellicule** des expériences : défilement natif avec `scroll-snap`, effet négatif avec les filtres CSS
-- **Frise sportive** horizontale pilotée par le scroll (section `sticky`), verticale sur mobile
-- **Carte de contact** dans un MacBook, dimensionnée avec les unités de conteneur (`cqw`) ; elle devient un téléphone sur mobile
-- **Bilingue français / anglais** : bouton FR / EN, textes repérés par `data-i18n`, choix mémorisé et partagé avec le CV
-- Logos affichés en **masque CSS** : un seul fichier SVG par logo, couleur modifiable au survol
-- Animations d'apparition avec **IntersectionObserver**, désactivées si l'utilisateur préfère moins d'animations
-- Logos des outils : [Simple Icons](https://simpleicons.org/) · Photos : [Unsplash](https://unsplash.com/)
-- Hébergé avec **GitHub Pages**
-
----
-
-## Suite du projet
-
-- pages de détail pour chaque projet
-- ajout des nouveaux projets
-
----
-
-## Auteur
 
 **Tristan Muller** - BUT Informatique, IUT Lyon 1 (Bourg-en-Bresse)
-[GitHub](https://github.com/tristanmuller007) · tristan@familymuller.me
+[GitHub](https://github.com/tristanmuller007) · [LinkedIn](https://www.linkedin.com/in/tristan-muller-8a808934a/)

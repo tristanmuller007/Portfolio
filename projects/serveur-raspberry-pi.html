@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr" data-title-en="Raspberry Pi Web Server · Tristan Muller" data-desc-en="A web development environment set up from scratch on a Raspberry Pi: Apache server, PHP, MariaDB database, Git and a Bash backup script.">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serveur web sur Raspberry Pi · Tristan Muller</title>
+<meta name="description" content="Un environnement de développement web monté de zéro sur un Raspberry Pi : serveur Apache, PHP, base de données MariaDB, Git et un script de sauvegarde en Bash.">
+<meta name="author" content="Tristan Muller">
+<meta name="theme-color" content="#0D0E10">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://tristanmuller007.github.io/Portfolio/projects/serveur-raspberry-pi.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Tristan Muller">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:url" content="https://tristanmuller007.github.io/Portfolio/projects/serveur-raspberry-pi.html">
+<meta property="og:title" content="Serveur web sur Raspberry Pi · Tristan Muller">
+<meta property="og:description" content="Un environnement de développement web monté de zéro sur un Raspberry Pi : serveur Apache, PHP, base de données MariaDB, Git et un script de sauvegarde en Bash.">
+<meta property="og:image" content="https://tristanmuller007.github.io/Portfolio/assets/img/projects/serveur-raspberry-pi/cover.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icons/favicon-32.png?v=20261117" type="image/png" sizes="32x32">
+<link rel="shortcut icon" href="../assets/icons/favicon.ico?v=20261117">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png?v=20261117">
+<link rel="manifest" href="../site.webmanifest?v=20261117">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/style.css?v=20261117">
+<script>(function(){var d=document.documentElement,l;try{var q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='fr'){l=q;localStorage.setItem('tm-lang',q)}else{l=localStorage.getItem('tm-lang')}}catch(e){}if(l!=='en'&&l!=='fr'){l=(navigator.language||'fr').slice(0,2)==='fr'?'fr':'en'}d.lang=l;d.classList.add('js');d.setAttribute('data-title-fr',document.title);if(l==='en'){document.title=d.getAttribute('data-title-en')}})();</script>
+<script src="../js/main.js?v=20261117" defer></script>
+</head>
+<body class="case-page">
+<a class="skip" href="#main"><span data-l="fr">Aller au contenu</span><span data-l="en" lang="en">Skip to content</span></a>
+<div class="progress" aria-hidden="true"><span></span></div>
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">TM</span><span class="brand__name">Tristan Muller</span></a>
+    <nav class="nav__menu" id="menu" aria-label="Navigation">
+      <ul><li><a href="../index.html#top" data-nav="top"><span data-l="fr">Accueil</span><span data-l="en" lang="en">Home</span></a></li><li><a href="../index.html#about" data-nav="about"><span data-l="fr">À propos</span><span data-l="en" lang="en">About</span></a></li><li><a href="../index.html#skills" data-nav="skills"><span data-l="fr">Compétences</span><span data-l="en" lang="en">Skills</span></a></li><li><a href="../index.html#projects" data-nav="projects"><span data-l="fr">Projets</span><span data-l="en" lang="en">Projects</span></a></li><li><a href="../index.html#experience" data-nav="experience"><span data-l="fr">Expérience</span><span data-l="en" lang="en">Experience</span></a></li><li><a href="../index.html#contact" data-nav="contact"><span data-l="fr">Contact</span><span data-l="en" lang="en">Contact</span></a></li></ul>
+    </nav>
+    <div class="nav__tools">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn--solid btn--sm nav__cv" data-l="fr" href="../assets/cv/CV-Tristan-Muller-FR.pdf" download><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg><span>CV</span></a><a class="btn btn--solid btn--sm nav__cv" data-l="en" lang="en" href="../assets/cv/CV-Tristan-Muller-EN.pdf" download><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg><span>CV</span></a>
+      <button class="burger" id="burger" type="button" aria-controls="menu" aria-expanded="false">
+        <svg class="i burger__open" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i burger__close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg><span class="sr"><span data-l="fr">Menu</span><span data-l="en" lang="en">Menu</span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<article class="case">
+  <header class="case__head wrap">
+    <nav class="crumbs" aria-label="Fil d&#x27;Ariane"><a href="../index.html#projects"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span data-l="fr">Tous les projets</span><span data-l="en" lang="en">All projects</span></a></nav>
+    <p class="meta"><span class="meta__cat"><span data-l="fr">Systèmes &amp; réseau</span><span data-l="en" lang="en">Systems &amp; networking</span></span><span><span data-l="fr">BUT 1 · Binôme</span><span data-l="en" lang="en">Year 1 · Pair project</span></span></p>
+    <h1 class="case__title"><span data-l="fr">Serveur web sur Raspberry Pi</span><span data-l="en" lang="en">Raspberry Pi Web Server</span></h1>
+    <p class="case__lead"><span data-l="fr">Un environnement de développement web monté de zéro sur un Raspberry Pi : serveur Apache, PHP, base de données MariaDB, Git et un script de sauvegarde en Bash.</span><span data-l="en" lang="en">A web development environment set up from scratch on a Raspberry Pi: Apache server, PHP, MariaDB database, Git and a Bash backup script.</span></p>
+    <div class="case__btns"><p class="note"><span data-l="fr">Projet sans dépôt public : les livrables sont des documents de cours.</span><span data-l="en" lang="en">No public repository: the deliverables are course documents.</span></p></div>
+  </header>
+  <div class="wrap case__media"><figure class="case__cover"><img class="" src="../assets/img/projects/serveur-raspberry-pi/cover.webp" srcset="../assets/img/projects/serveur-raspberry-pi/cover-720.webp 720w, ../assets/img/projects/serveur-raspberry-pi/cover.webp 1440w" sizes="(min-width: 1200px) 1140px, 100vw" alt="Visuel provisoire du projet Raspberry Pi" data-alt-en="Placeholder image for the Raspberry Pi project" width="1440" height="900" fetchpriority="high" decoding="async"><figcaption class="badge-ph"><span data-l="fr">Visuel provisoire : capture à venir</span><span data-l="en" lang="en">Placeholder image: screenshot to come</span></figcaption></figure></div>
+  <div class="wrap case__grid">
+    <div class="case__side">
+      <dl class="case__meta"><div><dt><span data-l="fr">Catégorie</span><span data-l="en" lang="en">Category</span></dt><dd><span data-l="fr">Systèmes &amp; réseau</span><span data-l="en" lang="en">Systems &amp; networking</span></dd></div><div><dt><span data-l="fr">Contexte</span><span data-l="en" lang="en">Context</span></dt><dd><span data-l="fr">BUT 1 · Binôme</span><span data-l="en" lang="en">Year 1 · Pair project</span></dd></div><div><dt><span data-l="fr">Ma part</span><span data-l="en" lang="en">My part</span></dt><dd><span data-l="fr">Installation et configuration du serveur, en binôme.</span><span data-l="en" lang="en">Installing and configuring the server, as a pair.</span></dd></div></dl>
+      <nav class="toc" aria-label="Sommaire"><p><span data-l="fr">Sur cette page</span><span data-l="en" lang="en">On this page</span></p><ol><li><a href="#overview"><span data-l="fr">Vue d&#x27;ensemble</span><span data-l="en" lang="en">Overview</span></a></li><li><a href="#goal"><span data-l="fr">Objectif</span><span data-l="en" lang="en">Objective</span></a></li><li><a href="#approach"><span data-l="fr">Démarche</span><span data-l="en" lang="en">Approach</span></a></li><li><a href="#features"><span data-l="fr">Fonctionnalités</span><span data-l="en" lang="en">Features</span></a></li><li><a href="#part"><span data-l="fr">Ma contribution</span><span data-l="en" lang="en">My contribution</span></a></li><li><a href="#tech"><span data-l="fr">Technologies</span><span data-l="en" lang="en">Technologies</span></a></li></ol></nav>
+    </div>
+    <div class="case__main"><section class="case__sec reveal" id="overview" aria-labelledby="overview-h"><h2 id="overview-h"><span data-l="fr">Vue d&#x27;ensemble</span><span data-l="en" lang="en">Overview</span></h2><div class="case__content"><p><span data-l="fr">Mettre en place, sur un Raspberry Pi sous Linux, tout ce qu&#x27;il faut pour développer et héberger une application web.</span><span data-l="en" lang="en">Setting up everything needed to develop and host a web app on a Raspberry Pi running Linux.</span></p></div></section><section class="case__sec reveal" id="goal" aria-labelledby="goal-h"><h2 id="goal-h"><span data-l="fr">Objectif</span><span data-l="en" lang="en">Objective</span></h2><div class="case__content"><p><span data-l="fr">Comprendre ce qu&#x27;il y a sous un site web : le système, le serveur HTTP, le langage côté serveur, la base de données et la sauvegarde.</span><span data-l="en" lang="en">Understand what sits underneath a website: the OS, the HTTP server, the server-side language, the database and backups.</span></p></div></section><section class="case__sec reveal" id="approach" aria-labelledby="approach-h"><h2 id="approach-h"><span data-l="fr">Démarche</span><span data-l="en" lang="en">Approach</span></h2><div class="case__content"><ol class="steps"><li><span data-l="fr">Installation du système et accès à distance en SSH.</span><span data-l="en" lang="en">OS install and remote access over SSH.</span></li><li><span data-l="fr">Installation et configuration d&#x27;Apache et de PHP.</span><span data-l="en" lang="en">Apache and PHP install and configuration.</span></li><li><span data-l="fr">Mise en place d&#x27;une base MariaDB.</span><span data-l="en" lang="en">MariaDB database setup.</span></li><li><span data-l="fr">Versionnement avec Git et script de sauvegarde en Bash.</span><span data-l="en" lang="en">Version control with Git and a Bash backup script.</span></li></ol></div></section><section class="case__sec reveal" id="features" aria-labelledby="features-h"><h2 id="features-h"><span data-l="fr">Fonctionnalités</span><span data-l="en" lang="en">Features</span></h2><div class="case__content"><ul class="bullets"><li><span data-l="fr">Serveur Apache</span><span data-l="en" lang="en">Apache server</span></li><li><span data-l="fr">PHP</span><span data-l="en" lang="en">PHP</span></li><li><span data-l="fr">Base de données MariaDB</span><span data-l="en" lang="en">MariaDB database</span></li><li><span data-l="fr">Git</span><span data-l="en" lang="en">Git</span></li><li><span data-l="fr">Sauvegarde automatisée en Bash</span><span data-l="en" lang="en">Automated Bash backup</span></li></ul></div></section><section class="case__sec reveal" id="part" aria-labelledby="part-h"><h2 id="part-h"><span data-l="fr">Ma contribution</span><span data-l="en" lang="en">My contribution</span></h2><div class="case__content"><p class="lead"><span data-l="fr">Installation et configuration du serveur, en binôme.</span><span data-l="en" lang="en">Installing and configuring the server, as a pair.</span></p><p class="muted"><span data-l="fr">BUT 1 · Binôme</span><span data-l="en" lang="en">Year 1 · Pair project</span></p></div></section><section class="case__sec reveal" id="tech" aria-labelledby="tech-h"><h2 id="tech-h"><span data-l="fr">Technologies</span><span data-l="en" lang="en">Technologies</span></h2><div class="case__content"><ul class="tags tags--lg"><li>Linux</li><li>Apache</li><li>PHP</li><li>MariaDB</li><li>Bash</li><li>SSH</li></ul></div></section></div>
+  </div>
+  <nav class="wrap pager" aria-label="Autres projets">
+    <a class="pager__a" href="vetclinic.html"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span data-l="fr">Projet précédent</span><span data-l="en" lang="en">Previous project</span></span><b>VetClinic</b></a>
+    <a class="pager__a pager__a--next" href="cartes-jpo.html"><span><span data-l="fr">Projet suivant</span><span data-l="en" lang="en">Next project</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><b><span data-l="fr">Cartes étudiantes pour les JPO</span><span data-l="en" lang="en">Student Cards for Open Days</span></b></a>
+  </nav>
+</article>
+</main>
+<dialog class="lightbox" id="lightbox" aria-label="Capture agrandie"><button class="lightbox__close" type="button" data-close><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg><span class="sr"><span data-l="fr">Fermer</span><span data-l="en" lang="en">Close</span></span></button><img alt=""></dialog>
+<footer class="footer">
+  <div class="wrap footer__in">
+    <p>© 2026 Tristan Muller · <span data-l="fr">Bourg-en-Bresse, France</span><span data-l="en" lang="en">Bourg-en-Bresse, France</span></p>
+    <ul class="footer__links">
+      <li><a href="https://github.com/tristanmuller007" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/tristan-muller-8a808934a/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="#top"><span data-l="fr">Haut de page</span><span data-l="en" lang="en">Back to top</span> ↑</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
