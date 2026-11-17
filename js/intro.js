@@ -229,12 +229,12 @@ void main(){
     const s = rect[3] / 900 * (hero.clientWidth < 820 ? 1.3 : 1);
     const fx = rect[0] + rect[2] * 0.5, fy = rect[1] + rect[3] * 0.33;
     let tx, ty, size;
-    const user = ptr.active && now - ptr.last < 5000;
+    const user = ptr.last > 0;
     let demo = false;
     if (reduce) { tx = fx; ty = fy; size = 0; }
-    else if (user) { tx = ptr.x; ty = ptr.y; size = 1; }
+    else if (user) { tx = ptr.x; ty = ptr.y; size = ptr.active ? 1 : 0; }
     else {
-      const since = Math.max(0, t - (ptr.last ? (ptr.last - t0) / 1000 + 5 : 0.3));
+      const since = Math.max(0, t - 0.3);
       const cyc = since % 6.5;
       const u = Math.min(cyc / 3.4, 1);
       const e = easeIO(u);
