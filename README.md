@@ -59,4 +59,4 @@ assets/
 ---
 
 **Tristan Muller** - BUT Informatique, IUT Lyon 1 (Bourg-en-Bresse)
-[GitHub](https://github.com/tristanmuller007) · [LinkedIn](https://www.linkedin.com/in/tristan-muller-8a808934a/)
+[GitHub](https://github.com/tristanmuller007) · [LinkedIn](https://www.linkedin.com/in/tristan-muller-info/)
